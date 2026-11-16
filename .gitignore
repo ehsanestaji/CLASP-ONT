@@ -26,3 +26,4 @@ data/toy/
 .DS_Store
 *.duckdb
 *.duckdb.wal
+logmap-log.out

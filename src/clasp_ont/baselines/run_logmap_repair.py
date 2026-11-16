@@ -163,7 +163,7 @@ def _run_single_logmap_debugger(
             "false",
             "false",
         ]
-        proc = subprocess.run(cmd, capture_output=True, text=True, env=env)
+        proc = subprocess.run(cmd, cwd=str(tmp_dir), capture_output=True, text=True, env=env)
         if proc.returncode != 0:
             raise RuntimeError(f"LogMap DEBUGGER failed (rc={proc.returncode}):\n{proc.stderr}\n{proc.stdout}")
 
