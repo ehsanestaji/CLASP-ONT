@@ -1,0 +1,85 @@
+seed: 20261116
+jvm_heap_limit: "-Xmx4G"
+duckdb_memory_limit: "2GB"
+
+suites:
+  Phase0_Toy_Hub:
+    description: "Deterministic 200-class, 4-ontology synthetic biological hub with 15 planted incoherence & conservativity traps"
+    synthetic: true
+    num_classes: 200
+    num_ontologies: 4
+    num_traps: 15
+
+  OAEI_BioML_2026:
+    description: "OAEI 2026 Bio-ML open NCIT-DOID equivalence & directional subsumption benchmark + open anatomy/disease pairs"
+    hf_repo: "OAEI-ML/bio-ml"
+    hf_revision: "2026"
+    hf_commit_sha: "c454644a334ab43754bc1070c0fb7fdd56a90a1d"
+    hf_files:
+      doid_owl:
+        path: "ontologies/DOID-611355c44553-doid.owl"
+        sha256: "611355c445537fcf4bae2c519f1b3598af5a8fea793274316e35525b7d05e945"
+      ncit_owl:
+        path: "ontologies/NCIT-bd7a9a8a75e5-Thesaurus.owl"
+        sha256: "1a7182a7327ebc4181f7d6b0f7e81ed04dd258f1a86bd8f560e4a0d61439d58a"
+      ncit_doid_equiv_train:
+        path: "NCIT-DOID/refs_equiv/train.tsv"
+        sha256: "e295deceb202c0fd6dda78a80b4055b9d08430df3a0301d054abaad55f05087f"
+      ncit_doid_equiv_valid:
+        path: "NCIT-DOID/refs_equiv/valid.tsv"
+        sha256: "2ac2115167c5470f6632a215d233b071e6844177706305f16d33b9683664583a"
+      ncit_doid_cands_valid:
+        path: "NCIT-DOID/local.valid.cands.tsv"
+        sha256: "fbf31148970aa67a9ad30a4dd7c6a863a5689d1d71ab56f8b068cb499d5722c0"
+      ncit_doid_cands_test:
+        path: "NCIT-DOID/local.test.cands.tsv"
+        sha256: "5726ae0794fe6e337350e7a27790ace23a0c4e1c5881ee1cade4aea09a5438f5"
+    zenodo_bioml_subs:
+      record_id: "13119437"
+      ncit_doid_zip_url: "https://zenodo.org/records/13119437/files/ncit-doid.zip?download=1"
+      omim_ordo_zip_url: "https://zenodo.org/records/13119437/files/omim-ordo.zip?download=1"
+    oaei_anatomy:
+      mouse_owl_url: "http://oaei.ontologymatching.org/2023/anatomy/anatomy-dataset.zip"
+
+  Plant_Biodiv_Hub:
+    description: "6-Ontology Plant & Environmental Crosswalk Hub (PO, TO, FLOPO, GO-plant, CHEBI-lite/plant, ENVO)"
+    ontologies:
+      PO:
+        url: "http://purl.obolibrary.org/obo/po.owl"
+      TO:
+        url: "http://purl.obolibrary.org/obo/to.owl"
+      FLOPO:
+        url: "http://purl.obolibrary.org/obo/flopo.owl"
+      GO_BASIC:
+        url: "http://purl.obolibrary.org/obo/go/go-basic.owl"
+      CHEBI_LITE:
+        url: "http://purl.obolibrary.org/obo/chebi/chebi_lite.owl"
+      ENVO:
+        url: "http://purl.obolibrary.org/obo/envo.owl"
+    crosswalks:
+      biomappings_positive:
+        url: "https://raw.githubusercontent.com/biopragmatics/biomappings/main/src/biomappings/resources/positive.sssom.tsv"
+      biomappings_predictions:
+        url: "https://raw.githubusercontent.com/biopragmatics/biomappings/main/src/biomappings/resources/predictions.sssom.tsv"
+
+  Disease_Phenotype_Hub:
+    description: "5-Ontology Clinical & Mammalian Hub (MONDO, DOID, ORDO, HPO, MP) + Biomappings SSSOM"
+    ontologies:
+      MONDO:
+        url: "http://purl.obolibrary.org/obo/mondo.owl"
+      DOID:
+        url: "http://purl.obolibrary.org/obo/doid.owl"
+      ORDO:
+        url: "https://www.orphadata.com/data/ontologies/ordo/last_version/ORDO_en_4.5.owl"
+        fallback_url: "http://www.ebi.ac.uk/efo/ordo/ordo.owl"
+      HP:
+        url: "http://purl.obolibrary.org/obo/hp.owl"
+      MP:
+        url: "http://purl.obolibrary.org/obo/mp.owl"
+    crosswalks:
+      mondo_sssom:
+        url: "http://purl.obolibrary.org/obo/mondo/mappings/mondo.sssom.tsv"
+      biomappings_positive:
+        url: "https://raw.githubusercontent.com/biopragmatics/biomappings/main/src/biomappings/resources/positive.sssom.tsv"
+      biomappings_predictions:
+        url: "https://raw.githubusercontent.com/biopragmatics/biomappings/main/src/biomappings/resources/predictions.sssom.tsv"

@@ -1,0 +1,32 @@
+seed: 20261116
+clingo_scale: 1000
+clingo_threads: 4
+max_cegar_iterations: 20
+
+actions:
+  keep_equiv:
+    rho: 1.00
+    sssom_predicate: "skos:exactMatch"
+    owl_relation: "owl:equivalentClass"
+    rank_tiebreak: 5
+  downgrade_sub:
+    rho: 0.75
+    sssom_predicate: "skos:broadMatch"
+    owl_relation: "rdfs:subClassOf"
+    rank_tiebreak: 4
+  downgrade_sup:
+    rho: 0.75
+    sssom_predicate: "skos:narrowMatch"
+    owl_relation: "inverse_subClassOf"
+    rank_tiebreak: 3
+  weaken_ancestor:
+    rho: 0.45
+    sssom_predicate: "skos:broadMatch"
+    owl_relation: "weaken_parent_subClassOf"
+    rank_tiebreak: 2
+  negate_drop:
+    rho: 0.00
+    sssom_predicate: "skos:exactMatch"
+    predicate_modifier: "Not"
+    owl_relation: "none"
+    rank_tiebreak: 1

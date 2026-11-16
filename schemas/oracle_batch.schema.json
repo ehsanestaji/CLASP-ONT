@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clasp-ont.org/schemas/oracle_batch.schema.json",
+  "title": "OracleLatticeBatchResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decisions"],
+  "properties": {
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mapping_id",
+          "p_keep_equiv",
+          "p_downgrade_sub",
+          "p_downgrade_sup",
+          "p_weaken_ancestor",
+          "p_negate_drop",
+          "preferred_weaken_direction",
+          "rationale"
+        ],
+        "properties": {
+          "mapping_id": { "type": "string", "minLength": 1 },
+          "p_keep_equiv": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "p_downgrade_sub": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "p_downgrade_sup": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "p_weaken_ancestor": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "p_negate_drop": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+          "preferred_weaken_direction": {
+            "type": "string",
+            "enum": ["sub_to_obj_parent", "obj_to_sub_parent"]
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 320
+          }
+        }
+      }
+    }
+  }
+}

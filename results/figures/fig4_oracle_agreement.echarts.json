@@ -1,0 +1,24 @@
+{
+  "series": [
+    {
+      "color": "#0072B2",
+      "data": [
+        0.0
+      ],
+      "type": "bar"
+    }
+  ],
+  "title": {
+    "text": "Inter-Oracle Jensen-Shannon Divergence & Agreement"
+  },
+  "xAxis": {
+    "data": [
+      "B4_Self_Check"
+    ],
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Jensen-Shannon Divergence (bits)",
+    "type": "value"
+  }
+}

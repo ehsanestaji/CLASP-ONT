@@ -1,0 +1,60 @@
+{
+  "legend": {
+    "data": [
+      "Pairwise Unsat",
+      "Merged Hub Unsat_Delta",
+      "Pairwise ConsViol",
+      "Merged Hub ConsViol"
+    ]
+  },
+  "series": [
+    {
+      "color": "#56B4E9",
+      "data": [
+        22
+      ],
+      "name": "Pairwise Unsat",
+      "type": "bar"
+    },
+    {
+      "color": "#D55E00",
+      "data": [
+        26
+      ],
+      "name": "Merged Hub Unsat_Delta",
+      "type": "bar"
+    },
+    {
+      "color": "#009E73",
+      "data": [
+        22
+      ],
+      "name": "Pairwise ConsViol",
+      "type": "bar"
+    },
+    {
+      "color": "#CC79A7",
+      "data": [
+        30
+      ],
+      "name": "Merged Hub ConsViol",
+      "type": "bar"
+    }
+  ],
+  "title": {
+    "text": "Compositional Hub Breakdown: Pairwise vs. Merged Hub Defects"
+  },
+  "tooltip": {
+    "trigger": "axis"
+  },
+  "xAxis": {
+    "data": [
+      "Phase0_Toy_Hub"
+    ],
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Violation Count",
+    "type": "value"
+  }
+}

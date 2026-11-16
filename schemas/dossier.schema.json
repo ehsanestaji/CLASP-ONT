@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clasp-ont.org/schemas/dossier.schema.json",
+  "title": "ContestedMappingDossier",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mapping_id",
+    "suite_id",
+    "subject_id",
+    "subject_ont",
+    "subject_label",
+    "subject_synonyms",
+    "subject_definition",
+    "subject_parents_2hop",
+    "subject_children_1hop",
+    "subject_parent1_id",
+    "predicate_id",
+    "confidence",
+    "object_id",
+    "object_ont",
+    "object_label",
+    "object_synonyms",
+    "object_definition",
+    "object_parents_2hop",
+    "object_children_1hop",
+    "object_parent1_id",
+    "conflict_trace",
+    "estimated_tokens"
+  ],
+  "properties": {
+    "mapping_id": { "type": "string", "minLength": 1 },
+    "suite_id": { "type": "string", "minLength": 1 },
+    "subject_id": { "type": "string", "minLength": 1 },
+    "subject_ont": { "type": "string", "minLength": 1 },
+    "subject_label": { "type": "string" },
+    "subject_synonyms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 6
+    },
+    "subject_definition": { "type": "string", "maxLength": 450 },
+    "subject_parents_2hop": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 8
+    },
+    "subject_children_1hop": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 6
+    },
+    "subject_parent1_id": { "type": ["string", "null"] },
+    "predicate_id": { "type": "string" },
+    "confidence": { "type": "number", "minimum": 0.0, "maximum": 1.0 },
+    "object_id": { "type": "string", "minLength": 1 },
+    "object_ont": { "type": "string", "minLength": 1 },
+    "object_label": { "type": "string" },
+    "object_synonyms": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 6
+    },
+    "object_definition": { "type": "string", "maxLength": 450 },
+    "object_parents_2hop": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 8
+    },
+    "object_children_1hop": {
+      "type": "array",
+      "items": { "type": "string" },
+      "maxItems": 6
+    },
+    "object_parent1_id": { "type": ["string", "null"] },
+    "conflict_trace": { "type": "string", "maxLength": 400 },
+    "estimated_tokens": { "type": "integer", "minimum": 1, "maximum": 350 }
+  }
+}

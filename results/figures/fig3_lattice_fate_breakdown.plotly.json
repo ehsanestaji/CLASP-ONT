@@ -1,0 +1,93 @@
+{
+  "data": [
+    {
+      "name": "keep_equiv",
+      "orientation": "h",
+      "type": "bar",
+      "x": [
+        60,
+        21,
+        45,
+        42
+      ],
+      "y": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ]
+    },
+    {
+      "name": "downgrade_sub",
+      "orientation": "h",
+      "type": "bar",
+      "x": [
+        0,
+        9,
+        0,
+        10
+      ],
+      "y": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ]
+    },
+    {
+      "name": "downgrade_sup",
+      "orientation": "h",
+      "type": "bar",
+      "x": [
+        0,
+        22,
+        0,
+        5
+      ],
+      "y": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ]
+    },
+    {
+      "name": "weaken_ancestor",
+      "orientation": "h",
+      "type": "bar",
+      "x": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "y": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ]
+    },
+    {
+      "name": "negate_drop",
+      "orientation": "h",
+      "type": "bar",
+      "x": [
+        0,
+        8,
+        15,
+        1
+      ],
+      "y": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ]
+    }
+  ],
+  "layout": {
+    "barmode": "stack",
+    "title": "Mapping Fate Breakdown"
+  }
+}

@@ -1,0 +1,28 @@
+# Python & uv
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# JVM / Vendor binaries & compiled classes
+vendor/*.jar
+vendor/*.zip
+vendor/logmap-standalone/
+vendor/classes/
+*.class
+
+# Large raw & intermediate data (provenance tracked via SHA-256 manifests)
+data/raw/
+data/interim/
+data/toy/
+
+# Snakemake & OS
+.snakemake/
+.DS_Store
+*.duckdb
+*.duckdb.wal

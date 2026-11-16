@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "mode": "lines+markers",
+      "name": "Remaining Violations",
+      "type": "scatter",
+      "x": [
+        1,
+        2
+      ],
+      "y": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "Wall Seconds",
+      "type": "bar",
+      "x": [
+        1,
+        2
+      ],
+      "y": [
+        0.628,
+        0.538
+      ]
+    },
+    {
+      "mode": "lines+markers",
+      "name": "Peak RSS (MB)",
+      "type": "scatter",
+      "x": [
+        1,
+        2
+      ],
+      "y": [
+        488.6,
+        490.4
+      ],
+      "yaxis": "y2"
+    }
+  ],
+  "layout": {
+    "title": "CEGAR Convergence & Memory Telemetry (Phase0_Toy_Hub)",
+    "xaxis": {
+      "title": "CEGAR Iteration"
+    },
+    "yaxis": {
+      "title": "Violations / Seconds"
+    },
+    "yaxis2": {
+      "overlaying": "y",
+      "side": "right",
+      "title": "Peak RSS (MB)"
+    }
+  }
+}

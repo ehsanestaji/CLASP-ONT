@@ -1,0 +1,53 @@
+{
+  "series": [
+    {
+      "color": "#D55E00",
+      "data": [
+        4,
+        0
+      ],
+      "name": "Remaining Violations",
+      "type": "line"
+    },
+    {
+      "color": "#009E73",
+      "data": [
+        0.628,
+        0.538
+      ],
+      "name": "Wall Seconds",
+      "type": "bar"
+    },
+    {
+      "color": "#0072B2",
+      "data": [
+        488.6,
+        490.4
+      ],
+      "name": "Peak RSS (MB)",
+      "type": "line",
+      "yAxisIndex": 1
+    }
+  ],
+  "title": {
+    "text": "CEGAR Convergence & CPU Telemetry (Phase0_Toy_Hub)"
+  },
+  "xAxis": {
+    "data": [
+      1,
+      2
+    ],
+    "name": "CEGAR Iteration",
+    "type": "category"
+  },
+  "yAxis": [
+    {
+      "name": "Remaining Violations / Wall Sec",
+      "type": "value"
+    },
+    {
+      "name": "Peak RSS (MB)",
+      "type": "value"
+    }
+  ]
+}

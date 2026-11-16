@@ -1,0 +1,51 @@
+{
+  "data": [
+    {
+      "name": "Pairwise Unsat",
+      "type": "bar",
+      "x": [
+        "Phase0_Toy_Hub"
+      ],
+      "y": [
+        22
+      ]
+    },
+    {
+      "name": "Merged Hub Unsat_Delta",
+      "type": "bar",
+      "x": [
+        "Phase0_Toy_Hub"
+      ],
+      "y": [
+        26
+      ]
+    },
+    {
+      "name": "Pairwise ConsViol",
+      "type": "bar",
+      "x": [
+        "Phase0_Toy_Hub"
+      ],
+      "y": [
+        22
+      ]
+    },
+    {
+      "name": "Merged Hub ConsViol",
+      "type": "bar",
+      "x": [
+        "Phase0_Toy_Hub"
+      ],
+      "y": [
+        30
+      ]
+    }
+  ],
+  "layout": {
+    "barmode": "group",
+    "title": "Pairwise Crosswalk Validity vs. Multi-Ontology Hub Breakdown",
+    "yaxis": {
+      "title": "Logical Violations"
+    }
+  }
+}

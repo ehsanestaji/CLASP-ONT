@@ -1,0 +1,64 @@
+{
+  "legend": {
+    "data": [
+      "Equivalence F1",
+      "Directional Subsumption Recall",
+      "Semantic Retention"
+    ]
+  },
+  "series": [
+    {
+      "color": "#0072B2",
+      "data": [
+        0.794521,
+        0.294118,
+        1.0,
+        0.945455
+      ],
+      "name": "Equivalence F1",
+      "type": "bar"
+    },
+    {
+      "color": "#009E73",
+      "data": [
+        0.551724,
+        0.586207,
+        0.551724,
+        1.0
+      ],
+      "name": "Directional Subsumption Recall",
+      "type": "bar"
+    },
+    {
+      "color": "#E69F00",
+      "data": [
+        1.0,
+        0.753063,
+        0.774095,
+        0.912043
+      ],
+      "name": "Semantic Retention",
+      "type": "bar"
+    }
+  ],
+  "title": {
+    "text": "Benchmark Accuracy & Subsumption Recovery (Phase0_Toy_Hub)"
+  },
+  "tooltip": {
+    "trigger": "axis"
+  },
+  "xAxis": {
+    "data": [
+      "B1_Raw_Hub",
+      "B2_LogMap_Repair",
+      "B3_ASP_Binary_Delete",
+      "B4_Lexical_Lattice"
+    ],
+    "type": "category"
+  },
+  "yAxis": {
+    "max": 1.05,
+    "min": 0.0,
+    "type": "value"
+  }
+}

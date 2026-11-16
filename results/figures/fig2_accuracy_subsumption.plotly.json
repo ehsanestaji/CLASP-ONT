@@ -1,0 +1,63 @@
+{
+  "data": [
+    {
+      "name": "Equivalence F1",
+      "type": "bar",
+      "x": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ],
+      "y": [
+        0.794521,
+        0.294118,
+        1.0,
+        0.945455
+      ]
+    },
+    {
+      "name": "Directional Subsumption Recall",
+      "type": "bar",
+      "x": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ],
+      "y": [
+        0.551724,
+        0.586207,
+        0.551724,
+        1.0
+      ]
+    },
+    {
+      "name": "Semantic Retention",
+      "type": "bar",
+      "x": [
+        "B1_Raw_Hub",
+        "B2_LogMap_Repair",
+        "B3_ASP_Binary_Delete",
+        "B4_Lexical_Lattice"
+      ],
+      "y": [
+        1.0,
+        0.753063,
+        0.774095,
+        0.912043
+      ]
+    }
+  ],
+  "layout": {
+    "barmode": "group",
+    "title": "Accuracy & Subsumption Recovery (Phase0_Toy_Hub)",
+    "yaxis": {
+      "range": [
+        0,
+        1.05
+      ],
+      "title": "Score"
+    }
+  }
+}

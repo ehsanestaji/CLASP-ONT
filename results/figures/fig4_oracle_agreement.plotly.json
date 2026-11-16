@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "type": "bar",
+      "x": [
+        "B4_Self_Check"
+      ],
+      "y": [
+        0.0
+      ]
+    }
+  ],
+  "layout": {
+    "title": "Oracle Agreement & Divergence",
+    "yaxis": {
+      "title": "JSD [0, 1]"
+    }
+  }
+}

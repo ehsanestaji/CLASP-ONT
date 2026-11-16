@@ -1,0 +1,7 @@
+# Agent Governance Contract
+
+1. **Zero Fabricated Metrics or Synthetic Placeholders:** Never hardcode dummy scores, mocked reasoner counts, or placeholder p-values outside `tests/`. Every reported unsatisfiability and conservativity count must come from live `ELK` and `DuckDB` execution.
+2. **Hard Mathematical Certification Gate:** No repaired alignment from `C1`--`C4` may be marked complete unless `cegar_loop.py` independently verifies $|\text{Unsat}_{\Delta}| = 0$ and $|\text{ConsViol}| = 0$ on the re-merged OWL hub.
+3. **Strict Memory Ceiling:** Always invoke JVM tools (`robot`, `logmap`) with `-Xmx4G` and stream tabular joins through `DuckDB` so total RSS memory never exceeds $6\text{ GB}$. Never download local LLM checkpoints (`torch`/`transformers`/`vllm` are prohibited).
+4. **CLI Sandbox & ToS Compliance:** Never execute `claude`, `codex`, `agy`, or `cursor-agent` inside the repository working tree, never leave billing API keys in subprocess `env`, and never autonomously loop third-party subscription CLIs from inside an agent session. Build and verify everything against `B3`/`B4` and cached fixtures first, then print `make run-frontier-oracles` for human terminal launch.
+5. **Single Source of Numerical Truth:** Every number in manuscript tables or text must be read programmatically from `paper/results_macros.tex` and `results/summary_metrics.json`. Run `uv run ruff check src/ tests/` and `uv run pytest -q` before every git commit.

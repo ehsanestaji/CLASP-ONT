@@ -1,0 +1,194 @@
+{
+  "seed": 20261116,
+  "suites": {
+    "Phase0_Toy_Hub": {
+      "b4_certificate_sha256": "c06407ebbaf4cecfd477b89a4f715ccc088b38df44951b58fe3a02572a236f6a",
+      "cegar_telemetry": [
+        {
+          "active_cores": 34,
+          "clingo_utility": 16960,
+          "cons_viol_count": 0,
+          "contested_mappings": 40,
+          "iteration": 1,
+          "peak_rss_mb": 488.61,
+          "unsat_delta_count": 4,
+          "wall_seconds": 0.6276
+        },
+        {
+          "active_cores": 37,
+          "clingo_utility": 16798,
+          "cons_viol_count": 0,
+          "contested_mappings": 40,
+          "iteration": 2,
+          "peak_rss_mb": 490.41,
+          "unsat_delta_count": 0,
+          "wall_seconds": 0.5385
+        }
+      ],
+      "contested_mappings": 40,
+      "h1_breakdown": {
+        "hub_consviol": 30,
+        "hub_unsat_delta": 26,
+        "pairwise_audits": {
+          "TOY_ANAT__TOY_CHEM": {
+            "cons_viol": 0,
+            "mappings": 1,
+            "unsat_delta": 0
+          },
+          "TOY_ANAT__TOY_PROC": {
+            "cons_viol": 11,
+            "mappings": 16,
+            "unsat_delta": 4
+          },
+          "TOY_ANAT__TOY_TRAIT": {
+            "cons_viol": 3,
+            "mappings": 10,
+            "unsat_delta": 4
+          },
+          "TOY_CHEM__TOY_PROC": {
+            "cons_viol": 7,
+            "mappings": 13,
+            "unsat_delta": 3
+          },
+          "TOY_CHEM__TOY_TRAIT": {
+            "cons_viol": 0,
+            "mappings": 6,
+            "unsat_delta": 7
+          },
+          "TOY_PROC__TOY_TRAIT": {
+            "cons_viol": 1,
+            "mappings": 14,
+            "unsat_delta": 4
+          }
+        },
+        "pairwise_conflict_mapping_rate": 0.716667,
+        "total_pairwise_consviol": 22,
+        "total_pairwise_unsat": 22
+      },
+      "initial_conflict_cores": 34,
+      "max_dossier_tokens": 337,
+      "native_unsat": 0,
+      "num_classes": 200,
+      "num_dossiers": 40,
+      "num_mappings": 60,
+      "num_ontologies": 4,
+      "oracle_agreement": {
+        "pairwise_js_divergence": {}
+      },
+      "peak_rss_mb": 491.3,
+      "statistical_tests": {
+        "B4_vs_B2_LogMap": {
+          "baseline_mean": 0.155,
+          "ci95_high": 0.577562,
+          "ci95_low": 0.355,
+          "mcnemar_p": 0.00341797,
+          "mean_diff": 0.4725,
+          "n": 15,
+          "significant_fdr_001": true,
+          "treatment_mean": 0.6275,
+          "wilcoxon_p": 0.00125793,
+          "wilcoxon_q_fdr_bh": 0.00125793
+        },
+        "B4_vs_B3_BinaryDelete": {
+          "baseline_mean": 0.0,
+          "ci95_high": 0.73,
+          "ci95_low": 0.5025,
+          "mcnemar_p": 0.00183105,
+          "mean_diff": 0.6275,
+          "n": 15,
+          "significant_fdr_001": true,
+          "treatment_mean": 0.6275,
+          "wilcoxon_p": 0.00048071,
+          "wilcoxon_q_fdr_bh": 0.00096142
+        }
+      },
+      "systems": {
+        "B1_Raw_Hub": {
+          "action_counts": {
+            "downgrade_sub": 0,
+            "downgrade_sup": 0,
+            "keep_equiv": 60,
+            "negate_drop": 0,
+            "weaken_ancestor": 0
+          },
+          "cons_viol": 30,
+          "contested_directional_preservation": 0.0,
+          "contested_non_drop_rate": 1.0,
+          "equiv_f1": 0.794521,
+          "equiv_precision": 0.659091,
+          "equiv_recall": 1.0,
+          "novel_cross_entailments": 423,
+          "semantic_retention": 1.0,
+          "sub_f1": 0.711111,
+          "sub_precision": 1.0,
+          "sub_recall": 0.551724,
+          "unsat_delta": 26
+        },
+        "B2_LogMap_Repair": {
+          "action_counts": {
+            "downgrade_sub": 9,
+            "downgrade_sup": 22,
+            "keep_equiv": 21,
+            "negate_drop": 8,
+            "weaken_ancestor": 0
+          },
+          "cons_viol": 18,
+          "contested_directional_preservation": 0.375,
+          "contested_non_drop_rate": 0.8,
+          "equiv_f1": 0.294118,
+          "equiv_precision": 1.0,
+          "equiv_recall": 0.172414,
+          "novel_cross_entailments": 356,
+          "semantic_retention": 0.753063,
+          "sub_f1": 0.447368,
+          "sub_precision": 0.361702,
+          "sub_recall": 0.586207,
+          "unsat_delta": 0
+        },
+        "B3_ASP_Binary_Delete": {
+          "action_counts": {
+            "downgrade_sub": 0,
+            "downgrade_sup": 0,
+            "keep_equiv": 45,
+            "negate_drop": 15,
+            "weaken_ancestor": 0
+          },
+          "cons_viol": 0,
+          "contested_directional_preservation": 0.0,
+          "contested_non_drop_rate": 0.625,
+          "equiv_f1": 1.0,
+          "equiv_precision": 1.0,
+          "equiv_recall": 1.0,
+          "novel_cross_entailments": 318,
+          "semantic_retention": 0.774095,
+          "sub_f1": 0.711111,
+          "sub_precision": 1.0,
+          "sub_recall": 0.551724,
+          "unsat_delta": 0
+        },
+        "B4_Lexical_Lattice": {
+          "action_counts": {
+            "downgrade_sub": 10,
+            "downgrade_sup": 5,
+            "keep_equiv": 42,
+            "negate_drop": 1,
+            "weaken_ancestor": 2
+          },
+          "cons_viol": 0,
+          "contested_directional_preservation": 0.425,
+          "contested_non_drop_rate": 0.975,
+          "equiv_f1": 0.945455,
+          "equiv_precision": 1.0,
+          "equiv_recall": 0.896552,
+          "novel_cross_entailments": 330,
+          "semantic_retention": 0.912043,
+          "sub_f1": 0.935484,
+          "sub_precision": 0.878788,
+          "sub_recall": 1.0,
+          "unsat_delta": 0
+        }
+      },
+      "total_cegar_cores_b4": 37
+    }
+  }
+}

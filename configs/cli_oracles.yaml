@@ -1,0 +1,68 @@
+seed: 20261116
+micro_batch_size: 25
+inter_batch_sleep_seconds: 3.0
+parity_check_count: 50
+parity_max_disagreement_delta: 0.02
+cache_dir: "results/oracle_cache"
+
+scrubbed_env_keys:
+  - ANTHROPIC_API_KEY
+  - OPENAI_API_KEY
+  - CODEX_API_KEY
+  - GEMINI_API_KEY
+  - GOOGLE_API_KEY
+  - CLAUDE_API_KEY
+  - AZURE_OPENAI_API_KEY
+  - OPENROUTER_API_KEY
+
+vendors:
+  C1_Claude:
+    family: "anthropic_claude"
+    binary_candidates:
+      - "claude"
+      - "/Users/ehsan/.local/bin/claude"
+    args_template:
+      - "-p"
+      - "--output-format"
+      - "json"
+      - "--json-schema"
+      - "{schema_inline}"
+      - "--tools"
+      - ""
+      - "--max-turns"
+      - "1"
+    input_mode: "stdin"
+    temperature: 1.0
+    prior_weight: 0.3333333333
+
+  C2_Codex:
+    family: "openai_codex"
+    binary_candidates:
+      - "codex"
+      - "/opt/homebrew/bin/codex"
+    args_template:
+      - "exec"
+      - "--json"
+      - "--output-schema"
+      - "{schema_file}"
+      - "--ephemeral"
+      - "--skip-git-repo-check"
+    input_mode: "stdin"
+    temperature: 1.0
+    prior_weight: 0.3333333333
+
+  C3_Antigravity:
+    family: "google_gemini_antigravity"
+    binary_candidates:
+      - "agy"
+      - "/Users/ehsan/.gemini/bin/agy"
+    args_template:
+      - "-p"
+    input_mode: "arg_prompt"
+    temperature: 1.0
+    prior_weight: 0.3333333334
+
+consensus:
+  method: "temperature_scaled_log_pool"
+  epsilon: 1.0e-6
+  dawid_skene_max_iter: 50

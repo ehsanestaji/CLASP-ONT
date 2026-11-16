@@ -1,0 +1,26 @@
+# KGCL Certified Patch Bundle | Suite: Phase0_Toy_Hub | System: B4_Lexical_Lattice
+change relationship between TOY_ANAT:A003 and TOY_TRAIT:T002 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_CHEM:C002 skos:exactMatch TOY_TRAIT:T006
+create edge TOY_TRAIT:T006 rdfs:subClassOf TOY_CHEM:C002
+change relationship between TOY_ANAT:A006 and TOY_PROC:P003 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_CHEM:C006 skos:exactMatch TOY_PROC:P007
+create edge TOY_CHEM:C006 rdfs:subClassOf TOY_PROC:P005
+delete edge TOY_ANAT:A009 skos:exactMatch TOY_PROC:P008
+change relationship between TOY_ANAT:A010 and TOY_PROC:P010 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_TRAIT:T010 skos:exactMatch TOY_PROC:P014
+create edge TOY_PROC:P014 rdfs:subClassOf TOY_TRAIT:T010
+change relationship between TOY_ANAT:A024 and TOY_TRAIT:T022 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_CHEM:C008 skos:exactMatch TOY_ANAT:A016
+create edge TOY_ANAT:A016 rdfs:subClassOf TOY_CHEM:C008
+delete edge TOY_TRAIT:T014 skos:exactMatch TOY_PROC:P017
+create edge TOY_TRAIT:T014 rdfs:subClassOf TOY_PROC:P016
+change relationship between TOY_ANAT:A015 and TOY_PROC:P023 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_ANAT:A012 skos:exactMatch TOY_TRAIT:T017
+create edge TOY_TRAIT:T017 rdfs:subClassOf TOY_ANAT:A012
+change relationship between TOY_CHEM:C012 and TOY_PROC:P019 from skos:exactMatch to rdfs:subClassOf
+change relationship between TOY_TRAIT:T020 and TOY_CHEM:C014 from skos:exactMatch to rdfs:subClassOf
+change relationship between TOY_ANAT:A010 and TOY_TRAIT:T028 from skos:exactMatch to rdfs:subClassOf
+change relationship between TOY_ANAT:A004 and TOY_TRAIT:T004 from skos:exactMatch to rdfs:subClassOf
+delete edge TOY_CHEM:C014 skos:exactMatch TOY_TRAIT:T021
+create edge TOY_TRAIT:T021 rdfs:subClassOf TOY_CHEM:C014
+change relationship between TOY_ANAT:A048 and TOY_PROC:P045 from skos:exactMatch to rdfs:subClassOf

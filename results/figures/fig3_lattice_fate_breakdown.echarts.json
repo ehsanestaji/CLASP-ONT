@@ -1,0 +1,95 @@
+{
+  "legend": {
+    "data": [
+      "keep_equiv",
+      "downgrade_sub",
+      "downgrade_sup",
+      "weaken_ancestor",
+      "negate_drop"
+    ]
+  },
+  "series": [
+    {
+      "color": "#0072B2",
+      "data": [
+        60,
+        21,
+        45,
+        42
+      ],
+      "name": "keep_equiv",
+      "stack": "total",
+      "type": "bar"
+    },
+    {
+      "color": "#009E73",
+      "data": [
+        0,
+        9,
+        0,
+        10
+      ],
+      "name": "downgrade_sub",
+      "stack": "total",
+      "type": "bar"
+    },
+    {
+      "color": "#56B4E9",
+      "data": [
+        0,
+        22,
+        0,
+        5
+      ],
+      "name": "downgrade_sup",
+      "stack": "total",
+      "type": "bar"
+    },
+    {
+      "color": "#E69F00",
+      "data": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "name": "weaken_ancestor",
+      "stack": "total",
+      "type": "bar"
+    },
+    {
+      "color": "#D55E00",
+      "data": [
+        0,
+        8,
+        15,
+        1
+      ],
+      "name": "negate_drop",
+      "stack": "total",
+      "type": "bar"
+    }
+  ],
+  "title": {
+    "text": "Contested Mapping Fate Distribution (Phase0_Toy_Hub)"
+  },
+  "tooltip": {
+    "axisPointer": {
+      "type": "shadow"
+    },
+    "trigger": "axis"
+  },
+  "xAxis": {
+    "name": "Mapping Count",
+    "type": "value"
+  },
+  "yAxis": {
+    "data": [
+      "B1_Raw_Hub",
+      "B2_LogMap_Repair",
+      "B3_ASP_Binary_Delete",
+      "B4_Lexical_Lattice"
+    ],
+    "type": "category"
+  }
+}
