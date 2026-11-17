@@ -1,7 +1,7 @@
 seed: 20261116
 clingo_scale: 1000
 clingo_threads: 4
-max_cegar_iterations: 20
+max_cegar_iterations: 200
 
 actions:
   keep_equiv:

@@ -1,0 +1,23 @@
+{
+  "schema_version": "2026.1-journal-ai-disclosure",
+  "author_signoff": "AUTHOR SIGN-OFF REQUIRED",
+  "elements": {
+    "1_models_and_versions": {
+      "symbolic_verifiers": [
+        "ROBOT v1.9.11 (ELK OWL 2 EL)",
+        "Potassco Clingo v5.8.3",
+        "DuckDB v2.0.0"
+      ],
+      "semantic_oracles": [
+        "B4_Lexical_Lattice (deterministic non-LLM TF-IDF + hierarchy baseline)",
+        "C1_Claude (Claude Code CLI, zero-tool JSON-schema sandbox)",
+        "C2_Codex (Codex CLI, ephemeral zero-tool JSON-schema sandbox)",
+        "C3_Antigravity (Antigravity CLI, isolated temp-dir sandbox)"
+      ]
+    },
+    "2_scope_of_use": "Semantic oracles score candidate refinement probabilities over contested conflict-core dossiers only; all logical coherence and deductive conservativity guarantees are enforced deterministically by ELK, DuckDB, and Clingo CEGAR.",
+    "3_isolation_and_data_governance": "All CLI invocations execute inside empty temporary directories outside the repository with all metered API keys stripped and zero file/shell tools enabled, over 100% open public ontologies.",
+    "4_verification_and_hallucination_controls": "Hard mathematical certification gate requires independent ELK + DuckDB verification of |Unsat_Delta| = 0 and |ConsViol| = 0 prior to accepting any repaired hub.",
+    "5_reproducibility_and_cache_artifact": "SHA-256 hashed raw oracle responses are archived in results/oracle_cache/ enabling full zero-key, zero-subscription offline peer-review replay via `uv run snakemake reproduce_from_cache --cores 4`."
+  }
+}

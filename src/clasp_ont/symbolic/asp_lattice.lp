@@ -59,8 +59,7 @@ active_prop(M, act(A))   :- selected(M, Asel), entails_action(M, Asel, A).
 % 4. Hard certification integrity constraints: forbid every minimal conflict core
 :- core(C), active_prop(M, Prop) : core_lit(C, M, Prop).
 
-% 5. Global max-weight objective (@2 primary exact utility, @1 deterministic tie-break)
-#maximize { U@2, M : selected(M, A), utility(M, A, U) }.
-#maximize { R@1, M : selected(M, A), tiebreak_rank(A, R) }.
+% 5. Global max-weight objective (exact integer utility per Section 2.3)
+#maximize { U@1, M : selected(M, A), utility(M, A, U) }.
 
 #show selected/2.

@@ -94,9 +94,14 @@ def normalize_to_iri(term: str, converter: curies.Converter | None = None) -> st
         term = term[1:-1].strip()
     if term.startswith("http://") or term.startswith("https://") or term.startswith("urn:"):
         return term
+    if ":" not in term or " " in term:
+        return term
     conv = converter or build_converter()
-    expanded = conv.expand(term)
-    return expanded if expanded is not None else term
+    try:
+        expanded = conv.expand(term)
+        return expanded if expanded is not None else term
+    except Exception:
+        return term
 
 
 def compact_iri(iri: str, converter: curies.Converter | None = None) -> str:

@@ -10,10 +10,10 @@
         "B4_Lexical_Lattice"
       ],
       "y": [
-        0.794521,
-        0.294118,
-        1.0,
-        0.945455
+        0.648208,
+        0.008608,
+        0.606405,
+        0.662614
       ]
     },
     {
@@ -26,10 +26,10 @@
         "B4_Lexical_Lattice"
       ],
       "y": [
-        0.551724,
-        0.586207,
-        0.551724,
-        1.0
+        0.0,
+        0.0,
+        0.0,
+        0.019471
       ]
     },
     {
@@ -43,15 +43,15 @@
       ],
       "y": [
         1.0,
-        0.753063,
-        0.774095,
-        0.912043
+        0.749427,
+        0.844964,
+        0.873339
       ]
     }
   ],
   "layout": {
     "barmode": "group",
-    "title": "Accuracy & Subsumption Recovery (Phase0_Toy_Hub)",
+    "title": "Accuracy & Subsumption Recovery (OAEI_BioML_2026)",
     "yaxis": {
       "range": [
         0,

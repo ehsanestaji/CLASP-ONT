@@ -10,10 +10,10 @@
     {
       "color": "#0072B2",
       "data": [
-        0.794521,
-        0.294118,
-        1.0,
-        0.945455
+        0.648208,
+        0.008608,
+        0.606405,
+        0.662614
       ],
       "name": "Equivalence F1",
       "type": "bar"
@@ -21,10 +21,10 @@
     {
       "color": "#009E73",
       "data": [
-        0.551724,
-        0.586207,
-        0.551724,
-        1.0
+        0.0,
+        0.0,
+        0.0,
+        0.019471
       ],
       "name": "Directional Subsumption Recall",
       "type": "bar"
@@ -33,16 +33,16 @@
       "color": "#E69F00",
       "data": [
         1.0,
-        0.753063,
-        0.774095,
-        0.912043
+        0.749427,
+        0.844964,
+        0.873339
       ],
       "name": "Semantic Retention",
       "type": "bar"
     }
   ],
   "title": {
-    "text": "Benchmark Accuracy & Subsumption Recovery (Phase0_Toy_Hub)"
+    "text": "Benchmark Accuracy & Subsumption Recovery (OAEI_BioML_2026)"
   },
   "tooltip": {
     "trigger": "axis"

@@ -2,51 +2,245 @@
   "data": [
     {
       "mode": "lines+markers",
-      "name": "Remaining Violations",
+      "name": "Disease_Phenotype_Hub Violations",
       "type": "scatter",
       "x": [
         1,
-        2
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
       ],
       "y": [
-        4,
+        16742,
+        5067,
+        1455,
+        751,
+        6178,
+        443,
+        87,
+        209,
+        4330,
+        1939,
+        168,
+        23,
+        116,
+        11,
+        1,
         0
       ]
     },
     {
-      "name": "Wall Seconds",
-      "type": "bar",
-      "x": [
-        1,
-        2
-      ],
-      "y": [
-        0.628,
-        0.538
-      ]
-    },
-    {
-      "mode": "lines+markers",
-      "name": "Peak RSS (MB)",
+      "mode": "lines",
+      "name": "Disease_Phenotype_Hub Peak RSS (MB)",
       "type": "scatter",
       "x": [
         1,
-        2
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
       ],
       "y": [
-        488.6,
-        490.4
+        3348.6,
+        2651.8,
+        2795.8,
+        3518.8,
+        4175.6,
+        3372.8,
+        3122.5,
+        3212.5,
+        3630.3,
+        3574.9,
+        2947.5,
+        2978.5,
+        2789.8,
+        4289.1,
+        3597.9,
+        3370.3
+      ],
+      "yaxis": "y2"
+    },
+    {
+      "mode": "lines+markers",
+      "name": "OAEI_BioML_2026 Violations",
+      "type": "scatter",
+      "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "y": [
+        12130,
+        6761,
+        4075,
+        1972,
+        3367,
+        750,
+        639,
+        3997,
+        527,
+        515,
+        515,
+        512,
+        115,
+        81,
+        111,
+        29,
+        0
+      ]
+    },
+    {
+      "mode": "lines",
+      "name": "OAEI_BioML_2026 Peak RSS (MB)",
+      "type": "scatter",
+      "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "y": [
+        3014.8,
+        3276.9,
+        3264.3,
+        2735.4,
+        3423.4,
+        3275.3,
+        3438.1,
+        3131.6,
+        3372.4,
+        3199.5,
+        3259.5,
+        3356.2,
+        3229.8,
+        3094.2,
+        2995.1,
+        3039.2,
+        3121.0
+      ],
+      "yaxis": "y2"
+    },
+    {
+      "mode": "lines+markers",
+      "name": "Plant_Biodiv_Hub Violations",
+      "type": "scatter",
+      "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "y": [
+        3025,
+        1491,
+        1165,
+        661,
+        622,
+        620,
+        616,
+        615,
+        117,
+        8,
+        0
+      ]
+    },
+    {
+      "mode": "lines",
+      "name": "Plant_Biodiv_Hub Peak RSS (MB)",
+      "type": "scatter",
+      "x": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "y": [
+        2398.4,
+        2458.7,
+        1801.2,
+        2207.4,
+        1569.2,
+        2263.5,
+        1806.5,
+        1910.0,
+        1652.1,
+        2343.6,
+        1939.4
       ],
       "yaxis": "y2"
     }
   ],
   "layout": {
-    "title": "CEGAR Convergence & Memory Telemetry (Phase0_Toy_Hub)",
+    "title": "CEGAR Convergence & Memory Telemetry Across Multi-Ontology Hubs",
     "xaxis": {
       "title": "CEGAR Iteration"
     },
     "yaxis": {
-      "title": "Violations / Seconds"
+      "title": "Remaining Violations (symlog)"
     },
     "yaxis2": {
       "overlaying": "y",

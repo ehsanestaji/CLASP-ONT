@@ -1,0 +1,38 @@
+# Top-15 Upstream KGCL Patch Commands (OBO Foundry & Biomappings)
+change relationship between HP:0000035 and MP:0001146 from skos:exactMatch to rdfs:subClassOf
+# Rationale [1]: B4 lexical/depth heuristic (tfidf_sim=0.54, depth=8->6, spec=+1.75) favors downgrade_sub.
+delete edge NCIT:C2949 skos:exactMatch DOID:12759
+create edge DOID:12759 rdfs:subClassOf NCIT:C2949
+# Rationale [2]: B4 lexical/depth heuristic (tfidf_sim=0.87, depth=7->8, spec=-0.83) favors downgrade_sup.
+delete edge PO:0025132 skos:exactMatch ENVO:00000014
+create edge ENVO:00000014 rdfs:subClassOf PO:0025132
+# Rationale [3]: B4 lexical/depth heuristic (tfidf_sim=0.10, depth=3->9, spec=-3.24) favors downgrade_sup.
+change relationship between HP:0000159 and MP:0003769 from skos:exactMatch to rdfs:subClassOf
+# Rationale [4]: B4 lexical/depth heuristic (tfidf_sim=0.38, depth=7->5, spec=+1.14) favors downgrade_sub.
+delete edge NCIT:C3727 skos:exactMatch DOID:4830
+create edge DOID:4830 rdfs:subClassOf NCIT:C3727
+# Rationale [5]: B4 lexical/depth heuristic (tfidf_sim=0.60, depth=7->7, spec=-0.65) favors downgrade_sup.
+change relationship between PO:0009008 and ENVO:01000162 from skos:exactMatch to rdfs:subClassOf
+# Rationale [6]: B4 lexical/depth heuristic (tfidf_sim=0.15, depth=4->3, spec=-0.76) favors keep_equiv.
+change relationship between HP:0000174 and MP:0003755 from skos:exactMatch to rdfs:subClassOf
+# Rationale [7]: B4 lexical/depth heuristic (tfidf_sim=0.53, depth=7->5, spec=+1.37) favors downgrade_sub.
+delete edge NCIT:C3780 skos:exactMatch DOID:4552
+create edge DOID:4552 rdfs:subClassOf NCIT:C3780
+# Rationale [8]: B4 lexical/depth heuristic (tfidf_sim=0.93, depth=7->6, spec=-0.35) favors keep_equiv.
+change relationship between TO:0000893 and FLOPO:0000093 from skos:exactMatch to rdfs:subClassOf
+# Rationale [9]: B4 lexical/depth heuristic (tfidf_sim=0.77, depth=9->9, spec=+2.18) favors downgrade_sub.
+delete edge HP:0000290 skos:exactMatch MP:0030031
+create edge MP:0030031 rdfs:subClassOf HP:0000290
+# Rationale [10]: B4 lexical/depth heuristic (tfidf_sim=0.42, depth=6->5, spec=+0.69) favors keep_equiv.
+delete edge http://www.omim.org/phenotypicSeries/PS115200 skos:exactMatch ORDO:217604
+create edge ORDO:217604 rdfs:subClassOf http://www.omim.org/phenotypicSeries/PS115200
+# Rationale [11]: B4 lexical/depth heuristic (tfidf_sim=1.00, depth=1->5, spec=-2.87) favors downgrade_sup.
+change relationship between TO:1000008 and FLOPO:0000121 from skos:exactMatch to rdfs:subClassOf
+# Rationale [12]: B4 lexical/depth heuristic (tfidf_sim=0.83, depth=9->8, spec=+1.95) favors keep_equiv.
+change relationship between HP:0000377 and MP:0002177 from skos:exactMatch to rdfs:subClassOf
+# Rationale [13]: B4 lexical/depth heuristic (tfidf_sim=0.37, depth=8->4, spec=+2.09) favors downgrade_sub.
+delete edge http://www.omim.org/phenotypicSeries/PS253600 skos:exactMatch ORDO:102015
+create edge ORDO:102015 rdfs:subClassOf http://www.omim.org/phenotypicSeries/PS253600
+# Rationale [14]: B4 lexical/depth heuristic (tfidf_sim=1.00, depth=1->10, spec=-6.48) favors downgrade_sup.
+change relationship between TO:0000951 and FLOPO:0000219 from skos:exactMatch to rdfs:subClassOf
+# Rationale [15]: B4 lexical/depth heuristic (tfidf_sim=0.75, depth=8->7, spec=+2.33) favors downgrade_sub.

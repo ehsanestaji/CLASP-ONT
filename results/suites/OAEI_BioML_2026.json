@@ -1,0 +1,347 @@
+{
+  "b4_certificate_sha256": "388675fa6762cb52f021e64f4632fd702a895dd37a43e605a97ce045795c9343",
+  "cegar_telemetry": [
+    {
+      "active_cores": 18588,
+      "clingo_utility": 4413043,
+      "cons_viol_count": 6649,
+      "contested_mappings": 10623,
+      "iteration": 1,
+      "peak_rss_mb": 3014.8,
+      "unsat_delta_count": 5481,
+      "wall_seconds": 26.5226
+    },
+    {
+      "active_cores": 20876,
+      "clingo_utility": 4679363,
+      "cons_viol_count": 3272,
+      "contested_mappings": 11300,
+      "iteration": 2,
+      "peak_rss_mb": 3276.88,
+      "unsat_delta_count": 3489,
+      "wall_seconds": 28.0118
+    },
+    {
+      "active_cores": 21713,
+      "clingo_utility": 4737469,
+      "cons_viol_count": 1148,
+      "contested_mappings": 11454,
+      "iteration": 3,
+      "peak_rss_mb": 3264.33,
+      "unsat_delta_count": 2927,
+      "wall_seconds": 27.3161
+    },
+    {
+      "active_cores": 21920,
+      "clingo_utility": 4731238,
+      "cons_viol_count": 1972,
+      "contested_mappings": 11456,
+      "iteration": 4,
+      "peak_rss_mb": 2735.42,
+      "unsat_delta_count": 0,
+      "wall_seconds": 29.9863
+    },
+    {
+      "active_cores": 22124,
+      "clingo_utility": 4725051,
+      "cons_viol_count": 545,
+      "contested_mappings": 11471,
+      "iteration": 5,
+      "peak_rss_mb": 3423.42,
+      "unsat_delta_count": 2822,
+      "wall_seconds": 28.7475
+    },
+    {
+      "active_cores": 22179,
+      "clingo_utility": 4728125,
+      "cons_viol_count": 750,
+      "contested_mappings": 11475,
+      "iteration": 6,
+      "peak_rss_mb": 3275.34,
+      "unsat_delta_count": 0,
+      "wall_seconds": 30.6645
+    },
+    {
+      "active_cores": 22226,
+      "clingo_utility": 4725624,
+      "cons_viol_count": 639,
+      "contested_mappings": 11475,
+      "iteration": 7,
+      "peak_rss_mb": 3438.05,
+      "unsat_delta_count": 0,
+      "wall_seconds": 29.0354
+    },
+    {
+      "active_cores": 22248,
+      "clingo_utility": 4724278,
+      "cons_viol_count": 1284,
+      "contested_mappings": 11475,
+      "iteration": 8,
+      "peak_rss_mb": 3131.62,
+      "unsat_delta_count": 2713,
+      "wall_seconds": 32.2779
+    },
+    {
+      "active_cores": 22492,
+      "clingo_utility": 4750096,
+      "cons_viol_count": 527,
+      "contested_mappings": 11532,
+      "iteration": 9,
+      "peak_rss_mb": 3372.42,
+      "unsat_delta_count": 0,
+      "wall_seconds": 29.6189
+    },
+    {
+      "active_cores": 22500,
+      "clingo_utility": 4749375,
+      "cons_viol_count": 515,
+      "contested_mappings": 11532,
+      "iteration": 10,
+      "peak_rss_mb": 3199.48,
+      "unsat_delta_count": 0,
+      "wall_seconds": 28.8523
+    },
+    {
+      "active_cores": 22502,
+      "clingo_utility": 4749244,
+      "cons_viol_count": 515,
+      "contested_mappings": 11532,
+      "iteration": 11,
+      "peak_rss_mb": 3259.5,
+      "unsat_delta_count": 0,
+      "wall_seconds": 28.3798
+    },
+    {
+      "active_cores": 22504,
+      "clingo_utility": 4749106,
+      "cons_viol_count": 512,
+      "contested_mappings": 11532,
+      "iteration": 12,
+      "peak_rss_mb": 3356.17,
+      "unsat_delta_count": 0,
+      "wall_seconds": 27.9733
+    },
+    {
+      "active_cores": 22526,
+      "clingo_utility": 4748355,
+      "cons_viol_count": 115,
+      "contested_mappings": 11533,
+      "iteration": 13,
+      "peak_rss_mb": 3229.78,
+      "unsat_delta_count": 0,
+      "wall_seconds": 28.593
+    },
+    {
+      "active_cores": 22533,
+      "clingo_utility": 4748279,
+      "cons_viol_count": 81,
+      "contested_mappings": 11533,
+      "iteration": 14,
+      "peak_rss_mb": 3094.17,
+      "unsat_delta_count": 0,
+      "wall_seconds": 27.7703
+    },
+    {
+      "active_cores": 22549,
+      "clingo_utility": 4749216,
+      "cons_viol_count": 111,
+      "contested_mappings": 11536,
+      "iteration": 15,
+      "peak_rss_mb": 2995.05,
+      "unsat_delta_count": 0,
+      "wall_seconds": 28.3361
+    },
+    {
+      "active_cores": 22561,
+      "clingo_utility": 4749621,
+      "cons_viol_count": 29,
+      "contested_mappings": 11537,
+      "iteration": 16,
+      "peak_rss_mb": 3039.17,
+      "unsat_delta_count": 0,
+      "wall_seconds": 27.477
+    },
+    {
+      "active_cores": 22564,
+      "clingo_utility": 4749500,
+      "cons_viol_count": 0,
+      "contested_mappings": 11537,
+      "iteration": 17,
+      "peak_rss_mb": 3121.03,
+      "unsat_delta_count": 0,
+      "wall_seconds": 30.6854
+    }
+  ],
+  "contested_mappings": 11537,
+  "gold_equiv_count": 8551,
+  "gold_subs_count": 3441,
+  "h1_breakdown": {
+    "hub_consviol": 33192,
+    "hub_unsat_delta": 23619,
+    "pairwise_audits": {
+      "DOID__NCIT": {
+        "cons_viol": 57928,
+        "mappings": 5332,
+        "unsat_delta": 10144
+      },
+      "DOID__OMIM": {
+        "cons_viol": 360,
+        "mappings": 2421,
+        "unsat_delta": 0
+      },
+      "DOID__ORDO": {
+        "cons_viol": 11225,
+        "mappings": 2234,
+        "unsat_delta": 0
+      },
+      "NCIT__OMIM": {
+        "cons_viol": 66,
+        "mappings": 957,
+        "unsat_delta": 0
+      },
+      "NCIT__ORDO": {
+        "cons_viol": 7780,
+        "mappings": 1984,
+        "unsat_delta": 2079
+      },
+      "OMIM__ORDO": {
+        "cons_viol": 4462,
+        "mappings": 3766,
+        "unsat_delta": 0
+      }
+    },
+    "pairwise_conflict_mapping_rate": 0.82317,
+    "total_pairwise_consviol": 81821,
+    "total_pairwise_unsat": 12223
+  },
+  "initial_conflict_cores": 5753,
+  "max_dossier_tokens": 345,
+  "native_unsat": 0,
+  "num_classes": 43150,
+  "num_dossiers": 11537,
+  "num_mappings": 16694,
+  "num_ontologies": 4,
+  "oracle_agreement": {
+    "pairwise_js_divergence": {}
+  },
+  "peak_rss_mb": 3438.05,
+  "per_ont_classes": {
+    "DOID": 8465,
+    "NCIT": 15762,
+    "OMIM": 9648,
+    "ORDO": 9275
+  },
+  "statistical_tests": {
+    "B4_Lexical_Lattice_vs_B2_LogMap": {
+      "baseline_mean": 0.655734,
+      "ci95_high": 0.062113,
+      "ci95_low": 0.055255,
+      "mcnemar_p": 1.0,
+      "mean_diff": 0.058694,
+      "n": 11537,
+      "significant_fdr_001": true,
+      "treatment_mean": 0.714428,
+      "wilcoxon_p": 0.0,
+      "wilcoxon_q_fdr_bh": 0.0
+    },
+    "B4_Lexical_Lattice_vs_B3_BinaryDelete": {
+      "baseline_mean": 0.678341,
+      "ci95_high": 0.042179,
+      "ci95_low": 0.029994,
+      "mcnemar_p": 1.0,
+      "mean_diff": 0.036087,
+      "n": 11537,
+      "significant_fdr_001": true,
+      "treatment_mean": 0.714428,
+      "wilcoxon_p": 0.0,
+      "wilcoxon_q_fdr_bh": 0.0
+    }
+  },
+  "systems": {
+    "B1_Raw_Hub": {
+      "action_counts": {
+        "downgrade_sub": 0,
+        "downgrade_sup": 0,
+        "keep_equiv": 16694,
+        "negate_drop": 0,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 33192,
+      "contested_directional_preservation": 0.0,
+      "contested_non_drop_rate": 1.0,
+      "equiv_f1": 0.648208,
+      "equiv_precision": 0.490116,
+      "equiv_recall": 0.956847,
+      "novel_cross_entailments": 163895,
+      "semantic_retention": 1.0,
+      "sub_f1": 0.0,
+      "sub_precision": 0.0,
+      "sub_recall": 0.0,
+      "unsat_delta": 23619
+    },
+    "B2_LogMap_Repair": {
+      "action_counts": {
+        "downgrade_sub": 6185,
+        "downgrade_sup": 10432,
+        "keep_equiv": 46,
+        "negate_drop": 31,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 5126,
+      "contested_directional_preservation": 0.994019,
+      "contested_non_drop_rate": 0.997313,
+      "equiv_f1": 0.008608,
+      "equiv_precision": 0.804348,
+      "equiv_recall": 0.004327,
+      "novel_cross_entailments": 321061,
+      "semantic_retention": 0.749427,
+      "sub_f1": 0.0,
+      "sub_precision": 0.0,
+      "sub_recall": 0.0,
+      "unsat_delta": 4
+    },
+    "B3_ASP_Binary_Delete": {
+      "action_counts": {
+        "downgrade_sub": 0,
+        "downgrade_sup": 0,
+        "keep_equiv": 13962,
+        "negate_drop": 2732,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 0,
+      "contested_directional_preservation": 0.0,
+      "contested_non_drop_rate": 0.763197,
+      "equiv_f1": 0.606405,
+      "equiv_precision": 0.488898,
+      "equiv_recall": 0.798269,
+      "novel_cross_entailments": 263759,
+      "semantic_retention": 0.844964,
+      "sub_f1": 0.0,
+      "sub_precision": 0.0,
+      "sub_recall": 0.0,
+      "unsat_delta": 0
+    },
+    "B4_Lexical_Lattice": {
+      "action_counts": {
+        "downgrade_sub": 3457,
+        "downgrade_sup": 2535,
+        "keep_equiv": 9873,
+        "negate_drop": 479,
+        "weaken_ancestor": 350
+      },
+      "cons_viol": 0,
+      "contested_directional_preservation": 0.54971,
+      "contested_non_drop_rate": 0.958481,
+      "equiv_f1": 0.662614,
+      "equiv_precision": 0.618252,
+      "equiv_recall": 0.713835,
+      "novel_cross_entailments": 279461,
+      "semantic_retention": 0.873339,
+      "sub_f1": 0.013704,
+      "sub_precision": 0.010573,
+      "sub_recall": 0.019471,
+      "unsat_delta": 0
+    }
+  },
+  "total_cegar_cores_b4": 22564
+}

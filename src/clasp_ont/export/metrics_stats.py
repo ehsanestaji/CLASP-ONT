@@ -93,6 +93,7 @@ def run_pairwise_vs_hub_audit(
             },
             wall_seconds=0.0,
             peak_rss_mb=native_audit.peak_rss_mb,
+            sig_substrings=native_audit.sig_substrings,
         )
         pw_bridge = write_mappings_owl(
             sub_mappings, None, work_dir / f"pw_{pair_key}" / "bridge.owl"
@@ -105,7 +106,7 @@ def run_pairwise_vs_hub_audit(
             heap_flag=heap_flag,
         )
         u_cnt = len(pw_rep.unsat_delta)
-        c_cnt = len(pw_rep.cons_violations)
+        c_cnt = pw_rep.cons_viol_count
         tot_pw_unsat += u_cnt
         tot_pw_cons += c_cnt
         if u_cnt > 0 or c_cnt > 0:
@@ -124,7 +125,7 @@ def run_pairwise_vs_hub_audit(
         total_pairwise_unsat=tot_pw_unsat,
         total_pairwise_consviol=tot_pw_cons,
         hub_unsat_delta=len(full_hub_audit.unsat_delta),
-        hub_consviol=len(full_hub_audit.cons_violations),
+        hub_consviol=full_hub_audit.cons_viol_count,
         pairwise_conflict_mapping_rate=round(pw_rate, 6),
     )
 

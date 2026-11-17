@@ -11,7 +11,10 @@
     {
       "color": "#56B4E9",
       "data": [
-        22
+        6499,
+        12223,
+        22,
+        18057
       ],
       "name": "Pairwise Unsat",
       "type": "bar"
@@ -19,7 +22,10 @@
     {
       "color": "#D55E00",
       "data": [
-        26
+        10644,
+        23619,
+        26,
+        40698
       ],
       "name": "Merged Hub Unsat_Delta",
       "type": "bar"
@@ -27,7 +33,10 @@
     {
       "color": "#009E73",
       "data": [
-        22
+        263119,
+        81821,
+        22,
+        313763
       ],
       "name": "Pairwise ConsViol",
       "type": "bar"
@@ -35,7 +44,10 @@
     {
       "color": "#CC79A7",
       "data": [
-        30
+        234152,
+        33192,
+        30,
+        805
       ],
       "name": "Merged Hub ConsViol",
       "type": "bar"
@@ -49,7 +61,10 @@
   },
   "xAxis": {
     "data": [
-      "Phase0_Toy_Hub"
+      "Disease_Phenotype_Hub",
+      "OAEI_BioML_2026",
+      "Phase0_Toy_Hub",
+      "Plant_Biodiv_Hub"
     ],
     "type": "category"
   },

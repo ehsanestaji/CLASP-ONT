@@ -23,6 +23,7 @@ data/toy/
 
 # Snakemake & OS
 .snakemake/
+.tmp/
 .DS_Store
 *.duckdb
 *.duckdb.wal

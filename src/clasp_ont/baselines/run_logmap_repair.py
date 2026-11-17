@@ -8,6 +8,7 @@ import tempfile
 import time
 from collections.abc import Sequence
 from dataclasses import dataclass
+from itertools import combinations
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
 
@@ -15,7 +16,7 @@ from clasp_ont.ingest.preclean import NativeHubAudit
 from clasp_ont.ingest.sssom_io import MappingRecord, write_mappings_owl
 from clasp_ont.symbolic.cegar_loop import compute_semantic_retention, load_lattice_config
 from clasp_ont.symbolic.conservativity import HubAuditReport, audit_merged_hub
-from clasp_ont.symbolic.reasoner_elk import resolve_java_bin, run_robot_cli
+from clasp_ont.symbolic.reasoner_elk import resolve_java_bin
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 LOGMAP_JAR = REPO_ROOT / "vendor" / "logmap-standalone" / "logmap-matcher-4.0.jar"
@@ -223,36 +224,25 @@ def run_logmap_repair(
             java_bin, o1_p, o2_p, o1_iris, mappings, selected_actions, heap_flag=heap_flag
         )
     else:
-        for idx, (ont_id, ont_path) in enumerate(ont_items):
-            other_onts = [p for j, (_oid, p) in enumerate(ont_items) if j != idx]
-            o1_iris = {iri for iri, oid in native_audit.class_to_ont.items() if oid == ont_id}
-            internal_records = [
+        # Native pairwise LogMap DEBUGGER across every ontology pair sharing crosswalks
+        iris_by_ont: dict[str, set[str]] = {oid: set() for oid, _ in ont_items}
+        for iri, oid in native_audit.class_to_ont.items():
+            if oid in iris_by_ont:
+                iris_by_ont[oid].add(iri)
+
+        for (o1_id, o1_p), (o2_id, o2_p) in combinations(ont_items, 2):
+            s1 = iris_by_ont[o1_id]
+            s2 = iris_by_ont[o2_id]
+            pair_records = [
                 m
                 for m in mappings
-                if selected_actions.get(m.mapping_id) != "negate_drop"
-                and m.subject_id not in o1_iris
-                and m.object_id not in o1_iris
+                if (m.subject_id in s1 and m.object_id in s2)
+                or (m.subject_id in s2 and m.object_id in s1)
             ]
-            cross_records = [
-                m
-                for m in mappings
-                if selected_actions.get(m.mapping_id) != "negate_drop"
-                and (m.subject_id in o1_iris or m.object_id in o1_iris)
-            ]
-            if not cross_records:
+            if not pair_records:
                 continue
-
-            internal_bridge = work_dir / f"logmap_rest_bridge_{idx}.owl"
-            write_mappings_owl(internal_records, selected_actions, internal_bridge)
-            merged_rest = work_dir / f"logmap_rest_merged_{idx}.owl"
-            merge_args = ["merge"]
-            for op in other_onts:
-                merge_args.extend(["--input", str(op)])
-            merge_args.extend(["--input", str(internal_bridge), "--output", str(merged_rest)])
-            run_robot_cli(merge_args, heap_flag=heap_flag)
-
             upd = _run_single_logmap_debugger(
-                java_bin, ont_path, merged_rest, o1_iris, cross_records, selected_actions, heap_flag=heap_flag
+                java_bin, o1_p, o2_p, s1, pair_records, selected_actions, heap_flag=heap_flag
             )
             selected_actions.update(upd)
 

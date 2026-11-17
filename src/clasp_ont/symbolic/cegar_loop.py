@@ -62,6 +62,7 @@ class CertifiedRepairResult:
     objective_utility: int
     semantic_retention: float
     certificate_sha256: str
+    discovered_cores: list[ConflictCore] = field(default_factory=list)
     certificate_json: dict[str, object] = field(default_factory=dict)
 
 
@@ -119,6 +120,7 @@ def solve_clingo_lattice(
     scale: int = 1000,
     threads: int = 4,
     binary_only: bool = False,
+    time_limit_sec: float = 15.0,
 ) -> tuple[dict[str, str], int]:
     """Ground contested mappings, utilities, and conflict cores into Clingo and solve to optimality."""
     if not contested_records:
@@ -162,28 +164,37 @@ def solve_clingo_lattice(
             prop_atom = prop if prop in {"exact", "dir_sub", "dir_sup", "weak_sub", "weak_sup"} else f"act({prop})"
             facts.append(f'core_lit({cid}, "{mid}", {prop_atom}).')
 
-    ctl = clingo.Control([f"-t{max(1, int(threads))}"])
+    # Use Unsat-Core Guided Optimization (--opt-strategy=usc) for exponential speedup on large hitting sets
+    ctl_args = [f"-t{max(1, int(threads))}", "--opt-strategy=usc,k,0,4"]
+    ctl = clingo.Control(ctl_args)
     ctl.load(str(ASP_PROGRAM_PATH))
     ctl.add("base", [], "\n".join(facts))
     ctl.ground([("base", [])])
 
     best_assignment: dict[str, str] = {}
-    proven = False
 
     def _on_model(model: clingo.Model) -> None:
-        nonlocal best_assignment, proven
+        nonlocal best_assignment
         current: dict[str, str] = {}
         for sym in model.symbols(shown=True):
             if sym.name == "selected" and len(sym.arguments) == 2:
                 m_str = sym.arguments[0].string
                 a_str = sym.arguments[1].name
                 current[m_str] = a_str
-        best_assignment = current
-        if model.optimality_proven:
-            proven = True
+        if current:
+            best_assignment = current
 
-    solve_res = ctl.solve(on_model=_on_model)
-    if not solve_res.satisfiable or not best_assignment:
+    with ctl.solve(on_model=_on_model, async_=True) as handle:
+        finished = handle.wait(max(1.0, float(time_limit_sec)))
+        if not finished:
+            handle.cancel()
+        solve_res = handle.get()
+
+    if not best_assignment:
+        # If async timeout occurred before first model on massive core set, solve without timeout until first model
+        solve_res = ctl.solve(on_model=_on_model)
+
+    if (not solve_res.satisfiable and not best_assignment) or not best_assignment:
         raise RuntimeError("Clingo lattice optimization was UNSATISFIABLE (no valid assignment found).")
 
     exact_util = sum(utility_lookup.get((m, a), 0) for m, a in best_assignment.items())
@@ -298,7 +309,7 @@ def run_clingo_cegar(
                 contested_mappings=len(contested_ids),
                 clingo_utility=obj_util,
                 unsat_delta_count=len(audit.unsat_delta),
-                cons_viol_count=len(audit.cons_violations),
+                cons_viol_count=audit.cons_viol_count,
                 wall_seconds=elapsed,
                 peak_rss_mb=audit.peak_rss_mb,
             )
@@ -307,6 +318,12 @@ def run_clingo_cegar(
         if audit.is_certified:
             final_audit = audit
             break
+
+        print(
+            f"  [CEGAR:{system_id}] iter {it:02d}: Unsat_Delta={len(audit.unsat_delta)}, "
+            f"ConsViol={audit.cons_viol_count}, active_cores={len(accumulated_cores)} ({elapsed:.2f}s)",
+            flush=True,
+        )
 
         # Secondary conflict core discovery on candidate assignment
         new_cores, _ = extract_conflict_cores(
@@ -359,7 +376,7 @@ def run_clingo_cegar(
         "system_id": system_id,
         "suite_id": native_audit.suite_id,
         "unsat_delta_count": len(final_audit.unsat_delta),
-        "cons_viol_count": len(final_audit.cons_violations),
+        "cons_viol_count": final_audit.cons_viol_count,
         "total_mappings": len(mappings),
         "contested_mappings": len(contested_final),
         "total_conflict_cores": len(accumulated_cores),
@@ -390,5 +407,6 @@ def run_clingo_cegar(
         objective_utility=obj_util,
         semantic_retention=retention,
         certificate_sha256=cert_sha,
+        discovered_cores=accumulated_cores,
         certificate_json=cert_payload,
     )

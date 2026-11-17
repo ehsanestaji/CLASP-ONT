@@ -104,7 +104,7 @@ def build_all_figures_and_macros(
     _write_json(f1_echarts, figures_dir / "fig1_compositional_breakdown.echarts.json")
     _write_json(f1_plotly, figures_dir / "fig1_compositional_breakdown.plotly.json")
 
-    fig, ax = plt.subplots(figsize=(7.2, 4.4))
+    fig, ax = plt.subplots(figsize=(7.6, 4.5))
     x = np.arange(max(1, len(f1_labels)))
     w = 0.19
     if f1_labels:
@@ -114,9 +114,10 @@ def build_all_figures_and_macros(
         ax.bar(x + 1.5 * w, f1_hub_cons, w, label="Hub ConsViol", color="#CC79A7")
         ax.set_xticks(x)
         ax.set_xticklabels(f1_labels, rotation=10, ha="center")
-        max_f1 = max([*f1_pw_unsat, *f1_hub_unsat, *f1_pw_cons, *f1_hub_cons, 1])
-        ax.set_ylim(0, max_f1 * 1.28)
-    ax.set_ylabel("Violation Count")
+        ax.set_yscale("symlog", linthresh=10)
+        max_f1 = max([*f1_pw_unsat, *f1_hub_unsat, *f1_pw_cons, *f1_hub_cons, 10])
+        ax.set_ylim(0, max_f1 * 6.0)
+    ax.set_ylabel("Violation Count (log scale)")
     ax.set_title("Pairwise vs. Composed Multi-Ontology Hub Breakdown", fontsize=11, pad=10)
     ax.legend(frameon=False, fontsize=8.5, ncol=2, loc="upper center")
     ax.spines["top"].set_visible(False)
@@ -191,24 +192,46 @@ def build_all_figures_and_macros(
     # Figure 3: Destructive Deletion vs. 5-Element Lattice Fate Proportions
     # =========================================================================
     actions = ["keep_equiv", "downgrade_sub", "downgrade_sup", "weaken_ancestor", "negate_drop"]
-    fate_by_act: dict[str, list[int]] = {a: [] for a in actions}
-    for k in sys_order:
-        ac = sys_dict[k].get("action_counts", {})
-        for a in actions:
-            fate_by_act[a].append(int(ac.get(a, 0)))
+    public_suites = [s for s in suite_names if s != "Phase0_Toy_Hub"] or suite_names
+    f3_rows: list[str] = []
+    fate_pct_by_act: dict[str, list[float]] = {a: [] for a in actions}
+    fate_cnt_by_act: dict[str, list[int]] = {a: [] for a in actions}
+    short_suite = {
+        "Disease_Phenotype_Hub": "DiseaseHub",
+        "OAEI_BioML_2026": "BioML26",
+        "Plant_Biodiv_Hub": "PlantHub",
+        "Phase0_Toy_Hub": "ToyHub",
+    }
+    short_sys = {
+        "B3_ASP_Binary_Delete": "B3 (Delete)",
+        "B4_Lexical_Lattice": "B4 (Lattice)",
+        "C4_CLASP_ONT": "C4 (CLASP-ONT)",
+    }
+    for s_id in public_suites:
+        s_sys = suites.get(s_id, {}).get("systems", {})
+        for sk in ("B3_ASP_Binary_Delete", "B4_Lexical_Lattice", "C4_CLASP_ONT"):
+            if sk not in s_sys:
+                continue
+            ac = s_sys[sk].get("action_counts", {})
+            tot = max(1, sum(int(ac.get(a, 0)) for a in actions))
+            f3_rows.append(f"{short_suite.get(s_id, s_id)}: {short_sys.get(sk, sk)}")
+            for a in actions:
+                c_val = int(ac.get(a, 0))
+                fate_cnt_by_act[a].append(c_val)
+                fate_pct_by_act[a].append(round(100.0 * c_val / tot, 2))
 
     f3_echarts = {
-        "title": {"text": f"Contested Mapping Fate Distribution ({primary_suite})"},
+        "title": {"text": "Certified Repair Action Proportions Across Multi-Ontology Hubs (%)"},
         "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
         "legend": {"data": actions},
-        "xAxis": {"type": "value", "name": "Mapping Count"},
-        "yAxis": {"type": "category", "data": sys_order},
+        "xAxis": {"type": "value", "name": "Mappings (%)", "max": 100},
+        "yAxis": {"type": "category", "data": f3_rows},
         "series": [
             {
                 "name": a,
                 "type": "bar",
                 "stack": "total",
-                "data": fate_by_act[a],
+                "data": fate_pct_by_act[a],
                 "color": PALETTE[a],
             }
             for a in actions
@@ -216,32 +239,33 @@ def build_all_figures_and_macros(
     }
     f3_plotly = {
         "data": [
-            {"type": "bar", "orientation": "h", "name": a, "y": sys_order, "x": fate_by_act[a]}
+            {"type": "bar", "orientation": "h", "name": a, "y": f3_rows, "x": fate_pct_by_act[a]}
             for a in actions
         ],
-        "layout": {"title": "Mapping Fate Breakdown", "barmode": "stack"},
+        "layout": {"title": "Certified Mapping Fate Breakdown (%)", "barmode": "stack"},
     }
     _write_json(f3_echarts, figures_dir / "fig3_lattice_fate_breakdown.echarts.json")
     _write_json(f3_plotly, figures_dir / "fig3_lattice_fate_breakdown.plotly.json")
 
-    fig, ax = plt.subplots(figsize=(7.8, 4.3))
-    if sys_order:
-        y3 = np.arange(len(sys_order))
-        left = np.zeros(len(sys_order))
+    fig, ax = plt.subplots(figsize=(8.0, 4.6))
+    if f3_rows:
+        y3 = np.arange(len(f3_rows))
+        left = np.zeros(len(f3_rows))
         for a in actions:
-            vals = np.array(fate_by_act[a], dtype=float)
-            ax.barh(y3, vals, left=left, label=a, color=PALETTE[a])
+            vals = np.array(fate_pct_by_act[a], dtype=float)
+            ax.barh(y3, vals, height=0.68, left=left, label=a, color=PALETTE[a])
             left += vals
         ax.set_yticks(y3)
-        ax.set_yticklabels(sys_order)
-    ax.set_xlabel("Mappings")
-    ax.set_title(f"Deletion vs. Non-Destructive Lattice Refinement ({primary_suite})", fontsize=10.8, pad=10)
+        ax.set_yticklabels(f3_rows, fontsize=9)
+        ax.set_xlim(0, 100)
+    ax.set_xlabel("Percentage of Hub Crosswalks (%)")
+    ax.set_title("Destructive Deletion (B3) vs. Non-Destructive 5-Action Lattice Refinement (B4)", fontsize=10.6, pad=10)
     ax.legend(
         frameon=False,
-        fontsize=8,
+        fontsize=8.2,
         ncol=5,
         loc="upper center",
-        bbox_to_anchor=(0.5, -0.18),
+        bbox_to_anchor=(0.46, -0.16),
     )
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -292,58 +316,93 @@ def build_all_figures_and_macros(
     exported["fig4_pdf"] = f4_pdf
 
     # =========================================================================
-    # Figure 5: CEGAR Convergence & CPU Memory Telemetry
+    # Figure 5: Multi-Suite CEGAR Convergence & CPU Memory Telemetry
     # =========================================================================
-    telemetry = suites.get(primary_suite, {}).get("cegar_telemetry", [])
-    it_nums = [int(t["iteration"]) for t in telemetry] or [1]
-    it_sec = [round(float(t["wall_seconds"]), 3) for t in telemetry] or [0.0]
-    it_rss = [round(float(t["peak_rss_mb"]), 1) for t in telemetry] or [0.0]
-    it_viols = [int(t["unsat_delta_count"]) + int(t["cons_viol_count"]) for t in telemetry] or [0]
+    suite_colors = ["#D55E00", "#0072B2", "#009E73", "#CC79A7"]
+    suite_markers = ["o", "s", "^", "D"]
+    f5_series_echarts: list[dict] = []
+    f5_data_plotly: list[dict] = []
+    max_iters_seen = 1
+    for idx_s, s_id in enumerate(public_suites):
+        tel = suites.get(s_id, {}).get("cegar_telemetry", [])
+        if not tel:
+            continue
+        xs = [int(t["iteration"]) for t in tel]
+        ys = [int(t["unsat_delta_count"]) + int(t["cons_viol_count"]) for t in tel]
+        rss_s = [round(float(t["peak_rss_mb"]), 1) for t in tel]
+        max_iters_seen = max(max_iters_seen, max(xs))
+        c_hex = suite_colors[idx_s % len(suite_colors)]
+        f5_series_echarts.append(
+            {"name": f"{s_id} Violations", "type": "line", "data": list(zip(xs, ys, strict=True)), "color": c_hex}
+        )
+        f5_series_echarts.append(
+            {
+                "name": f"{s_id} Peak RSS (MB)",
+                "type": "line",
+                "yAxisIndex": 1,
+                "data": list(zip(xs, rss_s, strict=True)),
+                "color": c_hex,
+            }
+        )
+        f5_data_plotly.append({"type": "scatter", "mode": "lines+markers", "name": f"{s_id} Violations", "x": xs, "y": ys})
+        f5_data_plotly.append(
+            {"type": "scatter", "mode": "lines", "name": f"{s_id} Peak RSS (MB)", "x": xs, "y": rss_s, "yaxis": "y2"}
+        )
 
     f5_echarts = {
-        "title": {"text": f"CEGAR Convergence & CPU Telemetry ({primary_suite})"},
-        "xAxis": {"type": "category", "name": "CEGAR Iteration", "data": it_nums},
+        "title": {"text": "CEGAR Convergence to Zero Violations & Peak RSS Telemetry"},
+        "xAxis": {"type": "value", "name": "CEGAR Iteration", "min": 1, "max": max_iters_seen},
         "yAxis": [
-            {"type": "value", "name": "Remaining Violations / Wall Sec"},
-            {"type": "value", "name": "Peak RSS (MB)"},
+            {"type": "log", "name": "Post-Iteration Violations"},
+            {"type": "value", "name": "Peak RSS (MB)", "max": 6500},
         ],
-        "series": [
-            {"name": "Remaining Violations", "type": "line", "data": it_viols, "color": PALETTE["alert"]},
-            {"name": "Wall Seconds", "type": "bar", "data": it_sec, "color": PALETTE["secondary"]},
-            {"name": "Peak RSS (MB)", "type": "line", "yAxisIndex": 1, "data": it_rss, "color": PALETTE["primary"]},
-        ],
+        "series": f5_series_echarts,
     }
     f5_plotly = {
-        "data": [
-            {"type": "scatter", "mode": "lines+markers", "name": "Remaining Violations", "x": it_nums, "y": it_viols},
-            {"type": "bar", "name": "Wall Seconds", "x": it_nums, "y": it_sec},
-            {"type": "scatter", "mode": "lines+markers", "name": "Peak RSS (MB)", "x": it_nums, "y": it_rss, "yaxis": "y2"},
-        ],
+        "data": f5_data_plotly,
         "layout": {
-            "title": f"CEGAR Convergence & Memory Telemetry ({primary_suite})",
+            "title": "CEGAR Convergence & Memory Telemetry Across Multi-Ontology Hubs",
             "xaxis": {"title": "CEGAR Iteration"},
-            "yaxis": {"title": "Violations / Seconds"},
+            "yaxis": {"title": "Remaining Violations (symlog)"},
             "yaxis2": {"title": "Peak RSS (MB)", "overlaying": "y", "side": "right"},
         },
     }
     _write_json(f5_echarts, figures_dir / "fig5_cegar_telemetry.echarts.json")
     _write_json(f5_plotly, figures_dir / "fig5_cegar_telemetry.plotly.json")
 
-    fig, ax1 = plt.subplots(figsize=(7.2, 4.2))
-    l1 = ax1.plot(it_nums, it_viols, marker="o", color=PALETTE["alert"], label="Post-Iter Violations")
-    b1 = ax1.bar(it_nums, it_sec, width=0.25, alpha=0.45, color=PALETTE["secondary"], label="Iter Runtime (s)")
-    ax1.set_xticks(it_nums)
-    ax1.set_xlabel("CEGAR Iteration")
-    ax1.set_ylabel("Violations / Runtime (s)")
-    ax1.set_ylim(0, max([*it_viols, *it_sec, 1]) * 1.25)
-    ax2 = ax1.twinx()
-    l2 = ax2.plot(it_nums, it_rss, marker="s", linestyle="--", color=PALETTE["primary"], label="Peak RSS (MB)")
-    ax2.set_ylabel("Peak RSS Memory (MB)")
-    ax2.set_ylim(0, max(600.0, max(it_rss) * 1.3))
-    handles = [*l1, b1, *l2]
-    labels_h = [h.get_label() for h in handles]
-    ax1.legend(handles, labels_h, frameon=False, fontsize=8.2, ncol=3, loc="upper center")
-    ax1.set_title(f"CEGAR Convergence & CPU Memory Footprint ({primary_suite})", fontsize=10.8, pad=10)
+    fig, (ax_v, ax_m) = plt.subplots(1, 2, figsize=(9.4, 4.1))
+    for idx_s, s_id in enumerate(public_suites):
+        tel = suites.get(s_id, {}).get("cegar_telemetry", [])
+        if not tel:
+            continue
+        xs = [int(t["iteration"]) for t in tel]
+        ys = [int(t["unsat_delta_count"]) + int(t["cons_viol_count"]) for t in tel]
+        rss_s = [round(float(t["peak_rss_mb"]) / 1024.0, 2) for t in tel]
+        c_hex = suite_colors[idx_s % len(suite_colors)]
+        mk = suite_markers[idx_s % len(suite_markers)]
+        lbl = short_suite.get(s_id, s_id)
+        ax_v.plot(xs, ys, marker=mk, markersize=4.5, linewidth=1.7, color=c_hex, label=lbl)
+        ax_m.plot(xs, rss_s, marker=mk, markersize=4.5, linewidth=1.7, linestyle="--", color=c_hex, label=lbl)
+
+    ax_v.set_yscale("symlog", linthresh=1)
+    ax_v.set_xlabel("CEGAR Iteration")
+    ax_v.set_ylabel("Residual Violations (|Unsat_Delta| + |ConsViol|)")
+    ax_v.set_title("A. Convergence to Exact 0 Violations", fontsize=10.2)
+    ax_v.set_xticks(range(1, max_iters_seen + 1, 2 if max_iters_seen > 10 else 1))
+    ax_v.spines["top"].set_visible(False)
+    ax_v.spines["right"].set_visible(False)
+    ax_v.legend(frameon=False, fontsize=8.3, loc="upper right")
+
+    ax_m.axhline(6.0, color="#7F7F7F", linestyle=":", linewidth=1.4, label="6.0 GB Hard Cap")
+    ax_m.set_xlabel("CEGAR Iteration")
+    ax_m.set_ylabel("Peak RSS Memory (GB)")
+    ax_m.set_ylim(0, 6.6)
+    ax_m.set_xticks(range(1, max_iters_seen + 1, 2 if max_iters_seen > 10 else 1))
+    ax_m.set_title("B. Memory Ceiling Compliance (< 6 GB)", fontsize=10.2)
+    ax_m.spines["top"].set_visible(False)
+    ax_m.spines["right"].set_visible(False)
+    ax_m.legend(frameon=False, fontsize=8.3, loc="lower right")
+
     fig.tight_layout()
     f5_pdf = figures_dir / "fig5_cegar_telemetry.pdf"
     fig.savefig(f5_pdf, bbox_inches="tight")

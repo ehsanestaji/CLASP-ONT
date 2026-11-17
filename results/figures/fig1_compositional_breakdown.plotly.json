@@ -4,40 +4,64 @@
       "name": "Pairwise Unsat",
       "type": "bar",
       "x": [
-        "Phase0_Toy_Hub"
+        "Disease_Phenotype_Hub",
+        "OAEI_BioML_2026",
+        "Phase0_Toy_Hub",
+        "Plant_Biodiv_Hub"
       ],
       "y": [
-        22
+        6499,
+        12223,
+        22,
+        18057
       ]
     },
     {
       "name": "Merged Hub Unsat_Delta",
       "type": "bar",
       "x": [
-        "Phase0_Toy_Hub"
+        "Disease_Phenotype_Hub",
+        "OAEI_BioML_2026",
+        "Phase0_Toy_Hub",
+        "Plant_Biodiv_Hub"
       ],
       "y": [
-        26
+        10644,
+        23619,
+        26,
+        40698
       ]
     },
     {
       "name": "Pairwise ConsViol",
       "type": "bar",
       "x": [
-        "Phase0_Toy_Hub"
+        "Disease_Phenotype_Hub",
+        "OAEI_BioML_2026",
+        "Phase0_Toy_Hub",
+        "Plant_Biodiv_Hub"
       ],
       "y": [
-        22
+        263119,
+        81821,
+        22,
+        313763
       ]
     },
     {
       "name": "Merged Hub ConsViol",
       "type": "bar",
       "x": [
-        "Phase0_Toy_Hub"
+        "Disease_Phenotype_Hub",
+        "OAEI_BioML_2026",
+        "Phase0_Toy_Hub",
+        "Plant_Biodiv_Hub"
       ],
       "y": [
-        30
+        234152,
+        33192,
+        30,
+        805
       ]
     }
   ],

@@ -1,0 +1,334 @@
+{
+  "b4_certificate_sha256": "d6baabbf1cd9f8d9c20f4e59cc4ef0edde4941cb5c7dddefc8c0910da1ae7891",
+  "cegar_telemetry": [
+    {
+      "active_cores": 1560,
+      "clingo_utility": 229206,
+      "cons_viol_count": 695,
+      "contested_mappings": 878,
+      "iteration": 1,
+      "peak_rss_mb": 2398.42,
+      "unsat_delta_count": 2330,
+      "wall_seconds": 79.8813
+    },
+    {
+      "active_cores": 1797,
+      "clingo_utility": 210645,
+      "cons_viol_count": 749,
+      "contested_mappings": 884,
+      "iteration": 2,
+      "peak_rss_mb": 2458.66,
+      "unsat_delta_count": 742,
+      "wall_seconds": 90.7397
+    },
+    {
+      "active_cores": 1966,
+      "clingo_utility": 202352,
+      "cons_viol_count": 648,
+      "contested_mappings": 886,
+      "iteration": 3,
+      "peak_rss_mb": 1801.2,
+      "unsat_delta_count": 517,
+      "wall_seconds": 54.1453
+    },
+    {
+      "active_cores": 2030,
+      "clingo_utility": 191052,
+      "cons_viol_count": 606,
+      "contested_mappings": 886,
+      "iteration": 4,
+      "peak_rss_mb": 2207.36,
+      "unsat_delta_count": 55,
+      "wall_seconds": 36.7567
+    },
+    {
+      "active_cores": 2068,
+      "clingo_utility": 189847,
+      "cons_viol_count": 610,
+      "contested_mappings": 886,
+      "iteration": 5,
+      "peak_rss_mb": 1569.25,
+      "unsat_delta_count": 12,
+      "wall_seconds": 66.5778
+    },
+    {
+      "active_cores": 2077,
+      "clingo_utility": 189342,
+      "cons_viol_count": 610,
+      "contested_mappings": 886,
+      "iteration": 6,
+      "peak_rss_mb": 2263.48,
+      "unsat_delta_count": 10,
+      "wall_seconds": 49.3919
+    },
+    {
+      "active_cores": 2080,
+      "clingo_utility": 189272,
+      "cons_viol_count": 608,
+      "contested_mappings": 886,
+      "iteration": 7,
+      "peak_rss_mb": 1806.53,
+      "unsat_delta_count": 8,
+      "wall_seconds": 35.348
+    },
+    {
+      "active_cores": 2081,
+      "clingo_utility": 189093,
+      "cons_viol_count": 608,
+      "contested_mappings": 886,
+      "iteration": 8,
+      "peak_rss_mb": 1909.95,
+      "unsat_delta_count": 7,
+      "wall_seconds": 36.6086
+    },
+    {
+      "active_cores": 2094,
+      "clingo_utility": 189002,
+      "cons_viol_count": 15,
+      "contested_mappings": 887,
+      "iteration": 9,
+      "peak_rss_mb": 1652.06,
+      "unsat_delta_count": 102,
+      "wall_seconds": 30.8603
+    },
+    {
+      "active_cores": 2098,
+      "clingo_utility": 188437,
+      "cons_viol_count": 8,
+      "contested_mappings": 887,
+      "iteration": 10,
+      "peak_rss_mb": 2343.64,
+      "unsat_delta_count": 0,
+      "wall_seconds": 27.354
+    },
+    {
+      "active_cores": 2099,
+      "clingo_utility": 188416,
+      "cons_viol_count": 0,
+      "contested_mappings": 887,
+      "iteration": 11,
+      "peak_rss_mb": 1939.41,
+      "unsat_delta_count": 0,
+      "wall_seconds": 20.9324
+    }
+  ],
+  "contested_mappings": 887,
+  "gold_equiv_count": 0,
+  "gold_subs_count": 0,
+  "h1_breakdown": {
+    "hub_consviol": 805,
+    "hub_unsat_delta": 40698,
+    "pairwise_audits": {
+      "CHEBI__ENVO": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "CHEBI__FLOPO": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "CHEBI__GO_PLANT": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "CHEBI__PO": {
+        "cons_viol": 48,
+        "mappings": 3,
+        "unsat_delta": 0
+      },
+      "CHEBI__TO": {
+        "cons_viol": 452,
+        "mappings": 81,
+        "unsat_delta": 10059
+      },
+      "ENVO__FLOPO": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "ENVO__GO_PLANT": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "ENVO__PO": {
+        "cons_viol": 282,
+        "mappings": 17,
+        "unsat_delta": 12
+      },
+      "ENVO__TO": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "FLOPO__GO_PLANT": {
+        "cons_viol": 0,
+        "mappings": 0,
+        "unsat_delta": 0
+      },
+      "FLOPO__PO": {
+        "cons_viol": 276808,
+        "mappings": 325,
+        "unsat_delta": 552
+      },
+      "FLOPO__TO": {
+        "cons_viol": 36091,
+        "mappings": 484,
+        "unsat_delta": 7285
+      },
+      "GO_PLANT__PO": {
+        "cons_viol": 0,
+        "mappings": 1,
+        "unsat_delta": 9
+      },
+      "GO_PLANT__TO": {
+        "cons_viol": 0,
+        "mappings": 11,
+        "unsat_delta": 117
+      },
+      "PO__TO": {
+        "cons_viol": 82,
+        "mappings": 21,
+        "unsat_delta": 23
+      }
+    },
+    "pairwise_conflict_mapping_rate": 1.0,
+    "total_pairwise_consviol": 313763,
+    "total_pairwise_unsat": 18057
+  },
+  "initial_conflict_cores": 68,
+  "max_dossier_tokens": 340,
+  "native_unsat": 2,
+  "num_classes": 48407,
+  "num_dossiers": 887,
+  "num_mappings": 943,
+  "num_ontologies": 6,
+  "oracle_agreement": {
+    "pairwise_js_divergence": {}
+  },
+  "peak_rss_mb": 2737.39,
+  "per_ont_classes": {
+    "CHEBI": 11739,
+    "ENVO": 4454,
+    "FLOPO": 28399,
+    "GO_PLANT": 97,
+    "PO": 1996,
+    "TO": 1722
+  },
+  "statistical_tests": {
+    "B4_Lexical_Lattice_vs_B2_LogMap": {
+      "baseline_mean": 0.547935,
+      "ci95_high": -0.158349,
+      "ci95_low": -0.19989,
+      "mcnemar_p": 1.0,
+      "mean_diff": -0.178741,
+      "n": 887,
+      "significant_fdr_001": true,
+      "treatment_mean": 0.369194,
+      "wilcoxon_p": 0.0,
+      "wilcoxon_q_fdr_bh": 0.0
+    },
+    "B4_Lexical_Lattice_vs_B3_BinaryDelete": {
+      "baseline_mean": 0.141601,
+      "ci95_high": 0.245917,
+      "ci95_low": 0.209091,
+      "mcnemar_p": 1.0,
+      "mean_diff": 0.227593,
+      "n": 887,
+      "significant_fdr_001": true,
+      "treatment_mean": 0.369194,
+      "wilcoxon_p": 0.0,
+      "wilcoxon_q_fdr_bh": 0.0
+    }
+  },
+  "systems": {
+    "B1_Raw_Hub": {
+      "action_counts": {
+        "downgrade_sub": 0,
+        "downgrade_sup": 0,
+        "keep_equiv": 943,
+        "negate_drop": 0,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 805,
+      "contested_directional_preservation": 0.0,
+      "contested_non_drop_rate": 1.0,
+      "equiv_f1": 0.0,
+      "equiv_precision": 0.0,
+      "equiv_recall": 0.0,
+      "novel_cross_entailments": 470,
+      "semantic_retention": 1.0,
+      "sub_f1": 1.0,
+      "sub_precision": 1.0,
+      "sub_recall": 1.0,
+      "unsat_delta": 40698
+    },
+    "B2_LogMap_Repair": {
+      "action_counts": {
+        "downgrade_sub": 11,
+        "downgrade_sup": 920,
+        "keep_equiv": 0,
+        "negate_drop": 12,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 15,
+      "contested_directional_preservation": 0.992108,
+      "contested_non_drop_rate": 0.992108,
+      "equiv_f1": 1.0,
+      "equiv_precision": 1.0,
+      "equiv_recall": 1.0,
+      "novel_cross_entailments": 50542,
+      "semantic_retention": 0.739305,
+      "sub_f1": 0.0,
+      "sub_precision": 0.0,
+      "sub_recall": 0.0,
+      "unsat_delta": 17518
+    },
+    "B3_ASP_Binary_Delete": {
+      "action_counts": {
+        "downgrade_sub": 0,
+        "downgrade_sup": 0,
+        "keep_equiv": 219,
+        "negate_drop": 724,
+        "weaken_ancestor": 0
+      },
+      "cons_viol": 0,
+      "contested_directional_preservation": 0.0,
+      "contested_non_drop_rate": 0.183766,
+      "equiv_f1": 0.0,
+      "equiv_precision": 0.0,
+      "equiv_recall": 0.0,
+      "novel_cross_entailments": 32979,
+      "semantic_retention": 0.243063,
+      "sub_f1": 1.0,
+      "sub_precision": 1.0,
+      "sub_recall": 1.0,
+      "unsat_delta": 0
+    },
+    "B4_Lexical_Lattice": {
+      "action_counts": {
+        "downgrade_sub": 89,
+        "downgrade_sup": 329,
+        "keep_equiv": 175,
+        "negate_drop": 277,
+        "weaken_ancestor": 73
+      },
+      "cons_viol": 0,
+      "contested_directional_preservation": 0.553551,
+      "contested_non_drop_rate": 0.687711,
+      "equiv_f1": 0.0,
+      "equiv_precision": 0.0,
+      "equiv_recall": 0.0,
+      "novel_cross_entailments": 26807,
+      "semantic_retention": 0.532441,
+      "sub_f1": 0.0,
+      "sub_precision": 0.0,
+      "sub_recall": 0.0,
+      "unsat_delta": 0
+    }
+  },
+  "total_cegar_cores_b4": 2099
+}

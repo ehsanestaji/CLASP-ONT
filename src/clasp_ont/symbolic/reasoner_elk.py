@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 import time
 from collections.abc import Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import polars as pl
@@ -27,9 +27,11 @@ class ElkClosureResult:
     unsat_classes: set[str]
     closure_parquet: Path
     direct_parents_parquet: Path
+    disjoint_pairs: list[tuple[str, str]]
     num_closure_pairs: int
     wall_seconds: float
     peak_rss_mb: float
+    conj_rules: list[tuple[str, tuple[str, ...]]] = field(default_factory=list)
 
 
 def resolve_java_bin() -> Path:
@@ -46,7 +48,7 @@ def resolve_java_bin() -> Path:
     return java_bin
 
 
-def _jvm_env(heap_flag: str = "-Xmx4G") -> dict[str, str]:
+def _jvm_env(heap_flag: str = "-Xmx4G", sig_substrings: Sequence[str] | None = None) -> dict[str, str]:
     env = dict(os.environ)
     # Strip any third-party API keys unconditionally and cap JVM heap at 4GB
     for k in (
@@ -58,6 +60,10 @@ def _jvm_env(heap_flag: str = "-Xmx4G") -> dict[str, str]:
     ):
         env.pop(k, None)
     env["JAVA_TOOL_OPTIONS"] = heap_flag
+    if sig_substrings:
+        env["CLASP_SIG_SUBSTRINGS"] = ",".join(s for s in sig_substrings if s)
+    else:
+        env.pop("CLASP_SIG_SUBSTRINGS", None)
     return env
 
 
@@ -66,6 +72,8 @@ def run_elk_closure(
     work_dir: Path,
     tag: str = "hub",
     heap_flag: str = "-Xmx4G",
+    sig_substrings: Sequence[str] | None = None,
+    emit_conj_rules: bool = False,
 ) -> ElkClosureResult:
     """Compute exact OWL 2 EL unsatisfiable classes and named-class subsumption closure."""
     if not ROBOT_JAR.is_file():
@@ -78,6 +86,8 @@ def run_elk_closure(
     unsat_tsv = work_dir / f"{tag}.unsat.tsv"
     closure_tsv = work_dir / f"{tag}.closure.tsv"
     direct_tsv = work_dir / f"{tag}.direct.tsv"
+    disjoint_tsv = work_dir / f"{tag}.disjoint.tsv"
+    conj_tsv = work_dir / f"{tag}.conj.tsv"
     closure_parquet = work_dir / f"{tag}.closure.parquet"
     direct_parquet = work_dir / f"{tag}.direct.parquet"
 
@@ -92,8 +102,15 @@ def run_elk_closure(
         str(unsat_tsv),
         str(closure_tsv),
         str(direct_tsv),
+        str(disjoint_tsv),
         *[str(p) for p in ontology_paths],
     ]
+
+    env = _jvm_env(heap_flag, sig_substrings=sig_substrings)
+    if emit_conj_rules:
+        env["CLASP_CONJ_OUT"] = str(conj_tsv)
+    else:
+        env.pop("CLASP_CONJ_OUT", None)
 
     t0 = time.perf_counter()
     proc = subprocess.Popen(
@@ -101,7 +118,7 @@ def run_elk_closure(
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
-        env=_jvm_env(heap_flag),
+        env=env,
     )
     peak_rss = 0.0
     try:
@@ -129,36 +146,59 @@ def run_elk_closure(
     unsat_df = pl.read_csv(unsat_tsv, separator="\t", schema_overrides={"class_iri": pl.Utf8})
     unsat_set = set(unsat_df["class_iri"].to_list()) if unsat_df.height > 0 else set()
 
-    # Stream TSV to compact Parquet via Polars lazy scan and remove temporary raw TSVs
+    dj_df = pl.read_csv(
+        disjoint_tsv, separator="\t", schema_overrides={"cls_a": pl.Utf8, "cls_b": pl.Utf8}, quote_char=None
+    )
+    dj_pairs = [(r[0], r[1]) for r in dj_df.iter_rows()] if dj_df.height > 0 else []
+
+    # ElkClosureRunner emits exact unique (sub, sup) pairs per class; stream directly to Parquet
     pl.scan_csv(
         closure_tsv,
         separator="\t",
         schema_overrides={"sub_iri": pl.Utf8, "sup_iri": pl.Utf8},
         quote_char=None,
-    ).unique().sink_parquet(closure_parquet)
+    ).sink_parquet(closure_parquet)
 
     pl.scan_csv(
         direct_tsv,
         separator="\t",
         schema_overrides={"sub_iri": pl.Utf8, "direct_sup_iri": pl.Utf8},
         quote_char=None,
-    ).unique().sink_parquet(direct_parquet)
+    ).sink_parquet(direct_parquet)
 
     num_pairs = (
         pl.scan_parquet(closure_parquet).select(pl.len()).collect().item()
     )
 
+    conj_rules: list[tuple[str, tuple[str, ...]]] = []
+    if emit_conj_rules and conj_tsv.is_file():
+        conj_df = pl.read_csv(
+            conj_tsv,
+            separator="\t",
+            schema_overrides={"target_iri": pl.Utf8, "conjuncts": pl.Utf8},
+            quote_char=None,
+        )
+        for tgt_i, conjs_s in conj_df.iter_rows():
+            if tgt_i and conjs_s:
+                uniq_c = tuple(sorted({c for c in conjs_s.split(";") if c}))
+                if len(uniq_c) >= 2:
+                    conj_rules.append((tgt_i, uniq_c))
+
     unsat_tsv.unlink(missing_ok=True)
     closure_tsv.unlink(missing_ok=True)
     direct_tsv.unlink(missing_ok=True)
+    disjoint_tsv.unlink(missing_ok=True)
+    conj_tsv.unlink(missing_ok=True)
 
     return ElkClosureResult(
         unsat_classes=unsat_set,
         closure_parquet=closure_parquet,
         direct_parents_parquet=direct_parquet,
+        disjoint_pairs=dj_pairs,
         num_closure_pairs=int(num_pairs),
         wall_seconds=elapsed,
         peak_rss_mb=total_peak_mb,
+        conj_rules=conj_rules,
     )
 
 

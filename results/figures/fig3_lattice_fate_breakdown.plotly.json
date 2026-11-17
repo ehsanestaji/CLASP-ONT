@@ -5,16 +5,20 @@
       "orientation": "h",
       "type": "bar",
       "x": [
-        60,
-        21,
-        45,
-        42
+        56.82,
+        27.0,
+        83.63,
+        59.14,
+        23.22,
+        18.56
       ],
       "y": [
-        "B1_Raw_Hub",
-        "B2_LogMap_Repair",
-        "B3_ASP_Binary_Delete",
-        "B4_Lexical_Lattice"
+        "DiseaseHub: B3 (Delete)",
+        "DiseaseHub: B4 (Lattice)",
+        "BioML26: B3 (Delete)",
+        "BioML26: B4 (Lattice)",
+        "PlantHub: B3 (Delete)",
+        "PlantHub: B4 (Lattice)"
       ]
     },
     {
@@ -22,16 +26,20 @@
       "orientation": "h",
       "type": "bar",
       "x": [
-        0,
-        9,
-        0,
-        10
+        0.0,
+        46.27,
+        0.0,
+        20.71,
+        0.0,
+        9.44
       ],
       "y": [
-        "B1_Raw_Hub",
-        "B2_LogMap_Repair",
-        "B3_ASP_Binary_Delete",
-        "B4_Lexical_Lattice"
+        "DiseaseHub: B3 (Delete)",
+        "DiseaseHub: B4 (Lattice)",
+        "BioML26: B3 (Delete)",
+        "BioML26: B4 (Lattice)",
+        "PlantHub: B3 (Delete)",
+        "PlantHub: B4 (Lattice)"
       ]
     },
     {
@@ -39,16 +47,20 @@
       "orientation": "h",
       "type": "bar",
       "x": [
-        0,
-        22,
-        0,
-        5
+        0.0,
+        13.9,
+        0.0,
+        15.19,
+        0.0,
+        34.89
       ],
       "y": [
-        "B1_Raw_Hub",
-        "B2_LogMap_Repair",
-        "B3_ASP_Binary_Delete",
-        "B4_Lexical_Lattice"
+        "DiseaseHub: B3 (Delete)",
+        "DiseaseHub: B4 (Lattice)",
+        "BioML26: B3 (Delete)",
+        "BioML26: B4 (Lattice)",
+        "PlantHub: B3 (Delete)",
+        "PlantHub: B4 (Lattice)"
       ]
     },
     {
@@ -56,16 +68,20 @@
       "orientation": "h",
       "type": "bar",
       "x": [
-        0,
-        0,
-        0,
-        2
+        0.0,
+        3.04,
+        0.0,
+        2.1,
+        0.0,
+        7.74
       ],
       "y": [
-        "B1_Raw_Hub",
-        "B2_LogMap_Repair",
-        "B3_ASP_Binary_Delete",
-        "B4_Lexical_Lattice"
+        "DiseaseHub: B3 (Delete)",
+        "DiseaseHub: B4 (Lattice)",
+        "BioML26: B3 (Delete)",
+        "BioML26: B4 (Lattice)",
+        "PlantHub: B3 (Delete)",
+        "PlantHub: B4 (Lattice)"
       ]
     },
     {
@@ -73,21 +89,25 @@
       "orientation": "h",
       "type": "bar",
       "x": [
-        0,
-        8,
-        15,
-        1
+        43.18,
+        9.78,
+        16.37,
+        2.87,
+        76.78,
+        29.37
       ],
       "y": [
-        "B1_Raw_Hub",
-        "B2_LogMap_Repair",
-        "B3_ASP_Binary_Delete",
-        "B4_Lexical_Lattice"
+        "DiseaseHub: B3 (Delete)",
+        "DiseaseHub: B4 (Lattice)",
+        "BioML26: B3 (Delete)",
+        "BioML26: B4 (Lattice)",
+        "PlantHub: B3 (Delete)",
+        "PlantHub: B4 (Lattice)"
       ]
     }
   ],
   "layout": {
     "barmode": "stack",
-    "title": "Mapping Fate Breakdown"
+    "title": "Certified Mapping Fate Breakdown (%)"
   }
 }
