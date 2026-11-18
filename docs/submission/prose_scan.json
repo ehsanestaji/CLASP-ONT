@@ -11,7 +11,7 @@
   "files": [
     {
       "file": "paper/cover_letter.tex",
-      "word_count": 528,
+      "word_count": 533,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
