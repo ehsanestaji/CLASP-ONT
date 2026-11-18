@@ -1,0 +1,293 @@
+{
+  "status": "ADVISORY",
+  "checklist_coverage": {
+    "r1_theory": "7/7",
+    "r2_empirical_design": "7/7",
+    "r3_reproducibility": "5/5"
+  },
+  "summary": {
+    "definitions_count": 2,
+    "theorems_count": 2,
+    "proofs_count": 2,
+    "algorithms_count": 2
+  },
+  "manuscript_landmarks": {
+    "total_lines": 1085,
+    "theorems": [
+      {
+        "type": "definition",
+        "title": "Certified Multi-Ontology Hub Repair",
+        "line": 569
+      },
+      {
+        "type": "definition",
+        "title": "Subsumption Refinement Poset and Minimal Conflict Core",
+        "line": 580
+      },
+      {
+        "type": "proposition",
+        "title": "Conservative One-Way Witness Extension",
+        "line": 994
+      },
+      {
+        "type": "proposition",
+        "title": "Property-Filtered $\\bot$-Locality Trigger Soundness",
+        "line": 1004
+      }
+    ],
+    "labels": [
+      {
+        "label": "fig:architecture",
+        "line": 372
+      },
+      {
+        "label": "tab:h1_breakdown",
+        "line": 386
+      },
+      {
+        "label": "fig:compositional",
+        "line": 407
+      },
+      {
+        "label": "tab:main_benchmark",
+        "line": 419
+      },
+      {
+        "label": "fig:bioml_acc",
+        "line": 463
+      },
+      {
+        "label": "fig:lattice_fates",
+        "line": 470
+      },
+      {
+        "label": "tab:case_studies",
+        "line": 495
+      },
+      {
+        "label": "fig:telemetry",
+        "line": 522
+      },
+      {
+        "label": "tab:stakeholders",
+        "line": 542
+      },
+      {
+        "label": "def:certification",
+        "line": 570
+      },
+      {
+        "label": "eq:unsat_delta",
+        "line": 573
+      },
+      {
+        "label": "eq:consviol",
+        "line": 574
+      },
+      {
+        "label": "def:poset",
+        "line": 581
+      },
+      {
+        "label": "eq:asp_obj",
+        "line": 595
+      },
+      {
+        "label": "fig:poset",
+        "line": 620
+      },
+      {
+        "label": "tab:s1_provenance",
+        "line": 1017
+      },
+      {
+        "label": "fig:s1_oracle",
+        "line": 1047
+      },
+      {
+        "label": "tab:s2_top15",
+        "line": 1053
+      }
+    ],
+    "sections": [
+      {
+        "level": "section",
+        "title": "Background",
+        "line": 325
+      },
+      {
+        "level": "section",
+        "title": "Results",
+        "line": 377
+      },
+      {
+        "level": "subsection",
+        "title": "Pairwise-valid crosswalks fracture in multi-ontology hubs",
+        "line": 379
+      },
+      {
+        "level": "subsection",
+        "title": "Greedy pairwise repair leaves hub violations unresolved and degrades $F_1$",
+        "line": 412
+      },
+      {
+        "level": "subsection",
+        "title": "Five-action lattice CEGAR eliminates $62\\%\\text{--",
+        "line": 455
+      },
+      {
+        "level": "subsection",
+        "title": "Biological case studies and upstream KGCL patch bundles",
+        "line": 482
+      },
+      {
+        "level": "subsection",
+        "title": "Laptop-scale CPU convergence and memory scaling",
+        "line": 514
+      },
+      {
+        "level": "section",
+        "title": "Discussion",
+        "line": 525
+      },
+      {
+        "level": "subsection",
+        "title": "Why hub-level certification matters for biological discovery and clinical systems",
+        "line": 527
+      },
+      {
+        "level": "subsection",
+        "title": "Scope boundaries and future extensions",
+        "line": 559
+      },
+      {
+        "level": "section",
+        "title": "Methods",
+        "line": 563
+      },
+      {
+        "level": "subsection",
+        "title": "Formal problem specification and certification invariants",
+        "line": 565
+      },
+      {
+        "level": "subsection",
+        "title": "The five-element subsumption refinement poset $\\mathcal{L",
+        "line": 578
+      },
+      {
+        "level": "subsection",
+        "title": "Stage 1: Streaming \\texttt{ELK",
+        "line": 623
+      },
+      {
+        "level": "subsection",
+        "title": "Stage 2: Two-tier conjunctive Horn $0\\text{--",
+        "line": 627
+      },
+      {
+        "level": "subsection",
+        "title": "Stage 3 and Stage 4: Semantic priors, sandboxed oracle protocol, and CEGAR certification",
+        "line": 657
+      },
+      {
+        "level": "subsection",
+        "title": "Evaluation datasets, baselines, and statistical analysis",
+        "line": 663
+      },
+      {
+        "level": "section",
+        "title": "Declarations",
+        "line": 674
+      },
+      {
+        "level": "subsection",
+        "title": "Ethics approval and consent to participate",
+        "line": 676
+      },
+      {
+        "level": "subsection",
+        "title": "Consent for publication",
+        "line": 679
+      },
+      {
+        "level": "subsection",
+        "title": "Availability of data and materials",
+        "line": 682
+      },
+      {
+        "level": "subsection",
+        "title": "Competing interests",
+        "line": 685
+      },
+      {
+        "level": "subsection",
+        "title": "Funding",
+        "line": 688
+      },
+      {
+        "level": "subsection",
+        "title": "Author Contributions",
+        "line": 691
+      },
+      {
+        "level": "subsection",
+        "title": "Acknowledgments",
+        "line": 694
+      },
+      {
+        "level": "section",
+        "title": "S1. Theoretical Soundness Proofs for Two-Tier Core Extraction",
+        "line": 992
+      },
+      {
+        "level": "section",
+        "title": "S2. Dataset Provenance, Tool Versions, and Baseline Parity",
+        "line": 1010
+      },
+      {
+        "level": "section",
+        "title": "S3. Multi-Agent Oracle Agreement Scaffold and Full Top-15 KGCL Patch Bundle",
+        "line": 1039
+      }
+    ]
+  },
+  "referee_1_theory_and_proofs": {
+    "checks": {
+      "definitions_present_ge_2": true,
+      "theorems_or_lemmas_present": true,
+      "proofs_present_ge_2": true,
+      "algorithmic_specification_present": true,
+      "symmetry_or_invariance_mentioned": true,
+      "complexity_notation_present": true,
+      "boundary_terms_mentioned": true
+    },
+    "action_items": []
+  },
+  "referee_2_empirical_design": {
+    "checks": {
+      "synthetic_data_mentioned": true,
+      "benchmark_or_dataset_mentioned": true,
+      "real_data_mentioned": true,
+      "ablation_mentioned": true,
+      "baseline_or_version_mentioned": true,
+      "replicates_or_seeds_mentioned": true,
+      "limitations_mentioned": true
+    },
+    "action_items": []
+  },
+  "referee_3_reproducibility_and_declarations": {
+    "checks": {
+      "repro_manifest_present": true,
+      "supplementary_tex_present": true,
+      "accession_or_doi_present": true,
+      "data_and_code_availability_present": true,
+      "credit_and_funding_present": true
+    },
+    "action_items": []
+  },
+  "limitations": [
+    "Each check is a keyword or count heuristic. A satisfied check means a keyword was found, not that the point is addressed.",
+    "Dispatch the referee subagents for actual critique; this output is a pre-review checklist."
+  ]
+}

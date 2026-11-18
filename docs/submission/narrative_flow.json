@@ -1,0 +1,18 @@
+{
+  "status": "ADVISORY",
+  "epistemic_narrative_mode": "disruptive",
+  "keyword_flags": {
+    "prior_art_foundation_anchored": true,
+    "explicit_bottleneck_or_anomaly_stated": true,
+    "formal_contribution_previewed": true,
+    "empirical_validation_anchored": true,
+    "founding_paradox_or_axiom_hook": true,
+    "classical_limit_or_special_case_reduction": true,
+    "toy_or_visual_intuition_bridge": true
+  },
+  "elements_without_keyword_hit": [],
+  "limitations": [
+    "Keyword presence only. This does not assess argument quality, ordering, or correctness.",
+    "Use a referee subagent or a human read for any judgement about narrative structure."
+  ]
+}

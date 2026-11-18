@@ -1,10 +1,21 @@
 # CLASP-ONT
 
-**Certified Lattice ASP Solver and Patching for Multi-Ontology Biological Hubs**
+**Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs**
 
-`CLASP-ONT` is a CPU-only verification and non-destructive repair engine for multi-ontology biological crosswalk hubs (`SSSOM` / OWL 2 EL). Rather than resolving alignment conflicts through greedy pairwise deletion, `CLASP-ONT` optimizes over a five-element subsumption refinement poset (`keep_equiv`, `downgrade_sub`, `downgrade_sup`, `weaken_ancestor`, `negate_drop`) using two-tier conjunctive Horn `0-1` breadth-first search, monotonic `BOTTOM_BOTTOM` syntactic-locality QuickXplain, and Answer Set Programming (`Clingo`) Counterexample-Guided Abstraction Refinement (CEGAR).
+`CLASP-ONT` (*Certified Lattice ASP Solver and Patching for Multi-Ontology Biological Hubs*) is a CPU-only verification and non-destructive repair engine for multi-ontology biological crosswalk hubs (`SSSOM` / OWL 2 EL). Rather than resolving alignment conflicts through greedy pairwise deletion, `CLASP-ONT` optimizes over a five-element subsumption refinement poset (`keep_equiv`, `downgrade_sub`, `downgrade_sup`, `weaken_ancestor`, `negate_drop`) using two-tier conjunctive Horn `0-1` breadth-first search, monotonic `BOTTOM_BOTTOM` syntactic-locality QuickXplain, and Answer Set Programming (`Clingo`) Counterexample-Guided Abstraction Refinement (CEGAR).
 
-Every output alignment is independently verified by `ELK` and `DuckDB` to satisfy zero alignment-induced unsatisfiable classes (`|Unsat_Delta| = 0`) and zero intra-ontology conservativity violations (`|ConsViol| = 0`), exporting certified `.sssom.tsv` crosswalks and Knowledge Graph Change Language (`.kgcl`) patches.
+Every output alignment is independently verified by `ELK` and `DuckDB` to satisfy zero alignment-induced unsatisfiable classes (`|Unsat_Delta| = 0`) and zero intra-ontology conservativity violations (`|ConsViol| = 0`), exporting certified `.sssom.tsv` crosswalks and Knowledge Graph Change Language (`.kgcl`) pull-request patches.
+
+## Why Hub-Level Certification Matters & Who Uses `CLASP-ONT`
+
+Evaluating ontology crosswalks one pair at a time misses **39%–56%** of hub-emergent unsatisfiable classes (`+63.8%` to `+125.4%` jump upon 4–6 ontology composition) and up to **234,152** silent intra-ontology conservativity violations caused by cross-ontology OWL 2 EL defined-class intersections. Existing pairwise repair tools (`LogMap`) leave thousands of hub-level violations unresolved, while optimal binary hitting-set deletion (`B3`) discards **16%–77%** of valid biological bridges.
+
+| Target Community / Platform | Core Ontologies | Failure Under Pairwise / Delete Workflows | Value Delivered by `CLASP-ONT` (`B4`) |
+|---|---|---|---|
+| **Rare-disease & mammalian phenomics** | `MONDO`, `ORDO`, `DOID`, `HP`, `MP` | `234,152` silent disease subsumptions or `43.2%` links deleted | **`0` violations**; **`+48,863`** certified cross-species entailments over binary deletion |
+| **Oncology & drug-target KGs** | `NCIT`, `DOID`, `OMIM`, `ORDO` | Benign/malignant conflation (`NCIT:C2949` vs `DOID:12759`); `LogMap` `F1 = 0.009` | Certified directional hierarchy; **`F1 = 0.663`** (`-82.5%` fewer deletions) |
+| **Plant genomics & GxE trait portals** | `PO`, `TO`, `FLOPO`, `GO`, `CHEBI`, `ENVO` | `40,698` unsatisfiable classes (`84%` collapse) or `76.8%` links deleted | **`2.19x`** retained cross-ontology utility (`0.243 -> 0.532`) at **`0` violations** |
+| **Ontology curators (`ODK`, `Biomappings`)** | Any `SSSOM` + OWL 2 EL hub | Pairwise CI misses multi-hop cycles & foreign existential fillers | Laptop/CI gate (**`< 4.3 GB` RAM**, zero GPU) + ready-to-merge **`.kgcl` PR patches** |
 
 ## Certified Empirical Summary
 
@@ -44,12 +55,12 @@ make certify-from-cache
 
 ## Repository Layout
 
-- `src/clasp_ont/ingest/` — Public suite downloaders, SHA-256 verification, native baseline isolation, and SSSOM I/O
-- `src/clasp_ont/symbolic/` — Headless `ELK` closure wrapper, `DuckDB` anti-join conservativity detector, two-tier Horn/QuickXplain core extractor, `Clingo` ASP encoding, and CEGAR loop
-- `src/clasp_ont/oracles/` — Compact OAK conflict dossier builder, deterministic TF-IDF/depth lattice heuristic (`B4`), key-scrubbed CLI sandbox runner, and log-opinion-pool consensus
-- `src/clasp_ont/export/` — Certified SSSOM & KGCL patch emitters, paired bootstrap/Wilcoxon/McNemar statistics, ECharts/Plotly/vector figure renderer, and upstream PR bundler
-- `results/` — Certified `.sssom.tsv` crosswalks, `.kgcl` patches, vector PDF/SVG figures, upstream PR bundle, and `summary_metrics.json`
-- `paper/` — Programmatic `results_macros.tex`, `main.tex` (`main.pdf`), `supplementary.tex` (`supplementary.pdf`), and `references.bib`
+- `src/clasp_ont/ingest/`: Public suite downloaders, SHA-256 verification, native baseline isolation, and SSSOM I/O
+- `src/clasp_ont/symbolic/`: Headless `ELK` closure wrapper, `DuckDB` anti-join conservativity detector, two-tier Horn/QuickXplain core extractor, `Clingo` ASP encoding, and CEGAR loop
+- `src/clasp_ont/oracles/`: Compact OAK conflict dossier builder, deterministic TF-IDF/depth lattice heuristic (`B4`), key-scrubbed CLI sandbox runner, and log-opinion-pool consensus
+- `src/clasp_ont/export/`: Certified SSSOM & KGCL patch emitters, paired bootstrap/Wilcoxon/McNemar statistics, ECharts/Plotly/vector figure renderer, and upstream PR bundler
+- `results/`: Certified `.sssom.tsv` crosswalks, `.kgcl` patches, vector PDF/SVG figures, upstream PR bundle (`results/upstream_prs/top15_kgcl_pull_requests.md`), and `summary_metrics.json`
+- `paper/`: Programmatic `results_macros.tex`, `main.tex` (`main.pdf`), `supplementary.tex` (`supplementary.pdf`), `cover_letter.tex` (`cover_letter.pdf`), and `references.bib`
 
 ## License
 

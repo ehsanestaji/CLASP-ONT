@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "summary": {
-    "files_scanned": 4,
+    "files_scanned": 5,
     "total_lexical_hits": 0,
     "total_rhetorical_openers": 0,
     "total_scaffolding_hits": 0,
@@ -10,8 +10,19 @@
   },
   "files": [
     {
+      "file": "README.md",
+      "word_count": 563,
+      "emdash_count": 0,
+      "emdash_per_1k_words": 0.0,
+      "emdash_exceeds_threshold": false,
+      "lexical_tells": [],
+      "rhetorical_openers": [],
+      "negative_parallelisms": [],
+      "scaffolding_leaks": []
+    },
+    {
       "file": "paper/cover_letter.tex",
-      "word_count": 533,
+      "word_count": 587,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
@@ -22,7 +33,7 @@
     },
     {
       "file": "paper/main.tex",
-      "word_count": 5441,
+      "word_count": 6380,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
@@ -44,7 +55,7 @@
     },
     {
       "file": "paper/supplementary.tex",
-      "word_count": 1251,
+      "word_count": 1289,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
