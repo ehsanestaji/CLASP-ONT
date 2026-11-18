@@ -130,35 +130,38 @@ def build_all_figures_and_macros(
     exported["fig1_pdf"] = f1_pdf
 
     # =========================================================================
-    # Figure 2: Benchmark Equivalence F1 & Directional Subsumption Recall
+    # Figure 2: Benchmark Equivalence F1 & Deductive Subsumption Recall
     # =========================================================================
     primary_suite = "OAEI_BioML_2026" if "OAEI_BioML_2026" in suites else (suite_names[0] if suite_names else "")
     sys_dict = suites.get(primary_suite, {}).get("systems", {})
     sys_order = [k for k in sorted(sys_dict.keys())]
     eq_f1s = [float(sys_dict[k].get("equiv_f1", 0.0)) for k in sys_order]
-    sub_recs = [float(sys_dict[k].get("sub_recall", 0.0)) for k in sys_order]
+    sub_recs = [
+        float(sys_dict[k].get("deductive_sub_recall", sys_dict[k].get("sub_recall", 0.0)))
+        for k in sys_order
+    ]
     retentions = [float(sys_dict[k].get("semantic_retention", 0.0)) for k in sys_order]
 
     f2_echarts = {
-        "title": {"text": f"Benchmark Accuracy & Subsumption Recovery ({primary_suite})"},
+        "title": {"text": f"Benchmark Accuracy & Deductive Subsumption Recall ({primary_suite})"},
         "tooltip": {"trigger": "axis"},
-        "legend": {"data": ["Equivalence F1", "Directional Subsumption Recall", "Semantic Retention"]},
+        "legend": {"data": ["Equivalence F1", "Deductive Subsumption Recall", "Semantic Retention"]},
         "xAxis": {"type": "category", "data": sys_order},
         "yAxis": {"type": "value", "min": 0.0, "max": 1.05},
         "series": [
             {"name": "Equivalence F1", "type": "bar", "data": eq_f1s, "color": PALETTE["primary"]},
-            {"name": "Directional Subsumption Recall", "type": "bar", "data": sub_recs, "color": PALETTE["secondary"]},
+            {"name": "Deductive Subsumption Recall", "type": "bar", "data": sub_recs, "color": PALETTE["secondary"]},
             {"name": "Semantic Retention", "type": "bar", "data": retentions, "color": "#E69F00"},
         ],
     }
     f2_plotly = {
         "data": [
             {"type": "bar", "name": "Equivalence F1", "x": sys_order, "y": eq_f1s},
-            {"type": "bar", "name": "Directional Subsumption Recall", "x": sys_order, "y": sub_recs},
+            {"type": "bar", "name": "Deductive Subsumption Recall", "x": sys_order, "y": sub_recs},
             {"type": "bar", "name": "Semantic Retention", "x": sys_order, "y": retentions},
         ],
         "layout": {
-            "title": f"Accuracy & Subsumption Recovery ({primary_suite})",
+            "title": f"Accuracy & Deductive Subsumption Recall ({primary_suite})",
             "barmode": "group",
             "yaxis": {"title": "Score", "range": [0, 1.05]},
         },
@@ -171,13 +174,13 @@ def build_all_figures_and_macros(
         x2 = np.arange(len(sys_order))
         w2 = 0.25
         ax.bar(x2 - w2, eq_f1s, w2, label="Equivalence F1", color=PALETTE["primary"])
-        ax.bar(x2, sub_recs, w2, label="Subsumption Recall", color=PALETTE["secondary"])
+        ax.bar(x2, sub_recs, w2, label="Deductive Sub. Recall", color=PALETTE["secondary"])
         ax.bar(x2 + w2, retentions, w2, label="Semantic Retention", color="#E69F00")
         ax.set_xticks(x2)
         ax.set_xticklabels(sys_order, rotation=15, ha="right")
     ax.set_ylim(0, 1.22)
     ax.set_ylabel("Metric Score")
-    ax.set_title(f"Equivalence F1, Subsumption Recovery & Retention ({primary_suite})", fontsize=10.8, pad=10)
+    ax.set_title(f"Equivalence F1, Deductive Subsumption Recall & Retention ({primary_suite})", fontsize=10.5, pad=10)
     ax.legend(frameon=False, fontsize=8.5, ncol=3, loc="upper center")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -411,6 +414,122 @@ def build_all_figures_and_macros(
     exported["fig5_pdf"] = f5_pdf
 
     # =========================================================================
+    # Figure 6: Downstream Clinical Hierarchy Corruption & Cohort Roll-Up Impact
+    # =========================================================================
+    dis_ds = suites.get("Disease_Phenotype_Hub", {}).get("downstream_impact", {})
+    bioml_ds = suites.get("OAEI_BioML_2026", {}).get("downstream_impact", {})
+    if dis_ds:
+        ont_order = ["ORDO", "MONDO", "DOID", "MP", "HP"]
+        ont_order = [o for o in ont_order if o in dis_ds.get("B1_Raw_Hub", {}).get("per_ontology_corruption", {})]
+        b1_corr = [
+            float(dis_ds.get("B1_Raw_Hub", {}).get("per_ontology_corruption", {}).get(o, {}).get("corrupted_pct", 0.0))
+            for o in ont_order
+        ]
+        b2_corr = [
+            float(
+                dis_ds.get("B2_LogMap_Repair", {})
+                .get("per_ontology_corruption", {})
+                .get(o, {})
+                .get("corrupted_pct", 0.0)
+            )
+            for o in ont_order
+        ]
+        b4_corr = [
+            float(
+                dis_ds.get("B4_Lexical_Lattice", {})
+                .get("per_ontology_corruption", {})
+                .get(o, {})
+                .get("corrupted_pct", 0.0)
+            )
+            for o in ont_order
+        ]
+
+        sys_tags = ["B1_Raw_Hub", "B2_LogMap_Repair", "B3_ASP_Binary_Delete", "B4_Lexical_Lattice"]
+        short_lbls = ["B1\n(Raw)", "B2\n(LogMap)", "B3\n(Delete)", "B4\n(CLASP-ONT)"]
+        dis_fdr = [
+            float(dis_ds.get(sk, {}).get("chapter_cohort_rollup", {}).get("mean_intra_fdr_pct", 0.0))
+            for sk in sys_tags
+        ]
+        bioml_fdr = [
+            float(bioml_ds.get(sk, {}).get("chapter_cohort_rollup", {}).get("mean_intra_fdr_pct", 0.0))
+            for sk in sys_tags
+        ]
+        bioml_cross_k = [
+            float(bioml_ds.get(sk, {}).get("chapter_cohort_rollup", {}).get("cross_ontology_inclusions", 0)) / 1000.0
+            for sk in sys_tags
+        ]
+
+        f6_echarts = {
+            "title": {"text": "Downstream Clinical Hierarchy Corruption & Disease-Chapter Cohort Integrity"},
+            "xAxis": {"type": "category", "data": ont_order},
+            "series": [
+                {"name": "B1 Raw Hub Corrupted (%)", "type": "bar", "data": b1_corr, "color": "#D55E00"},
+                {"name": "B2 LogMap Corrupted (%)", "type": "bar", "data": b2_corr, "color": "#E69F00"},
+                {"name": "B4 CLASP-ONT Corrupted (%)", "type": "bar", "data": b4_corr, "color": "#009E73"},
+            ],
+        }
+        f6_plotly = {
+            "data": [
+                {"type": "bar", "name": "B1 Raw Hub", "x": ont_order, "y": b1_corr},
+                {"type": "bar", "name": "B2 LogMap", "x": ont_order, "y": b2_corr},
+                {"type": "bar", "name": "B4 CLASP-ONT", "x": ont_order, "y": b4_corr},
+            ],
+            "layout": {"title": "Native Ontology Hierarchy Corruption (%)"},
+        }
+        _write_json(f6_echarts, figures_dir / "fig6_downstream_clinical_impact.echarts.json")
+        _write_json(f6_plotly, figures_dir / "fig6_downstream_clinical_impact.plotly.json")
+
+        fig, (ax_a, ax_b) = plt.subplots(1, 2, figsize=(9.6, 4.15))
+        xa = np.arange(len(ont_order))
+        wa = 0.26
+        ax_a.bar(xa - wa, b1_corr, wa, label="B1 Raw Hub", color="#D55E00")
+        ax_a.bar(xa, b2_corr, wa, label="B2 LogMap Repair", color="#E69F00")
+        ax_a.bar(xa + wa, b4_corr, wa, label="B4 CLASP-ONT (0.0%)", color="#009E73")
+        ax_a.set_xticks(xa)
+        ax_a.set_xticklabels(ont_order)
+        ax_a.set_ylim(0, 102)
+        ax_a.set_ylabel("Classes with Corrupted Native Hierarchy (%)")
+        ax_a.set_title("A. Native Hierarchy Corruption (Disease Hub)", fontsize=10.1)
+        ax_a.legend(frameon=False, fontsize=8.1, loc="upper right")
+        ax_a.spines["top"].set_visible(False)
+        ax_a.spines["right"].set_visible(False)
+
+        xb = np.arange(len(short_lbls))
+        wb = 0.25
+        ax_b.bar(xb - wb, dis_fdr, wb, label="DiseaseHub Cohort FDR (%)", color="#D55E00")
+        ax_b.bar(xb, bioml_fdr, wb, label="BioML26 Cohort FDR (%)", color="#CC79A7")
+        ax_b2 = ax_b.twinx()
+        ax_b2.plot(
+            xb,
+            bioml_cross_k,
+            marker="s",
+            markersize=5.5,
+            linewidth=2.0,
+            color="#0072B2",
+            label="BioML26 Cross-Ont Subtypes (x10^3)",
+        )
+        ax_b.set_xticks(xb)
+        ax_b.set_xticklabels(short_lbls, rotation=0, ha="center", fontsize=8.4)
+        ax_b.set_ylim(0, max([*dis_fdr, *bioml_fdr, 25.0]) * 1.32)
+        ax_b2.set_ylim(0, max([*bioml_cross_k, 100.0]) * 1.28)
+        ax_b.set_ylabel("Intra-Ontology Cohort FDR (%)")
+        ax_b2.set_ylabel("Cross-Ontology Chapter Inclusions (x10^3)", color="#0072B2")
+        ax_b.set_title("B. Clinical Chapter Cohort Purity vs. Reachability", fontsize=10.1)
+        ax_b.spines["top"].set_visible(False)
+        ax_b2.spines["top"].set_visible(False)
+
+        h1, l1 = ax_b.get_legend_handles_labels()
+        h2, l2 = ax_b2.get_legend_handles_labels()
+        ax_b.legend(h1 + h2, l1 + l2, frameon=False, fontsize=7.8, loc="upper right")
+
+        fig.tight_layout()
+        f6_pdf = figures_dir / "fig6_downstream_clinical_impact.pdf"
+        fig.savefig(f6_pdf, bbox_inches="tight")
+        fig.savefig(figures_dir / "fig6_downstream_clinical_impact.svg", bbox_inches="tight")
+        plt.close(fig)
+        exported["fig6_pdf"] = f6_pdf
+
+    # =========================================================================
     # Programmatic LaTeX Macros (Single Source of Numerical Truth)
     # =========================================================================
     macro_lines = [
@@ -447,6 +566,29 @@ def build_all_figures_and_macros(
                 macro_lines.append(f"\\newcommand{{\\Clasp{clean_s}VsBThreeLow}}{{{st_v.get('ci95_low', 0.0):.3f}}}")
                 macro_lines.append(f"\\newcommand{{\\Clasp{clean_s}VsBThreeHigh}}{{{st_v.get('ci95_high', 0.0):.3f}}}")
 
+        ds_map = s_data.get("downstream_impact", {})
+        if ds_map:
+            first_ds = next(iter(ds_map.values()), {})
+            n_ch = first_ds.get("chapter_cohort_rollup", {}).get("num_chapters", 0)
+            macro_lines.append(f"\\newcommand{{\\Clasp{clean_s}ChapterCount}}{{{n_ch}}}")
+            for sys_k, ds_v in sorted(ds_map.items()):
+                clean_sys = "".join(ch for ch in sys_k if ch.isalpha())
+                ch_fp = ds_v.get("chapter_cohort_rollup", {}).get("total_intra_false_positives", 0)
+                hp_mp = ds_v.get("cross_species_hp_mp_entailments", 0)
+                macro_lines.append(f"\\newcommand{{\\Clasp{clean_s}{clean_sys}ChapterFP}}{{{ch_fp}}}")
+                macro_lines.append(f"\\newcommand{{\\Clasp{clean_s}{clean_sys}HPMPPairs}}{{{hp_mp}}}")
+                for ont_k, ont_v in sorted(ds_v.get("per_ontology_corruption", {}).items()):
+                    clean_ont = "".join(ch for ch in ont_k if ch.isalpha())
+                    macro_lines.append(
+                        f"\\newcommand{{\\Clasp{clean_s}{clean_sys}{clean_ont}CorruptedPct}}{{{ont_v.get('corrupted_pct', 0.0):.1f}}}"
+                    )
+                    macro_lines.append(
+                        f"\\newcommand{{\\Clasp{clean_s}{clean_sys}{clean_ont}CorruptedCnt}}{{{ont_v.get('total_corrupted_classes', 0)}}}"
+                    )
+                    macro_lines.append(
+                        f"\\newcommand{{\\Clasp{clean_s}{clean_sys}{clean_ont}Jaccard}}{{{ont_v.get('mean_ancestor_jaccard', 1.0):.3f}}}"
+                    )
+
         for sys_k, sys_v in sorted(s_data.get("systems", {}).items()):
             clean_sys = "".join(ch for ch in sys_k if ch.isalpha())
             ac = sys_v.get("action_counts", {})
@@ -464,6 +606,18 @@ def build_all_figures_and_macros(
             )
             macro_lines.append(
                 f"\\newcommand{{\\Clasp{clean_s}{clean_sys}SubRecall}}{{{sys_v.get('sub_recall', 0.0):.3f}}}"
+            )
+            macro_lines.append(
+                f"\\newcommand{{\\Clasp{clean_s}{clean_sys}DedSubRecall}}{{{sys_v.get('deductive_sub_recall', sys_v.get('sub_recall', 0.0)):.3f}}}"
+            )
+            macro_lines.append(
+                f"\\newcommand{{\\Clasp{clean_s}{clean_sys}DedSubTP}}{{{sys_v.get('deductive_sub_tp', 0)}}}"
+            )
+            macro_lines.append(
+                f"\\newcommand{{\\Clasp{clean_s}{clean_sys}ChapterFDRPct}}{{{sys_v.get('chapter_intra_fdr_pct', 0.0):.1f}}}"
+            )
+            macro_lines.append(
+                f"\\newcommand{{\\Clasp{clean_s}{clean_sys}ChapterCross}}{{{sys_v.get('chapter_cross_inclusions', 0)}}}"
             )
             macro_lines.append(
                 f"\\newcommand{{\\Clasp{clean_s}{clean_sys}NovelCross}}{{{sys_v.get('novel_cross_entailments', 0)}}}"

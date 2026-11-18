@@ -17,7 +17,7 @@
       ]
     },
     {
-      "name": "Directional Subsumption Recall",
+      "name": "Deductive Subsumption Recall",
       "type": "bar",
       "x": [
         "B1_Raw_Hub",
@@ -26,10 +26,10 @@
         "B4_Lexical_Lattice"
       ],
       "y": [
-        0.0,
-        0.0,
-        0.0,
-        0.019471
+        0.31299,
+        0.054345,
+        0.811973,
+        0.829119
       ]
     },
     {
@@ -51,7 +51,7 @@
   ],
   "layout": {
     "barmode": "group",
-    "title": "Accuracy & Subsumption Recovery (OAEI_BioML_2026)",
+    "title": "Accuracy & Deductive Subsumption Recall (OAEI_BioML_2026)",
     "yaxis": {
       "range": [
         0,

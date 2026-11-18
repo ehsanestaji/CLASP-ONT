@@ -173,6 +173,208 @@
     }
   ],
   "contested_mappings": 11537,
+  "downstream_impact": {
+    "B1_Raw_Hub": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 60132,
+        "mean_intra_fdr": 0.211425,
+        "mean_intra_fdr_pct": 21.14,
+        "num_chapters": 220,
+        "total_intra_false_positives": 14938
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 21,
+      "deductive_sub_inverted": 0,
+      "deductive_sub_recall": 0.31299,
+      "deductive_sub_tp": 1077,
+      "hub_corrupted_classes": 29434,
+      "hub_corrupted_pct": 68.21,
+      "per_ontology_corruption": {
+        "DOID": {
+          "consviol_distorted_classes": 1877,
+          "corrupted_pct": 80.09,
+          "mean_ancestor_jaccard": 0.84,
+          "native_satisfiable_classes": 8465,
+          "total_corrupted_classes": 6780,
+          "unsat_collapsed_classes": 4903
+        },
+        "NCIT": {
+          "consviol_distorted_classes": 2832,
+          "corrupted_pct": 71.86,
+          "mean_ancestor_jaccard": 0.8757,
+          "native_satisfiable_classes": 15762,
+          "total_corrupted_classes": 11326,
+          "unsat_collapsed_classes": 8494
+        },
+        "OMIM": {
+          "consviol_distorted_classes": 283,
+          "corrupted_pct": 44.58,
+          "mean_ancestor_jaccard": 0.9511,
+          "native_satisfiable_classes": 9648,
+          "total_corrupted_classes": 4301,
+          "unsat_collapsed_classes": 4018
+        },
+        "ORDO": {
+          "consviol_distorted_classes": 823,
+          "corrupted_pct": 75.76,
+          "mean_ancestor_jaccard": 0.8995,
+          "native_satisfiable_classes": 9275,
+          "total_corrupted_classes": 7027,
+          "unsat_collapsed_classes": 6204
+        }
+      }
+    },
+    "B2_LogMap_Repair": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 118518,
+        "mean_intra_fdr": 0.013242,
+        "mean_intra_fdr_pct": 1.32,
+        "num_chapters": 220,
+        "total_intra_false_positives": 2956
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 3,
+      "deductive_sub_inverted": 52,
+      "deductive_sub_recall": 0.054345,
+      "deductive_sub_tp": 187,
+      "hub_corrupted_classes": 1310,
+      "hub_corrupted_pct": 3.04,
+      "per_ontology_corruption": {
+        "DOID": {
+          "consviol_distorted_classes": 176,
+          "corrupted_pct": 2.08,
+          "mean_ancestor_jaccard": 0.9949,
+          "native_satisfiable_classes": 8465,
+          "total_corrupted_classes": 176,
+          "unsat_collapsed_classes": 0
+        },
+        "NCIT": {
+          "consviol_distorted_classes": 1130,
+          "corrupted_pct": 7.17,
+          "mean_ancestor_jaccard": 0.9891,
+          "native_satisfiable_classes": 15762,
+          "total_corrupted_classes": 1130,
+          "unsat_collapsed_classes": 0
+        },
+        "OMIM": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.01,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9648,
+          "total_corrupted_classes": 1,
+          "unsat_collapsed_classes": 1
+        },
+        "ORDO": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.03,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9275,
+          "total_corrupted_classes": 3,
+          "unsat_collapsed_classes": 3
+        }
+      }
+    },
+    "B3_ASP_Binary_Delete": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 91931,
+        "mean_intra_fdr": 0.0,
+        "mean_intra_fdr_pct": 0.0,
+        "num_chapters": 220,
+        "total_intra_false_positives": 0
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 4,
+      "deductive_sub_inverted": 1,
+      "deductive_sub_recall": 0.811973,
+      "deductive_sub_tp": 2794,
+      "hub_corrupted_classes": 0,
+      "hub_corrupted_pct": 0.0,
+      "per_ontology_corruption": {
+        "DOID": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 8465,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "NCIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 15762,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "OMIM": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9648,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "ORDO": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9275,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        }
+      }
+    },
+    "B4_Lexical_Lattice": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 92476,
+        "mean_intra_fdr": 0.0,
+        "mean_intra_fdr_pct": 0.0,
+        "num_chapters": 220,
+        "total_intra_false_positives": 0
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 5,
+      "deductive_sub_inverted": 4,
+      "deductive_sub_recall": 0.829119,
+      "deductive_sub_tp": 2853,
+      "hub_corrupted_classes": 0,
+      "hub_corrupted_pct": 0.0,
+      "per_ontology_corruption": {
+        "DOID": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 8465,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "NCIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 15762,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "OMIM": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9648,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "ORDO": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 9275,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        }
+      }
+    }
+  },
   "gold_equiv_count": 8551,
   "gold_subs_count": 3441,
   "h1_breakdown": {
@@ -266,12 +468,17 @@
         "negate_drop": 0,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 60132,
+      "chapter_intra_fdr_pct": 21.14,
       "cons_viol": 33192,
       "contested_directional_preservation": 0.0,
       "contested_non_drop_rate": 1.0,
+      "deductive_sub_recall": 0.31299,
+      "deductive_sub_tp": 1077,
       "equiv_f1": 0.648208,
       "equiv_precision": 0.490116,
       "equiv_recall": 0.956847,
+      "hub_corrupted_pct": 68.21,
       "novel_cross_entailments": 163895,
       "semantic_retention": 1.0,
       "sub_f1": 0.0,
@@ -287,12 +494,17 @@
         "negate_drop": 31,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 118518,
+      "chapter_intra_fdr_pct": 1.32,
       "cons_viol": 5126,
       "contested_directional_preservation": 0.994019,
       "contested_non_drop_rate": 0.997313,
+      "deductive_sub_recall": 0.054345,
+      "deductive_sub_tp": 187,
       "equiv_f1": 0.008608,
       "equiv_precision": 0.804348,
       "equiv_recall": 0.004327,
+      "hub_corrupted_pct": 3.04,
       "novel_cross_entailments": 321061,
       "semantic_retention": 0.749427,
       "sub_f1": 0.0,
@@ -308,12 +520,17 @@
         "negate_drop": 2732,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 91931,
+      "chapter_intra_fdr_pct": 0.0,
       "cons_viol": 0,
       "contested_directional_preservation": 0.0,
       "contested_non_drop_rate": 0.763197,
+      "deductive_sub_recall": 0.811973,
+      "deductive_sub_tp": 2794,
       "equiv_f1": 0.606405,
       "equiv_precision": 0.488898,
       "equiv_recall": 0.798269,
+      "hub_corrupted_pct": 0.0,
       "novel_cross_entailments": 263759,
       "semantic_retention": 0.844964,
       "sub_f1": 0.0,
@@ -329,12 +546,17 @@
         "negate_drop": 479,
         "weaken_ancestor": 350
       },
+      "chapter_cross_inclusions": 92476,
+      "chapter_intra_fdr_pct": 0.0,
       "cons_viol": 0,
       "contested_directional_preservation": 0.54971,
       "contested_non_drop_rate": 0.958481,
+      "deductive_sub_recall": 0.829119,
+      "deductive_sub_tp": 2853,
       "equiv_f1": 0.662614,
       "equiv_precision": 0.618252,
       "equiv_recall": 0.713835,
+      "hub_corrupted_pct": 0.0,
       "novel_cross_entailments": 279461,
       "semantic_retention": 0.873339,
       "sub_f1": 0.013704,

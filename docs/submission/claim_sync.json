@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "total_manifest_anchors": 38,
+  "total_manifest_anchors": 47,
   "matched": [
     {
       "anchor": "total_classes_all",
@@ -266,6 +266,70 @@
       "value": 0.912043,
       "matched_as": [
         "0.912"
+      ]
+    },
+    {
+      "anchor": "bioml_b2_ded_sub_recall",
+      "value": 0.054345,
+      "matched_as": [
+        "0.054"
+      ]
+    },
+    {
+      "anchor": "bioml_b3_ded_sub_recall",
+      "value": 0.811973,
+      "matched_as": [
+        "0.812"
+      ]
+    },
+    {
+      "anchor": "bioml_b4_ded_sub_recall",
+      "value": 0.829119,
+      "matched_as": [
+        "0.829"
+      ]
+    },
+    {
+      "anchor": "bioml_b4_ded_sub_tp",
+      "value": 2853,
+      "matched_as": [
+        "2853"
+      ]
+    },
+    {
+      "anchor": "disease_ordo_corrupted_pct",
+      "value": 85.09,
+      "matched_as": [
+        "85.1"
+      ]
+    },
+    {
+      "anchor": "disease_mondo_corrupted_pct",
+      "value": 61.33,
+      "matched_as": [
+        "61.3"
+      ]
+    },
+    {
+      "anchor": "disease_b1_chapter_fdr_pct",
+      "value": 13.05,
+      "matched_as": [
+        "13.05",
+        "13.1"
+      ]
+    },
+    {
+      "anchor": "disease_b1_chapter_fp",
+      "value": 74475,
+      "matched_as": [
+        "74475"
+      ]
+    },
+    {
+      "anchor": "disease_b4_chapter_cross",
+      "value": 350785,
+      "matched_as": [
+        "350785"
       ]
     }
   ],

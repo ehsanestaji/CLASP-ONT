@@ -2,7 +2,7 @@
   "status": "PASS",
   "reason": null,
   "summary": {
-    "pdf_figures_checked": 5,
+    "pdf_figures_checked": 6,
     "unembedded_font_instances": 0,
     "type3_bitmap_font_instances": 0,
     "unsafe_colormap_hits": 0
@@ -28,9 +28,9 @@
       "has_type3_bitmap_fonts": false,
       "fonts": [
         {
-          "name": "HHCZHC+DejaVuSans",
+          "name": "FEGSOA+DejaVuSans",
           "type": "CID",
-          "raw": "HHCZHC+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
+          "raw": "FEGSOA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
         }
       ]
     },
@@ -75,6 +75,19 @@
           "name": "VVXOUI+DejaVuSans",
           "type": "CID",
           "raw": "VVXOUI+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     21  0"
+        }
+      ]
+    },
+    {
+      "pdf": "results/figures/fig6_downstream_clinical_impact.pdf",
+      "font_count": 1,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "CZXAPZ+DejaVuSans",
+          "type": "CID",
+          "raw": "CZXAPZ+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     16  0"
         }
       ]
     }

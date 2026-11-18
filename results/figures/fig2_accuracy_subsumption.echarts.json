@@ -2,7 +2,7 @@
   "legend": {
     "data": [
       "Equivalence F1",
-      "Directional Subsumption Recall",
+      "Deductive Subsumption Recall",
       "Semantic Retention"
     ]
   },
@@ -21,12 +21,12 @@
     {
       "color": "#009E73",
       "data": [
-        0.0,
-        0.0,
-        0.0,
-        0.019471
+        0.31299,
+        0.054345,
+        0.811973,
+        0.829119
       ],
-      "name": "Directional Subsumption Recall",
+      "name": "Deductive Subsumption Recall",
       "type": "bar"
     },
     {
@@ -42,7 +42,7 @@
     }
   ],
   "title": {
-    "text": "Benchmark Accuracy & Subsumption Recovery (OAEI_BioML_2026)"
+    "text": "Benchmark Accuracy & Deductive Subsumption Recall (OAEI_BioML_2026)"
   },
   "tooltip": {
     "trigger": "axis"

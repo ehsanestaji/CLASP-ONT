@@ -23,6 +23,208 @@
     }
   ],
   "contested_mappings": 40,
+  "downstream_impact": {
+    "B1_Raw_Hub": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 170,
+        "mean_intra_fdr": 0.015385,
+        "mean_intra_fdr_pct": 1.54,
+        "num_chapters": 5,
+        "total_intra_false_positives": 1
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 16,
+      "deductive_sub_inverted": 0,
+      "deductive_sub_recall": 0.275862,
+      "deductive_sub_tp": 8,
+      "hub_corrupted_classes": 50,
+      "hub_corrupted_pct": 25.0,
+      "per_ontology_corruption": {
+        "TOY_ANAT": {
+          "consviol_distorted_classes": 12,
+          "corrupted_pct": 34.0,
+          "mean_ancestor_jaccard": 0.8826,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 17,
+          "unsat_collapsed_classes": 5
+        },
+        "TOY_CHEM": {
+          "consviol_distorted_classes": 7,
+          "corrupted_pct": 26.0,
+          "mean_ancestor_jaccard": 0.9364,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 13,
+          "unsat_collapsed_classes": 6
+        },
+        "TOY_PROC": {
+          "consviol_distorted_classes": 5,
+          "corrupted_pct": 22.0,
+          "mean_ancestor_jaccard": 0.9574,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 11,
+          "unsat_collapsed_classes": 6
+        },
+        "TOY_TRAIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 18.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 9,
+          "unsat_collapsed_classes": 9
+        }
+      }
+    },
+    "B2_LogMap_Repair": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 148,
+        "mean_intra_fdr": 0.0,
+        "mean_intra_fdr_pct": 0.0,
+        "num_chapters": 5,
+        "total_intra_false_positives": 0
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 7,
+      "deductive_sub_inverted": 4,
+      "deductive_sub_recall": 0.517241,
+      "deductive_sub_tp": 15,
+      "hub_corrupted_classes": 16,
+      "hub_corrupted_pct": 8.0,
+      "per_ontology_corruption": {
+        "TOY_ANAT": {
+          "consviol_distorted_classes": 7,
+          "corrupted_pct": 14.0,
+          "mean_ancestor_jaccard": 0.9422,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 7,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_CHEM": {
+          "consviol_distorted_classes": 4,
+          "corrupted_pct": 8.0,
+          "mean_ancestor_jaccard": 0.9688,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 4,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_PROC": {
+          "consviol_distorted_classes": 5,
+          "corrupted_pct": 10.0,
+          "mean_ancestor_jaccard": 0.9618,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 5,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_TRAIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        }
+      }
+    },
+    "B3_ASP_Binary_Delete": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 127,
+        "mean_intra_fdr": 0.0,
+        "mean_intra_fdr_pct": 0.0,
+        "num_chapters": 5,
+        "total_intra_false_positives": 0
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 0,
+      "deductive_sub_inverted": 0,
+      "deductive_sub_recall": 0.724138,
+      "deductive_sub_tp": 21,
+      "hub_corrupted_classes": 0,
+      "hub_corrupted_pct": 0.0,
+      "per_ontology_corruption": {
+        "TOY_ANAT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_CHEM": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_PROC": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_TRAIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        }
+      }
+    },
+    "B4_Lexical_Lattice": {
+      "chapter_cohort_rollup": {
+        "cross_ontology_inclusions": 132,
+        "mean_intra_fdr": 0.0,
+        "mean_intra_fdr_pct": 0.0,
+        "num_chapters": 5,
+        "total_intra_false_positives": 0
+      },
+      "cross_species_hp_mp_entailments": 0,
+      "deductive_sub_collapsed": 0,
+      "deductive_sub_inverted": 0,
+      "deductive_sub_recall": 1.0,
+      "deductive_sub_tp": 29,
+      "hub_corrupted_classes": 0,
+      "hub_corrupted_pct": 0.0,
+      "per_ontology_corruption": {
+        "TOY_ANAT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_CHEM": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_PROC": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        },
+        "TOY_TRAIT": {
+          "consviol_distorted_classes": 0,
+          "corrupted_pct": 0.0,
+          "mean_ancestor_jaccard": 1.0,
+          "native_satisfiable_classes": 50,
+          "total_corrupted_classes": 0,
+          "unsat_collapsed_classes": 0
+        }
+      }
+    }
+  },
   "h1_breakdown": {
     "hub_consviol": 30,
     "hub_unsat_delta": 26,
@@ -108,12 +310,17 @@
         "negate_drop": 0,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 170,
+      "chapter_intra_fdr_pct": 1.54,
       "cons_viol": 30,
       "contested_directional_preservation": 0.0,
       "contested_non_drop_rate": 1.0,
+      "deductive_sub_recall": 0.275862,
+      "deductive_sub_tp": 8,
       "equiv_f1": 0.794521,
       "equiv_precision": 0.659091,
       "equiv_recall": 1.0,
+      "hub_corrupted_pct": 25.0,
       "novel_cross_entailments": 423,
       "semantic_retention": 1.0,
       "sub_f1": 0.711111,
@@ -129,12 +336,17 @@
         "negate_drop": 8,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 148,
+      "chapter_intra_fdr_pct": 0.0,
       "cons_viol": 18,
       "contested_directional_preservation": 0.375,
       "contested_non_drop_rate": 0.8,
+      "deductive_sub_recall": 0.517241,
+      "deductive_sub_tp": 15,
       "equiv_f1": 0.294118,
       "equiv_precision": 1.0,
       "equiv_recall": 0.172414,
+      "hub_corrupted_pct": 8.0,
       "novel_cross_entailments": 356,
       "semantic_retention": 0.753063,
       "sub_f1": 0.447368,
@@ -150,12 +362,17 @@
         "negate_drop": 15,
         "weaken_ancestor": 0
       },
+      "chapter_cross_inclusions": 127,
+      "chapter_intra_fdr_pct": 0.0,
       "cons_viol": 0,
       "contested_directional_preservation": 0.0,
       "contested_non_drop_rate": 0.625,
+      "deductive_sub_recall": 0.724138,
+      "deductive_sub_tp": 21,
       "equiv_f1": 1.0,
       "equiv_precision": 1.0,
       "equiv_recall": 1.0,
+      "hub_corrupted_pct": 0.0,
       "novel_cross_entailments": 318,
       "semantic_retention": 0.774095,
       "sub_f1": 0.711111,
@@ -171,12 +388,17 @@
         "negate_drop": 1,
         "weaken_ancestor": 2
       },
+      "chapter_cross_inclusions": 132,
+      "chapter_intra_fdr_pct": 0.0,
       "cons_viol": 0,
       "contested_directional_preservation": 0.425,
       "contested_non_drop_rate": 0.975,
+      "deductive_sub_recall": 1.0,
+      "deductive_sub_tp": 29,
       "equiv_f1": 0.945455,
       "equiv_precision": 1.0,
       "equiv_recall": 0.896552,
+      "hub_corrupted_pct": 0.0,
       "novel_cross_entailments": 330,
       "semantic_retention": 0.912043,
       "sub_f1": 0.935484,

@@ -2,7 +2,7 @@
   "project": "CLASP-ONT",
   "seed": 20261116,
   "source_summary_json": "results/summary_metrics.json",
-  "source_summary_sha256": "32dde78a3986ebe46214e6207e27a492313d03110d9e0b065a3cb553510dcc8c",
+  "source_summary_sha256": "95163495db914e3586ec6a55a09a29121c7a93f6da495254624526f49d8aef6d",
   "certified_artifacts_sha256": {
     "Disease_Phenotype_Hub.B4_Lexical_Lattice.sssom.tsv": "c02a773206581bd56d8afc577e14fbe4d2dd2017aa860a2d4be2d52cea0547e5",
     "OAEI_BioML_2026.B4_Lexical_Lattice.sssom.tsv": "f6e8ff5376c75a7c04856fc706a1887ea0227e94bba2928bc95a22be1e8aa419",
@@ -80,6 +80,33 @@
     "toy_b4_retention": {
       "value": 0.912043,
       "format": ".3f"
-    }
+    },
+    "bioml_b2_ded_sub_recall": {
+      "value": 0.054345,
+      "format": ".3f"
+    },
+    "bioml_b3_ded_sub_recall": {
+      "value": 0.811973,
+      "format": ".3f"
+    },
+    "bioml_b4_ded_sub_recall": {
+      "value": 0.829119,
+      "format": ".3f"
+    },
+    "bioml_b4_ded_sub_tp": 2853,
+    "disease_ordo_corrupted_pct": {
+      "value": 85.09,
+      "format": ".1f"
+    },
+    "disease_mondo_corrupted_pct": {
+      "value": 61.33,
+      "format": ".1f"
+    },
+    "disease_b1_chapter_fdr_pct": {
+      "value": 13.05,
+      "format": ".1f"
+    },
+    "disease_b1_chapter_fp": 74475,
+    "disease_b4_chapter_cross": 350785
   }
 }

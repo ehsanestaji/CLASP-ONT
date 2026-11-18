@@ -1,0 +1,53 @@
+{
+  "series": [
+    {
+      "color": "#D55E00",
+      "data": [
+        85.09,
+        61.33,
+        69.13,
+        23.1,
+        22.7
+      ],
+      "name": "B1 Raw Hub Corrupted (%)",
+      "type": "bar"
+    },
+    {
+      "color": "#E69F00",
+      "data": [
+        3.06,
+        0.02,
+        34.34,
+        6.41,
+        18.05
+      ],
+      "name": "B2 LogMap Corrupted (%)",
+      "type": "bar"
+    },
+    {
+      "color": "#009E73",
+      "data": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "B4 CLASP-ONT Corrupted (%)",
+      "type": "bar"
+    }
+  ],
+  "title": {
+    "text": "Downstream Clinical Hierarchy Corruption & Disease-Chapter Cohort Integrity"
+  },
+  "xAxis": {
+    "data": [
+      "ORDO",
+      "MONDO",
+      "DOID",
+      "MP",
+      "HP"
+    ],
+    "type": "category"
+  }
+}

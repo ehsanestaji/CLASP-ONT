@@ -690,7 +690,23 @@ def execute_single_public_suite(
         max((it.peak_rss_mb for it in b4_res.iterations), default=0.0),
     )
 
+    from clasp_ont.export.downstream_impact import compute_suite_downstream_impact
+
+    ds_by_sys = compute_suite_downstream_impact(suite_id, work_dir, raw_root)
+    for sys_k, ds_vals in ds_by_sys.items():
+        if sys_k in systems_summary:
+            systems_summary[sys_k]["deductive_sub_recall"] = ds_vals["deductive_sub_recall"]
+            systems_summary[sys_k]["deductive_sub_tp"] = ds_vals["deductive_sub_tp"]
+            systems_summary[sys_k]["hub_corrupted_pct"] = ds_vals["hub_corrupted_pct"]
+            systems_summary[sys_k]["chapter_intra_fdr_pct"] = ds_vals["chapter_cohort_rollup"][
+                "mean_intra_fdr_pct"
+            ]
+            systems_summary[sys_k]["chapter_cross_inclusions"] = ds_vals["chapter_cohort_rollup"][
+                "cross_ontology_inclusions"
+            ]
+
     suite_metrics = {
+        "downstream_impact": ds_by_sys,
         "num_ontologies": len(native.ontology_paths),
         "per_ont_classes": native.per_ont_class_counts,
         "num_classes": len(native.class_to_ont),

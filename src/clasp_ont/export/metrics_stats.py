@@ -146,6 +146,7 @@ def evaluate_alignment_against_gold(
     gold_equiv_pairs: set[tuple[str, str]],
     gold_sub_pairs: set[tuple[str, str]],
     contested_ids: set[str] | None = None,
+    closure_parquet: Path | None = None,
 ) -> dict[str, float]:
     """Compute Equivalence P/R/F1, Directional Subsumption P/R/F1, Retention, and Bridge Preservation."""
     cfg = load_lattice_config()
@@ -184,6 +185,16 @@ def evaluate_alignment_against_gold(
         if selected_actions.get(mid, "keep_equiv") != "negate_drop"
     )
 
+    ded_recall = sub_metrics["recall"]
+    if closure_parquet is not None and closure_parquet.is_file() and gold_sub_pairs:
+        from clasp_ont.export.downstream_impact import compute_deductive_subsumption_metrics
+
+        ded_recall = float(
+            compute_deductive_subsumption_metrics(closure_parquet, gold_sub_pairs)[
+                "deductive_sub_recall"
+            ]
+        )
+
     return {
         "equiv_precision": eq_metrics["precision"],
         "equiv_recall": eq_metrics["recall"],
@@ -191,6 +202,7 @@ def evaluate_alignment_against_gold(
         "sub_precision": sub_metrics["precision"],
         "sub_recall": sub_metrics["recall"],
         "sub_f1": sub_metrics["f1"],
+        "deductive_sub_recall": ded_recall,
         "semantic_retention": round(retention, 6),
         "contested_directional_preservation": round(
             preserved_directional / max(1, contested_total), 6

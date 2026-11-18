@@ -1,13 +1,13 @@
 {
   "status": "PASS",
   "summary": {
-    "total_bib_entries": 22,
-    "total_cited_keys": 22,
+    "total_bib_entries": 25,
+    "total_cited_keys": 25,
     "missing_in_bib_count": 0,
     "unused_in_bib_count": 0,
     "unverified_comments_count": 0,
     "incomplete_entries_count": 0,
-    "dois_verified_count": 22,
+    "dois_verified_count": 25,
     "dois_failed_count": 0,
     "retracted_count": 0,
     "title_mismatch_count": 0,
@@ -78,6 +78,20 @@
       "key": "buttigieg2013envo"
     },
     {
+      "doi": "10.1038/s41597-023-01960-3",
+      "verified": true,
+      "retracted_or_withdrawn": false,
+      "updates": [],
+      "published_upgrade_dois": [],
+      "title": "Building a knowledge graph to enable precision medicine",
+      "expected_title": "Building a knowledge graph to enable precision medicine",
+      "title_token_overlap": 1.0,
+      "title_mismatch": false,
+      "year": 2023,
+      "container_title": "Scientific Data",
+      "key": "chandak2023primekg"
+    },
+    {
       "doi": "10.1145/876638.876643",
       "verified": true,
       "retracted_or_withdrawn": false,
@@ -140,7 +154,7 @@
       "updates": [],
       "published_upgrade_dois": [],
       "title": "Potassco: The Potsdam Answer Set Solving Collection",
-      "expected_title": "Potassco: The Potsdam Answer Set Solving Collection",
+      "expected_title": "Potassco: The {Potsdam} Answer Set Solving Collection",
       "title_token_overlap": 1.0,
       "title_mismatch": false,
       "year": 2011,
@@ -260,6 +274,20 @@
       "key": "medvedev2023theoretical"
     },
     {
+      "doi": "10.1101/048843",
+      "verified": true,
+      "retracted_or_withdrawn": false,
+      "updates": [],
+      "published_upgrade_dois": [],
+      "title": "k-BOOM: A Bayesian approach to ontology structure inference, with applications in disease ontology construction",
+      "expected_title": "k-{BOOM}: A {Bayesian} approach to ontology structure inference, with applications in disease ontology construction",
+      "title_token_overlap": 1.0,
+      "title_mismatch": false,
+      "year": 2016,
+      "container_title": "",
+      "key": "mungall2019kboom"
+    },
+    {
       "doi": "10.1145/3299869.3320212",
       "verified": true,
       "retracted_or_withdrawn": false,
@@ -300,6 +328,20 @@
       "year": 2022,
       "container_title": "Lecture Notes in Computer Science",
       "key": "silva2022aml"
+    },
+    {
+      "doi": "10.1038/nprot.2015.124",
+      "verified": true,
+      "retracted_or_withdrawn": false,
+      "updates": [],
+      "published_upgrade_dois": [],
+      "title": "Next-generation diagnostics and disease-gene discovery with the Exomiser",
+      "expected_title": "Next-generation diagnostics and disease-gene discovery with the {Exomiser}",
+      "title_token_overlap": 1.0,
+      "title_mismatch": false,
+      "year": 2015,
+      "container_title": "Nature Protocols",
+      "key": "smedley2015exomiser"
     },
     {
       "doi": "10.1038/nbt1346",

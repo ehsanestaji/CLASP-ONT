@@ -11,7 +11,7 @@
   "files": [
     {
       "file": "README.md",
-      "word_count": 595,
+      "word_count": 615,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
@@ -22,7 +22,7 @@
     },
     {
       "file": "paper/cover_letter.tex",
-      "word_count": 1061,
+      "word_count": 1068,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
@@ -33,7 +33,7 @@
     },
     {
       "file": "paper/main.tex",
-      "word_count": 6836,
+      "word_count": 7483,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,
@@ -44,7 +44,7 @@
     },
     {
       "file": "paper/results_macros.tex",
-      "word_count": 478,
+      "word_count": 1134,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,

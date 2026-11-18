@@ -8,13 +8,13 @@ Every output alignment is independently verified by `ELK` and `DuckDB` to satisf
 
 ## Why Hub-Level Certification Matters & Who Uses `CLASP-ONT`
 
-Evaluating ontology crosswalks one pair at a time misses **39%–56%** of hub-emergent unsatisfiable classes (`+63.8%` to `+125.4%` jump upon 4–6 ontology composition) and up to **234,152** silent intra-ontology conservativity violations caused by cross-ontology OWL 2 EL defined-class intersections. Existing pairwise repair tools (`LogMap`) leave thousands of hub-level violations unresolved, while optimal binary hitting-set deletion (`B3`) discards **16%–77%** of valid biological bridges.
+Evaluating ontology crosswalks one pair at a time misses **39%–56%** of hub-emergent unsatisfiable classes (`+63.8%` to `+125.4%` jump upon 4–6 ontology composition) and up to **234,152** silent intra-ontology conservativity violations, corrupting the native hierarchy of **`85.1%` of Orphanet rare diseases (`ORDO`)** and **`61.3%` of Mondo diseases (`MONDO`)**, and injecting **`13.1%–21.1%` intra-ontology cohort false-discovery rates** across major clinical disease chapters. Existing pairwise repair tools (`LogMap`) still leave `34.3%` of `DOID` and `18.1%` of `HP` corrupted, while binary hitting-set deletion (`B3`) discards **16%–77%** of valid biological bridges.
 
 | Target Community / Platform | Core Ontologies | Failure Under Pairwise / Delete Workflows | Value Delivered by `CLASP-ONT` (`B4`) |
 |---|---|---|---|
-| **Rare-disease & mammalian phenomics** | `MONDO`, `ORDO`, `DOID`, `HP`, `MP` | `234,152` silent disease subsumptions or `43.2%` links deleted | **`0` violations**; **`+48,863`** certified cross-species entailments over binary deletion |
-| **Oncology & drug-target KGs** | `NCIT`, `DOID`, `OMIM`, `ORDO` | Benign/malignant conflation (`NCIT:C2949` vs `DOID:12759`); `LogMap` `F1 = 0.009` | Certified directional hierarchy; **`F1 = 0.663`** (`-82.5%` fewer deletions) |
-| **Plant genomics & GxE trait portals** | `PO`, `TO`, `FLOPO`, `GO`, `CHEBI`, `ENVO` | `40,698` unsatisfiable classes (`84%` collapse) or `76.8%` links deleted | **`2.19x`** retained cross-ontology utility (`0.243 -> 0.532`) at **`0` violations** |
+| **Rare-disease & mammalian phenomics (`Exomiser`)** | `MONDO`, `ORDO`, `DOID`, `HP`, `MP` | `85.1%` `ORDO` corrupted; `13.1%` clinical cohort FDR (`74,475` FPs) | **`0.0%` cohort FDR**; **`288,767`** certified `HP<->MP` links (`+48,863` total cross-entailments over `B3`) |
+| **Oncology & precision-medicine KGs (`PrimeKG`)** | `NCIT`, `DOID`, `OMIM`, `ORDO` | `21.1%` cohort FDR; `LogMap` `F1 = 0.009`, deductive `sub_recall = 0.054` | **`F1 = 0.663`**; **`0.829` deductive subsumption recall** (`2,853 / 3,441`, `15.4x` `LogMap`) |
+| **Plant genomics & GxE trait portals (`Planteome`)** | `PO`, `TO`, `FLOPO`, `GO`, `CHEBI`, `ENVO` | `84.4%` classes corrupted (`40,698` unsat) or `76.8%` links deleted | **`2.19x`** retained cross-ontology utility (`0.243 -> 0.532`) at **`0.0%` corruption** |
 | **Ontology curators (`ODK`, `Biomappings`)** | Any `SSSOM` + OWL 2 EL hub | Pairwise CI misses multi-hop cycles & foreign existential fillers | Laptop/CI gate (**`< 4.3 GB` RAM**, zero GPU) + ready-to-merge **`.kgcl` PR patches** |
 
 ## Certified Empirical Summary

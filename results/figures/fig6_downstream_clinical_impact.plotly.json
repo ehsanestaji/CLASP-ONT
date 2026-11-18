@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "name": "B1 Raw Hub",
+      "type": "bar",
+      "x": [
+        "ORDO",
+        "MONDO",
+        "DOID",
+        "MP",
+        "HP"
+      ],
+      "y": [
+        85.09,
+        61.33,
+        69.13,
+        23.1,
+        22.7
+      ]
+    },
+    {
+      "name": "B2 LogMap",
+      "type": "bar",
+      "x": [
+        "ORDO",
+        "MONDO",
+        "DOID",
+        "MP",
+        "HP"
+      ],
+      "y": [
+        3.06,
+        0.02,
+        34.34,
+        6.41,
+        18.05
+      ]
+    },
+    {
+      "name": "B4 CLASP-ONT",
+      "type": "bar",
+      "x": [
+        "ORDO",
+        "MONDO",
+        "DOID",
+        "MP",
+        "HP"
+      ],
+      "y": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "layout": {
+    "title": "Native Ontology Hierarchy Corruption (%)"
+  }
+}
