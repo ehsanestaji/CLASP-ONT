@@ -1,53 +1,146 @@
-\documentclass[11pt,letterpaper]{article}
-
+\documentclass[10pt]{article}
+\usepackage[letterpaper,top=0.88in,bottom=0.88in,left=0.95in,right=0.95in,headheight=20pt,headsep=16pt,footskip=26pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[left=0.88in,right=0.88in,top=0.72in,bottom=0.72in]{geometry}
 \usepackage{newpxtext}
 \usepackage{newpxmath}
-\usepackage[scaled=0.89]{zi4}
+\usepackage[scaled=0.90]{zi4}
 \usepackage[protrusion=true,expansion=true]{microtype}
 \usepackage[group-separator={,},group-minimum-digits=4]{siunitx}
-\usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{xurl}
+\usepackage[colorlinks=true,urlcolor=accent,linkcolor=accent]{hyperref}
 
-\definecolor{oiBlue}{HTML}{0072B2}
-\hypersetup{colorlinks=true, linkcolor=oiBlue, urlcolor=oiBlue}
+\definecolor{ink}{HTML}{1A202C}
+\definecolor{accent}{HTML}{1B365D}
+\definecolor{muted}{HTML}{4A5568}
+\definecolor{hairline}{HTML}{CBD5E0}
+\definecolor{tintbg}{HTML}{F7FAFC}
 
-\pagestyle{empty}
-\setlength{\parskip}{3.6pt}
+\color{ink}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+  \renewcommand{\footrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \footrulewidth\hfill}}%
+  \fancyfoot[L]{\footnotesize\color{muted}\emph{Genome Biology} $\cdot$ Method Article}%
+  \fancyfoot[R]{\footnotesize\color{muted}Page 1 of 2}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \footrulewidth\hfill}}
+\fancyhead[L]{\footnotesize\color{muted}CLASP-ONT $\cdot$ Cover Letter}
+\fancyhead[R]{\footnotesize\color{muted}Estaji \& Mao}
+\fancyfoot[L]{\footnotesize\color{muted}\emph{Genome Biology} $\cdot$ Method Article}
+\fancyfoot[R]{\footnotesize\color{muted}Page \thepage\ of 2}
+
 \setlength{\parindent}{0pt}
-\setlength{\emergencystretch}{1.5em}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{1.4em}
+\linespread{1.11}
+
+\newcommand{\declhead}[1]{\par\vspace{5pt}{\normalsize\bfseries\color{accent}#1}\par\vspace{-3pt}}
 
 \input{results_macros.tex}
 
 \begin{document}
+\thispagestyle{firstpage}
 
-[DATE PLACEHOLDER]\\[0.55em]
-\textbf{To the Editors, \textit{Genome Biology}}\\[0.3em]
-\textbf{Re: Method Manuscript Submission: ``Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs''}
+% --- Scholarly Masthead ---
+\vspace*{-22pt}
+\noindent
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  \begin{tabular}[t]{@{}l@{}}
+    {\large\bfseries\color{accent}\lsstyle UME{\AA} PLANT SCIENCE CENTRE}\\[2pt]
+    {\small\color{muted}Department of Plant Physiology $\cdot$ Ume{\aa} University}\\
+    {\small\color{muted}SE-901~87 Ume{\aa}, Sweden}
+  \end{tabular}
+  &
+  \begin{tabular}[t]{@{}r@{}}
+    {\normalsize\bfseries\color{ink}Ehsan Estaji \& Jian-Feng Mao}\\[2pt]
+    {\small\color{muted}\href{mailto:ehsan.estaji@umu.se}{ehsan.estaji@umu.se} $\cdot$ \href{mailto:jianfeng.mao@umu.se}{jianfeng.mao@umu.se}}\\
+    {\small\color{muted}18 November 2026}
+  \end{tabular}
+\end{tabular*}
 
+\vspace{-2pt}
+{\color{accent}\rule{\textwidth}{0.9pt}}
+
+\vspace{4pt}
+{\normalsize
+\textbf{Editorial Office}\\
+\emph{Genome Biology}\\
+Springer Nature}
+
+\vspace{2pt}
+\noindent
+\colorbox{tintbg}{%
+  \parbox{\dimexpr\textwidth-2\fboxsep\relax}{%
+    \vspace{3pt}
+    {\color{accent}\vrule width 2.4pt}\hspace{8pt}%
+    \parbox{\dimexpr\textwidth-2\fboxsep-12pt\relax}{%
+      \small\textbf{\color{accent}Re: Method Article Submission}\\[1pt]
+      \normalsize\textbf{Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs}
+    }
+    \vspace{3pt}
+  }%
+}
+
+\vspace{2pt}
 Dear Editors,
 
-Please consider our Method manuscript, \textit{``Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs,''} for publication in \textit{Genome Biology}.
+Rare-disease variant prioritization (\texttt{MONDO}, \texttt{ORDO}, \texttt{DOID}, \texttt{HP}, \texttt{MP}), translational oncology knowledge graphs (\texttt{NCIT}, \texttt{DOID}, \texttt{OMIM}), and multi-species plant phenomics portals (\texttt{PO}, \texttt{TO}, \texttt{FLOPO}, \texttt{GO}, \texttt{ENVO}) depend on merging four to six reference ontologies through public Simple Standard for Sharing Ontological Mappings (SSSOM) crosswalks. Community quality-control pipelines validate these mappings almost exclusively one ontology pair at a time. Auditing \num{\ClaspTotalClassesAll} classes and \num{\ClaspTotalMappingsAll} crosswalks across clinical, oncology, and plant hubs, we show that pairwise checks miss $39\%\text{--}56\%$ of hub-emergent unsatisfiable classes ($+63.8\%$ to $+125.4\%$ jump upon multi-ontology composition) and overlook up to \num{\ClaspDiseasePhenotypeHubRawConsViol} silent intra-ontology conservativity violations triggered by cross-ontology OWL~2~EL defined-class intersections. Moreover, standalone \texttt{LogMap~4.0} repair fails to certify any multi-ontology hub, leaving up to \num{\ClaspDiseasePhenotypeHubBLogMapRepairConsViol} conservativity violations and \num{\ClaspPlantBiodivHubBLogMapRepairUnsat} unsatisfiable classes unresolved while collapsing held-out equivalence $F_1$ to \ClaspOAEIBioMLBLogMapRepairEquivFone{}.
 
-Rare-disease variant prioritization (\texttt{MONDO}, \texttt{ORDO}, \texttt{DOID}, \texttt{HP}, \texttt{MP}), translational oncology knowledge graphs (\texttt{NCIT}, \texttt{DOID}, \texttt{OMIM}), and multi-species plant phenomics portals (\texttt{PO}, \texttt{TO}, \texttt{FLOPO}, \texttt{GO}, \texttt{ENVO}) depend on merging four to six ontologies through public Simple Standard for Sharing Ontological Mappings (SSSOM) crosswalks. Current quality-control pipelines validate mappings only one ontology pair at a time. Auditing \num{\ClaspTotalClassesAll} classes and \num{\ClaspTotalMappingsAll} crosswalks across clinical, oncology, and plant hubs, we show that pairwise checks miss roughly half of all hub-emergent unsatisfiable classes ($+63.8\%$ to $+125.4\%$ increase upon multi-ontology composition) and overlook up to \num{\ClaspDiseasePhenotypeHubRawConsViol} silent intra-ontology conservativity violations triggered by cross-ontology OWL~2~EL defined-class intersections (e.g., equating malignant subtypes with benign neoplasms or completing foreign anatomical intersection axioms). Standalone \texttt{LogMap~4.0} repair fails to certify any multi-ontology hub, leaving up to \num{\ClaspDiseasePhenotypeHubBLogMapRepairConsViol} conservativity violations and \num{\ClaspPlantBiodivHubBLogMapRepairUnsat} unsatisfiable classes unresolved while collapsing held-out equivalence $F_1$ to \ClaspOAEIBioMLBLogMapRepairEquivFone{}.
+We submit \textsc{CLASP-ONT}, a CPU-only symbolic verification and non-destructive repair engine built for genomics platform engineers, clinical and plant knowledge-graph maintainers, and OBO Foundry/\texttt{Biomappings} curators:
+\begin{itemize}[leftmargin=1.45em,label={\color{accent}\rule[0.35ex]{0.38em}{0.38em}},itemsep=4.5pt,topsep=2pt,parsep=0pt]
+  \item \textbf{Exact hub-wide mathematical certification on a laptop CPU.} Coupling a conservative anonymous-witness Horn $0\text{--}1$ breadth-first search (which captures $99.7\%$ of defined-class existential violations in $<2$~s) with monotonic $\bot$-locality \textsc{QuickXplain} and \texttt{Clingo} Counterexample-Guided Abstraction Refinement (CEGAR), \textsc{CLASP-ONT} certifies exact zero post-repair unsatisfiable classes ($|\mathrm{Unsat}_{\Delta}| = 0$) and zero conservativity violations ($|\mathrm{ConsViol}| = 0$) across \num{\ClaspTotalClassesAll} classes within \ClaspMaxPeakRssMBAll{}~MB peak RAM (zero GPUs or local language-model weights).
+  \item \textbf{Five-action lattice refinement preserves valid biological bridges.} Rather than deleting contested equivalences, optimizing over $(\equiv,\; \sqsubseteq,\; \sqsupseteq,\; \mathrm{Parent}_1,\; \texttt{Not})$ eliminates $61.7\%\text{--}82.5\%$ of optimal binary hitting-set deletions ($q_{\mathrm{BH}} < 10^{-16}$), raises held-out equivalence $F_1$ on \texttt{OAEI\_BioML\_2026} from \ClaspOAEIBioMLBASPBinaryDeleteEquivFone{} to \ClaspOAEIBioMLBLexicalLatticeEquivFone{}, doubles retained utility on \texttt{Plant\_Biodiv\_Hub} (\ClaspPlantBiodivHubBASPBinaryDeleteRetention{} to \ClaspPlantBiodivHubBLexicalLatticeRetention{}), and preserves $+48{,}863$ certified cross-species entailments on \texttt{Disease\_Phenotype\_Hub}.
+  \item \textbf{Turnkey CI integration and upstream curation patches.} \textsc{CLASP-ONT} exports certified SSSOM tables and reviewable Knowledge Graph Change Language (\texttt{.kgcl}) pull-request patches ready for OBO Foundry Ontology Development Kit (\texttt{ODK}) continuous integration.
+\end{itemize}
 
-To solve this infrastructure bottleneck without severing valid cross-species and cross-domain bridges, we developed \textsc{CLASP-ONT}, a CPU-only verification and non-destructive repair engine tailored for genomics platform builders, clinical knowledge-graph engineers, plant trait consortia, and OBO Foundry/\texttt{Biomappings} curators. Rather than deleting contested equivalences, \textsc{CLASP-ONT} optimizes over a five-element subsumption refinement poset ($\equiv$, $\sqsubseteq$, $\sqsupseteq$, ancestor weakening, and negative curation) via two-tier conjunctive Horn $0\text{--}1$ breadth-first search, monotonic $\bot$-locality \textsc{QuickXplain}, and \texttt{Clingo} Counterexample-Guided Abstraction Refinement (CEGAR). Across all four suites, \textsc{CLASP-ONT}:
-\begin{enumerate}[leftmargin=1.6em,itemsep=1.5pt,topsep=1.5pt]
-  \item Mathematically certifies exact zero post-repair unsatisfiable classes ($|\mathrm{Unsat}_{\Delta}| = 0$) and zero conservativity violations ($|\mathrm{ConsViol}| = 0$) across \num{\ClaspTotalClassesAll} classes within \ClaspMaxPeakRssMBAll{}~MB peak RAM on a standard laptop CPU (zero GPUs or local language-model weights);
-  \item Eliminates $61.7\%$ to $82.5\%$ of binary hitting-set deletions ($q_{\mathrm{BH}} < 10^{-16}$), raises held-out equivalence $F_1$ on \texttt{OAEI\_BioML\_2026} from \ClaspOAEIBioMLBASPBinaryDeleteEquivFone{} to \ClaspOAEIBioMLBLexicalLatticeEquivFone{}, doubles retained utility on \texttt{Plant\_Biodiv\_Hub} (\ClaspPlantBiodivHubBASPBinaryDeleteRetention{} to \ClaspPlantBiodivHubBLexicalLatticeRetention{}), and preserves $+48{,}863$ certified cross-species entailments on \texttt{Disease\_Phenotype\_Hub};
-  \item Exports ready-to-merge SSSOM crosswalks and Knowledge Graph Change Language (KGCL) pull-request patches directly compatible with OBO Foundry Ontology Development Kit (\texttt{ODK}) continuous integration.
-\end{enumerate}
+Because multi-ontology crosswalk corruption affects rare-disease diagnostics, cancer cohort harmonization, and plant trait genomics alike, this Method manuscript speaks directly to the broad computational and functional genomics readership of \emph{Genome Biology}.
 
-This manuscript is original, has not been published previously, and is not under consideration elsewhere. All evaluated ontologies and crosswalks are publicly available under open licenses, and the complete \textsc{CLASP-ONT} software, Snakemake workflow, and SHA-256 reproducibility manifests are openly available under the Apache License~2.0 at \url{https://github.com/ehsanestaji/CLASP-ONT}. [OPTIONAL AI DISCLOSURE PLACEHOLDER IF APPLICABLE PER SPRINGER NATURE POLICY.] All authors have approved the manuscript and declare [COMPETING INTERESTS PLACEHOLDER].
+\newpage
 
+{\large\bfseries\color{accent}\lsstyle EDITORIAL \& COMPLIANCE DECLARATIONS}\par\vspace{-4pt}
+{\color{accent}\rule{\textwidth}{0.75pt}}
+
+\declhead{Software, Data, and Reproducibility}
+The complete \textsc{CLASP-ONT} source code, Snakemake workflow, JSON schemas, certified SSSOM crosswalks, stratified top-15 KGCL pull-request bundle, and SHA-256 reproducibility manifests (\texttt{configs/hubs.yaml}, \texttt{docs/empirical/repro\_manifest.json}) are openly available under the OSI-approved Apache License~2.0 at \url{https://github.com/ehsanestaji/CLASP-ONT} (Zenodo archive DOI to be minted upon acceptance: \texttt{[ZENODO\_DOI\_PLACEHOLDER]}). All evaluated ontologies and alignments derive from open public releases (\texttt{OAEI-ML/bio-ml}, Zenodo \texttt{10.5281/zenodo.13119437}, OBO Foundry PURLs, and \texttt{Biomappings} CC0~1.0).
+
+\declhead{Recommended Referee Expertise}
+Researchers working in biomedical ontology engineering and OBO Foundry quality control, ontology alignment and deductive conservativity, rare-disease and cross-species phenotype integration, or plant/trait knowledge graphs are well suited to evaluate this work.
+
+\declhead{Generative AI Disclosure}
+[OPTIONAL AUTHOR AI-USE SIGN-OFF PLACEHOLDER PER SPRINGER NATURE POLICY; structured tool-usage record available in \texttt{results/upstream\_prs/journal\_ai\_disclosure\_2026.json}.]
+
+\declhead{Originality, Competing Interests \& Open Access}
+This manuscript is original, has not been published previously, and is not under consideration elsewhere. Both authors have read and approved the submission and declare no competing interests. Open-access publication is covered under the Sweden Bibsam agreement for Ume{\aa} University (\texttt{@umu.se}).
+
+\vspace{16pt}
 Sincerely,
 
-\vspace{0.55em}
-[CORRESPONDING AUTHOR NAME PLACEHOLDER]\\
-{[INSTITUTIONAL AFFILIATION PLACEHOLDER]}\\
-Email: \texttt{[CORRESPONDING AUTHOR EMAIL PLACEHOLDER]}
+\vspace{12pt}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Ehsan Estaji} \emph{(Corresponding Author)}\\[3pt]
+  {\small\color{muted}Ume{\aa} Plant Science Centre, Ume{\aa} University}\\[1pt]
+  {\small\color{muted}ORCID: \href{https://orcid.org/0009-0005-0838-228X}{0009-0005-0838-228X}}\\[1pt]
+  {\small\color{muted}\href{mailto:ehsan.estaji@umu.se}{\texttt{ehsan.estaji@umu.se}}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Jian-Feng Mao}\\[3pt]
+  {\small\color{muted}Ume{\aa} Plant Science Centre, Ume{\aa} University}\\[1pt]
+  {\small\color{muted}ORCID: \href{https://orcid.org/0000-0001-9735-8516}{0000-0001-9735-8516}}\\[1pt]
+  {\small\color{muted}\href{mailto:jianfeng.mao@umu.se}{\texttt{jianfeng.mao@umu.se}}}
+\end{minipage}
 
 \end{document}

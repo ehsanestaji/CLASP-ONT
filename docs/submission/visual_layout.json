@@ -4,8 +4,8 @@
   "visual_inspection_instructions": "Programmatic bounding-box checks catch text-on-text overlaps and margin clipping, but cannot see inside vector graphics curves or raster plots. You MUST visually inspect the rendered PNG files in rendered_pngs (especially figure_and_table_pages) using read_file to verify zero legend-on-curve, label-on-node, or panel-border collisions.",
   "summary": {
     "pdfs_audited": 3,
-    "total_pages_rendered": 21,
-    "render_dir": "/private/tmp/clasp_final_pages",
+    "total_pages_rendered": 20,
+    "render_dir": "/private/tmp/clasp_cryptoprs_pages",
     "dpi": 180,
     "total_margin_overflows": 0,
     "total_word_bbox_overlaps": 0,
@@ -14,61 +14,59 @@
   "documents": [
     {
       "pdf": "/Users/ehsan/Documents/GitHub/CLASP-ONT/paper/main.pdf",
-      "page_count": 16,
+      "page_count": 14,
       "rendered_pngs": [
-        "/private/tmp/clasp_final_pages/main_page_01.png",
-        "/private/tmp/clasp_final_pages/main_page_02.png",
-        "/private/tmp/clasp_final_pages/main_page_03.png",
-        "/private/tmp/clasp_final_pages/main_page_04.png",
-        "/private/tmp/clasp_final_pages/main_page_05.png",
-        "/private/tmp/clasp_final_pages/main_page_06.png",
-        "/private/tmp/clasp_final_pages/main_page_07.png",
-        "/private/tmp/clasp_final_pages/main_page_08.png",
-        "/private/tmp/clasp_final_pages/main_page_09.png",
-        "/private/tmp/clasp_final_pages/main_page_10.png",
-        "/private/tmp/clasp_final_pages/main_page_11.png",
-        "/private/tmp/clasp_final_pages/main_page_12.png",
-        "/private/tmp/clasp_final_pages/main_page_13.png",
-        "/private/tmp/clasp_final_pages/main_page_14.png",
-        "/private/tmp/clasp_final_pages/main_page_15.png",
-        "/private/tmp/clasp_final_pages/main_page_16.png"
+        "/private/tmp/clasp_cryptoprs_pages/main_page_01.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_02.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_03.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_04.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_05.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_06.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_07.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_08.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_09.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_10.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_11.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_12.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_13.png",
+        "/private/tmp/clasp_cryptoprs_pages/main_page_14.png"
       ],
       "figure_and_table_pages": [
         {
+          "page": 2,
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_02.png"
+        },
+        {
           "page": 3,
-          "png": "/private/tmp/clasp_final_pages/main_page_03.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_03.png"
         },
         {
           "page": 4,
-          "png": "/private/tmp/clasp_final_pages/main_page_04.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_04.png"
         },
         {
           "page": 5,
-          "png": "/private/tmp/clasp_final_pages/main_page_05.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_05.png"
         },
         {
           "page": 6,
-          "png": "/private/tmp/clasp_final_pages/main_page_06.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_06.png"
         },
         {
           "page": 7,
-          "png": "/private/tmp/clasp_final_pages/main_page_07.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_07.png"
         },
         {
           "page": 8,
-          "png": "/private/tmp/clasp_final_pages/main_page_08.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_08.png"
         },
         {
-          "page": 9,
-          "png": "/private/tmp/clasp_final_pages/main_page_09.png"
+          "page": 10,
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_10.png"
         },
         {
           "page": 11,
-          "png": "/private/tmp/clasp_final_pages/main_page_11.png"
-        },
-        {
-          "page": 12,
-          "png": "/private/tmp/clasp_final_pages/main_page_12.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/main_page_11.png"
         }
       ],
       "margin_overflow_count": 0,
@@ -82,23 +80,19 @@
       "pdf": "/Users/ehsan/Documents/GitHub/CLASP-ONT/paper/supplementary.pdf",
       "page_count": 4,
       "rendered_pngs": [
-        "/private/tmp/clasp_final_pages/supplementary_page_01.png",
-        "/private/tmp/clasp_final_pages/supplementary_page_02.png",
-        "/private/tmp/clasp_final_pages/supplementary_page_03.png",
-        "/private/tmp/clasp_final_pages/supplementary_page_04.png"
+        "/private/tmp/clasp_cryptoprs_pages/supplementary_page_01.png",
+        "/private/tmp/clasp_cryptoprs_pages/supplementary_page_02.png",
+        "/private/tmp/clasp_cryptoprs_pages/supplementary_page_03.png",
+        "/private/tmp/clasp_cryptoprs_pages/supplementary_page_04.png"
       ],
       "figure_and_table_pages": [
         {
-          "page": 1,
-          "png": "/private/tmp/clasp_final_pages/supplementary_page_01.png"
-        },
-        {
           "page": 2,
-          "png": "/private/tmp/clasp_final_pages/supplementary_page_02.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/supplementary_page_02.png"
         },
         {
           "page": 3,
-          "png": "/private/tmp/clasp_final_pages/supplementary_page_03.png"
+          "png": "/private/tmp/clasp_cryptoprs_pages/supplementary_page_03.png"
         }
       ],
       "margin_overflow_count": 0,
@@ -110,9 +104,10 @@
     },
     {
       "pdf": "/Users/ehsan/Documents/GitHub/CLASP-ONT/paper/cover_letter.pdf",
-      "page_count": 1,
+      "page_count": 2,
       "rendered_pngs": [
-        "/private/tmp/clasp_final_pages/cover_letter_page_01.png"
+        "/private/tmp/clasp_cryptoprs_pages/cover_letter_page_01.png",
+        "/private/tmp/clasp_cryptoprs_pages/cover_letter_page_02.png"
       ],
       "figure_and_table_pages": [],
       "margin_overflow_count": 0,

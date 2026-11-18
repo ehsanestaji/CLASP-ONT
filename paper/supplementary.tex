@@ -1,52 +1,117 @@
-\documentclass[11pt,letterpaper]{article}
+\documentclass[10pt]{article}
 
+\usepackage[letterpaper,top=0.92in,bottom=0.92in,left=0.98in,right=0.98in,headheight=19pt,headsep=18pt,footskip=28pt]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[left=1.0in,right=1.0in,top=1.0in,bottom=1.05in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
 \usepackage{newpxtext}
 \usepackage{newpxmath}
 \usepackage[scaled=0.89]{zi4}
 \usepackage[protrusion=true,expansion=true]{microtype}
 
+\usepackage{xcolor}
+\definecolor{ink}{HTML}{1A202C}
+\definecolor{accent}{HTML}{1B365D}
+\definecolor{muted}{HTML}{4A5568}
+\definecolor{hairline}{HTML}{CBD5E0}
+\definecolor{tintbg}{HTML}{F7FAFC}
+
+\color{ink}
+
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage{longtable}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage[font=small,labelfont=bf,skip=6pt]{caption}
+\usepackage{tabularx}
+\usepackage[skip=6pt,font=small,labelfont={bf,color=accent},labelsep=period]{caption}
 \usepackage[group-separator={,},group-minimum-digits=4]{siunitx}
+\usepackage{xurl}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
 \usepackage[numbers,sort&compress]{natbib}
-\usepackage{hyperref}
-
-\definecolor{oiBlue}{HTML}{0072B2}
-\hypersetup{
-  colorlinks=true,
-  linkcolor=oiBlue,
-  citecolor=oiBlue,
-  urlcolor=oiBlue,
-  pdftitle={Supplementary Information: Pairwise Valid, Globally Broken (CLASP-ONT)}
-}
+\usepackage[colorlinks=true,linkcolor=accent,citecolor=accent,urlcolor=accent,
+  pdftitle={Supplementary Information: Pairwise Valid, Globally Broken (CLASP-ONT)},
+  pdfauthor={Ehsan Estaji and Jian-Feng Mao}]{hyperref}
 
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
+
+\newtheoremstyle{accentthm}
+  {0pt}{0pt}{\itshape}{0pt}{\bfseries\color{accent}}{.}{0.5em}{}
+\theoremstyle{accentthm}
 \newtheorem{proposition}{Proposition}
 \renewcommand{\theproposition}{S\arabic{proposition}}
 
+\tcolorboxenvironment{proposition}{
+  blanker,
+  breakable,
+  left=10pt,
+  right=8pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=9pt,
+  after skip=9pt,
+  colback=tintbg,
+  borderline west={2.2pt}{0pt}{accent}
+}
+
+\titleformat{\section}
+  {\large\bfseries\color{accent}}{\thesection}{0.7em}{}
+  [\vspace{2pt}{\color{hairline}\titlerule[0.5pt]}]
+\titleformat{name=\section,numberless}
+  {\large\bfseries\color{accent}}{}{0pt}{}
+  [\vspace{2pt}{\color{hairline}\titlerule[0.5pt]}]
+\titlespacing*{\section}{0pt}{14pt plus 3pt minus 2pt}{7pt plus 2pt}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+  \renewcommand{\footrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \footrulewidth\hfill}}%
+  \fancyfoot[L]{\footnotesize\color{muted}\emph{Genome Biology} $\cdot$ Supplementary Information}%
+  \fancyfoot[R]{\footnotesize\color{muted}Page \thepage}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrule}{\hbox to\headwidth{\color{hairline}\leaders\hrule height \footrulewidth\hfill}}
+\fancyhead[L]{\footnotesize\color{muted}CLASP-ONT $\cdot$ Supplementary Information}
+\fancyhead[R]{\footnotesize\color{muted}Estaji \& Mao}
+\fancyfoot[L]{\footnotesize\color{muted}\emph{Genome Biology} $\cdot$ Supplementary Information}
+\fancyfoot[R]{\footnotesize\color{muted}Page \thepage}
+
 \clubpenalty=10000
 \widowpenalty=10000
-\setlength{\parskip}{3pt plus 1pt minus 1pt}
-\setlength{\emergencystretch}{1.5em}
+\linespread{1.08}
+\setlength{\parskip}{3.2pt plus 1pt minus 0.8pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{1.4em}
 
 \input{results_macros.tex}
 
-\title{\vspace{-1.0em}\textbf{Supplementary Information}\\[0.3em]
-\large Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs}
-\author{[AUTHOR NAMES PLACEHOLDER]}
-\date{}
-
 \begin{document}
-\maketitle
+\thispagestyle{firstpage}
+
+% --- Bespoke Supplementary Masthead ---
+{\setlength{\parindent}{0pt}%
+{\footnotesize\bfseries\color{accent}\lsstyle SUPPLEMENTARY INFORMATION $\cdot$ GENOME BIOLOGY}\par\vspace{2pt}
+{\color{accent}\rule{\textwidth}{1.0pt}}\par\vspace{8pt}
+{\LARGE\bfseries\color{ink}\raggedright Supplementary Information for\\Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs\par}
+\vspace{8pt}
+{\normalsize\bfseries\color{ink}Ehsan Estaji\textsuperscript{1,*} \quad and \quad Jian-Feng Mao\textsuperscript{1}\par}
+\vspace{4pt}
+{\small\color{muted}%
+\textsuperscript{1}Ume{\aa} Plant Science Centre, Department of Plant Physiology, Ume{\aa} University, SE-901~87 Ume{\aa}, Sweden\\[1.5pt]
+\textsuperscript{*}Correspondence: \href{mailto:ehsan.estaji@umu.se}{\texttt{ehsan.estaji@umu.se}}\par}
+\vspace{6pt}%
+}
+
+{\small\color{muted}Table, figure, and proposition numbers prefixed with S refer to this file; all other numbers refer to the main text.}
 
 \section*{S1. Theoretical Soundness Proofs for Two-Tier Core Extraction}
 
@@ -57,14 +122,13 @@ Let $\mathcal{H}(\emptyset) = O_1 \cup \dots \cup O_k$ be an OWL~2~EL ontology u
   \mathcal{H}^+(\emptyset) \models C \sqsubseteq D \quad \Longleftrightarrow \quad \mathcal{H}(\emptyset) \models C \sqsubseteq D.
 \]
 \end{proposition}
-\noindent\textit{Proof.} $(\Leftarrow)$ Immediate by monotonicity of description logic entailment since $\mathcal{H}(\emptyset) \subseteq \mathcal{H}^+(\emptyset)$. $(\Rightarrow)$ Suppose $\mathcal{H}(\emptyset) \not\models C \sqsubseteq D$. Then there exists an interpretation $\mathcal{I}$ over domain $\Delta$ with extension map $\mathrm{ext}_{\mathcal{I}}(\cdot)$ such that $\mathcal{I} \models \mathcal{H}(\emptyset)$ and $\mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D)$. Define an extended interpretation $\mathcal{J}$ over $\Sigma_0 \cup \{P_\ell\}$ with the same domain $\Delta$ by setting $\mathrm{ext}_{\mathcal{J}}(X) = \mathrm{ext}_{\mathcal{I}}(X)$ for all $X \in \Sigma_0$ and $\mathrm{ext}_{\mathcal{J}}(P_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell)$ for every fresh witness $P_\ell$. Because no $P_\ell$ occurs inside $E_\ell$ or inside $\mathcal{H}(\emptyset)$, structural induction gives $\mathrm{ext}_{\mathcal{J}}(E_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell) = \mathrm{ext}_{\mathcal{J}}(P_\ell)$, so $\mathcal{J} \models E_\ell \sqsubseteq P_\ell$ for all $\ell$ and $\mathcal{J} \models \mathcal{H}(\emptyset)$. Hence $\mathcal{J} \models \mathcal{H}^+(\emptyset)$ while $\mathrm{ext}_{\mathcal{J}}(C) = \mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D) = \mathrm{ext}_{\mathcal{J}}(D)$, proving $\mathcal{H}^+(\emptyset) \not\models C \sqsubseteq D$. \hfill $\square$
+\textit{Proof.} $(\Leftarrow)$ Immediate by monotonicity of description logic entailment since $\mathcal{H}(\emptyset) \subseteq \mathcal{H}^+(\emptyset)$. $(\Rightarrow)$ Suppose $\mathcal{H}(\emptyset) \not\models C \sqsubseteq D$. Then there exists an interpretation $\mathcal{I}$ over domain $\Delta$ with extension map $\mathrm{ext}_{\mathcal{I}}(\cdot)$ such that $\mathcal{I} \models \mathcal{H}(\emptyset)$ and $\mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D)$. Define an extended interpretation $\mathcal{J}$ over $\Sigma_0 \cup \{P_\ell\}$ with the same domain $\Delta$ by setting $\mathrm{ext}_{\mathcal{J}}(X) = \mathrm{ext}_{\mathcal{I}}(X)$ for all $X \in \Sigma_0$ and $\mathrm{ext}_{\mathcal{J}}(P_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell)$ for every fresh witness $P_\ell$. Because no $P_\ell$ occurs inside $E_\ell$ or inside $\mathcal{H}(\emptyset)$, structural induction gives $\mathrm{ext}_{\mathcal{J}}(E_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell) = \mathrm{ext}_{\mathcal{J}}(P_\ell)$, so $\mathcal{J} \models E_\ell \sqsubseteq P_\ell$ for all $\ell$ and $\mathcal{J} \models \mathcal{H}(\emptyset)$. Hence $\mathcal{J} \models \mathcal{H}^+(\emptyset)$ while $\mathrm{ext}_{\mathcal{J}}(C) = \mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D) = \mathrm{ext}_{\mathcal{J}}(D)$, proving $\mathcal{H}^+(\emptyset) \not\models C \sqsubseteq D$. \hfill $\square$
 
-\medskip
 \begin{proposition}[Property-Filtered $\bot$-Locality Trigger Soundness]
 \label{prop:locality}
-Let $\mathrm{isLocal}_{\bot}(\alpha, \Sigma)$ denote the OWL~2 syntactic $\bot$-locality evaluator~\cite{cuencagrau2008modular}, and let $\mathcal{P}$ be the set of all object and data properties in $\mathcal{H}$. If $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, then for any signature $\Sigma$ containing zero classes and zero individuals from $\mathrm{Sig}(\alpha)$ ($\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$), $\mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$.
+Let $\mathrm{isLocal}_{\bot}(\alpha, \Sigma)$ denote the OWL~2 syntactic $\bot$-locality evaluator~\cite{cuencagrau2008modular}, and let $\mathcal{P}$ be the set of all object and data properties in $\mathcal{H}$. Whenever $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, every signature $\Sigma$ containing zero classes and zero individuals from $\mathrm{Sig}(\alpha)$ ($\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$) satisfies $\mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$.
 \end{proposition}
-\noindent\textit{Proof.} In syntactic $\bot$-locality, the grammar sets of $\bot$-equivalent expressions $\mathcal{C}^{\bot}(\Sigma)$ and $\top$-equivalent expressions $\mathcal{C}^{\top}(\Sigma)$ shrink monotonically with respect to signature inclusion: $\Sigma_1 \subseteq \Sigma_2 \implies \mathcal{C}^{\bot}(\Sigma_2) \subseteq \mathcal{C}^{\bot}(\Sigma_1)$ and $\mathcal{C}^{\top}(\Sigma_2) \subseteq \mathcal{C}^{\top}(\Sigma_1)$, whence $\neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_1) \implies \neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_2)$. Moreover, locality depends only on $\Sigma \cap \mathrm{Sig}(\alpha)$. If $\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$, then $\Sigma \cap \mathrm{Sig}(\alpha) \subseteq \mathcal{P}$. Since $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, monotonicity yields $\mathrm{isLocal}_{\bot}(\alpha, \Sigma \cap \mathrm{Sig}(\alpha)) = \mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$. Consequently, $\alpha$ need only be indexed under trigger entities in $\mathrm{Sig}(\alpha) \setminus \mathcal{P}$. \hfill $\square$
+\textit{Proof.} In syntactic $\bot$-locality, the grammar sets of $\bot$-equivalent expressions $\mathcal{C}^{\bot}(\Sigma)$ and $\top$-equivalent expressions $\mathcal{C}^{\top}(\Sigma)$ shrink monotonically with respect to signature inclusion: $\Sigma_1 \subseteq \Sigma_2 \implies \mathcal{C}^{\bot}(\Sigma_2) \subseteq \mathcal{C}^{\bot}(\Sigma_1)$ and $\mathcal{C}^{\top}(\Sigma_2) \subseteq \mathcal{C}^{\top}(\Sigma_1)$, whence $\neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_1) \implies \neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_2)$. Moreover, locality depends only on $\Sigma \cap \mathrm{Sig}(\alpha)$. If $\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$, then $\Sigma \cap \mathrm{Sig}(\alpha) \subseteq \mathcal{P}$. Since $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, monotonicity yields $\mathrm{isLocal}_{\bot}(\alpha, \Sigma \cap \mathrm{Sig}(\alpha)) = \mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$. Consequently, $\alpha$ need only be indexed under trigger entities in $\mathrm{Sig}(\alpha) \setminus \mathcal{P}$. \hfill $\square$
 
 \section*{S2. Dataset Provenance, Tool Versions, and Baseline Parity}
 
@@ -75,9 +139,8 @@ Table~S1 summarizes the archive URLs, SHA-256 provenance records, and command-li
 \caption{\textbf{Public hub dataset provenance, tool versions, and command-line execution parity.} All JVM processes enforce a strict \texttt{-Xmx4G} heap ceiling under OpenJDK~21.}
 \label{tab:s1_provenance}
 \footnotesize
-\setlength{\tabcolsep}{4.0pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llll@{}}
+\setlength{\tabcolsep}{4.2pt}
+\begin{tabularx}{\textwidth}{@{}ll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{Component / Suite} & \textbf{Ontologies / Version} & \textbf{Source / Archive} & \textbf{Execution / Parity Configuration} \\
 \midrule
@@ -91,8 +154,7 @@ Table~S1 summarizes the archive URLs, SHA-256 provenance records, and command-li
 \texttt{B3\_ASP\_Binary\_Delete} & \texttt{Clingo v5.8.3} & Potassco (\texttt{clingo}) & \texttt{-t4 -{}-opt-strategy=usc,k,0,4} (binary) \\
 \texttt{B4\_Lexical\_Lattice} & \texttt{CLASP-ONT v0.1.0} & This work (\texttt{Python 3.12}, \texttt{DuckDB}) & 5-action poset ($\rho \in \{1, 0.75, 0.45, 0\}$) \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table}
 
 \section*{S3. Multi-Agent Oracle Agreement Scaffold and Full Top-15 KGCL Patch Bundle}
@@ -101,7 +163,7 @@ Figure~S1 illustrates the multi-agent Jensen--Shannon divergence diagnostic pane
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.72\textwidth]{../results/figures/fig4_oracle_agreement.pdf}
+\includegraphics[width=0.70\textwidth]{../results/figures/fig4_oracle_agreement.pdf}
 \caption{\textbf{Multi-agent oracle Jensen--Shannon divergence diagnostic plot.} When cached external CLI sweeps (\texttt{C1\_Claude}, \texttt{C2\_Codex}, \texttt{C3\_Antigravity}) are populated via \texttt{make run-frontier-oracles}, \texttt{build\_figures.py} renders pairwise Jensen--Shannon divergence across all three model families; under deterministic offline execution (\texttt{B4\_Lexical\_Lattice}), the panel explicitly records that no external LLM calls were invoked.}
 \label{fig:s1_oracle}
 \end{figure}
@@ -111,9 +173,8 @@ Figure~S1 illustrates the multi-agent Jensen--Shannon divergence diagnostic pane
 \caption{\textbf{Complete top-15 stratified upstream KGCL pull-request patches across \texttt{Disease\_Phenotype\_Hub}, \texttt{OAEI\_BioML\_2026}, and \texttt{Plant\_Biodiv\_Hub}.} Unfiltered programmatic export under \texttt{B4\_Lexical\_Lattice}; note row~3 (\texttt{PO:0025132} vs.\ \texttt{ENVO:00000014}), which satisfies all logical coherence and conservativity constraints along one direction and illustrates how exact-label homonyms motivate human KGCL review or semantic oracle priors.}
 \label{tab:s2_top15}
 \scriptsize
-\setlength{\tabcolsep}{3.5pt}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}rllll@{}}
+\setlength{\tabcolsep}{3.8pt}
+\begin{tabularx}{\textwidth}{@{}rllp{1.9cm}>{\raggedright\arraybackslash}X@{}}
 \toprule
 \textbf{\#} & \textbf{Suite} & \textbf{Subject $\leftrightarrow$ Object (Labels)} & \textbf{Action} & \textbf{KGCL Patch Command} \\
 \midrule
@@ -133,8 +194,7 @@ Figure~S1 illustrates the multi-agent Jensen--Shannon divergence diagnostic pane
 14 & \texttt{BioML26} & \texttt{OMIM:PS253600} (LGMD recessive) $\leftrightarrow$ \texttt{ORDO:102015} & \texttt{downgrade\_sup} & \texttt{create edge ORDO:102015 rdfs:subClassOf OMIM:PS253600} \\
 15 & \texttt{Plant} & \texttt{TO:0000951} (corolla color) $\leftrightarrow$ \texttt{FLOPO:0000219} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table}
 
 \clearpage

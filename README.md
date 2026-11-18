@@ -62,6 +62,13 @@ make certify-from-cache
 - `results/`: Certified `.sssom.tsv` crosswalks, `.kgcl` patches, vector PDF/SVG figures, upstream PR bundle (`results/upstream_prs/top15_kgcl_pull_requests.md`), and `summary_metrics.json`
 - `paper/`: Programmatic `results_macros.tex`, `main.tex` (`main.pdf`), `supplementary.tex` (`supplementary.pdf`), `cover_letter.tex` (`cover_letter.pdf`), and `references.bib`
 
+## Authors & Affiliation
+
+- **Ehsan Estaji** ([0009-0005-0838-228X](https://orcid.org/0009-0005-0838-228X), `ehsan.estaji@umu.se`)
+- **Jian-Feng Mao** ([0000-0001-9735-8516](https://orcid.org/0000-0001-9735-8516), `jianfeng.mao@umu.se`)
+
+Umeå Plant Science Centre (UPSC), Department of Plant Physiology, Umeå University, SE-901 87 Umeå, Sweden.
+
 ## License
 
 Apache License 2.0 (`LICENSE`).

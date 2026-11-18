@@ -12,243 +12,243 @@
     "algorithms_count": 2
   },
   "manuscript_landmarks": {
-    "total_lines": 1085,
+    "total_lines": 1231,
     "theorems": [
       {
         "type": "definition",
         "title": "Certified Multi-Ontology Hub Repair",
-        "line": 569
+        "line": 655
       },
       {
         "type": "definition",
         "title": "Subsumption Refinement Poset and Minimal Conflict Core",
-        "line": 580
+        "line": 666
       },
       {
         "type": "proposition",
         "title": "Conservative One-Way Witness Extension",
-        "line": 994
+        "line": 1145
       },
       {
         "type": "proposition",
         "title": "Property-Filtered $\\bot$-Locality Trigger Soundness",
-        "line": 1004
+        "line": 1154
       }
     ],
     "labels": [
       {
         "label": "fig:architecture",
-        "line": 372
+        "line": 461
       },
       {
         "label": "tab:h1_breakdown",
-        "line": 386
+        "line": 475
       },
       {
         "label": "fig:compositional",
-        "line": 407
+        "line": 496
       },
       {
         "label": "tab:main_benchmark",
-        "line": 419
+        "line": 508
       },
       {
         "label": "fig:bioml_acc",
-        "line": 463
+        "line": 550
       },
       {
         "label": "fig:lattice_fates",
-        "line": 470
+        "line": 557
       },
       {
         "label": "tab:case_studies",
-        "line": 495
+        "line": 582
       },
       {
         "label": "fig:telemetry",
-        "line": 522
+        "line": 607
       },
       {
         "label": "tab:stakeholders",
-        "line": 542
+        "line": 627
       },
       {
         "label": "def:certification",
-        "line": 570
+        "line": 656
       },
       {
         "label": "eq:unsat_delta",
-        "line": 573
+        "line": 659
       },
       {
         "label": "eq:consviol",
-        "line": 574
+        "line": 660
       },
       {
         "label": "def:poset",
-        "line": 581
+        "line": 667
       },
       {
         "label": "eq:asp_obj",
-        "line": 595
+        "line": 681
       },
       {
         "label": "fig:poset",
-        "line": 620
+        "line": 706
       },
       {
         "label": "tab:s1_provenance",
-        "line": 1017
+        "line": 1167
       },
       {
         "label": "fig:s1_oracle",
-        "line": 1047
+        "line": 1195
       },
       {
         "label": "tab:s2_top15",
-        "line": 1053
+        "line": 1201
       }
     ],
     "sections": [
       {
         "level": "section",
         "title": "Background",
-        "line": 325
+        "line": 414
       },
       {
         "level": "section",
         "title": "Results",
-        "line": 377
+        "line": 466
       },
       {
         "level": "subsection",
         "title": "Pairwise-valid crosswalks fracture in multi-ontology hubs",
-        "line": 379
+        "line": 468
       },
       {
         "level": "subsection",
         "title": "Greedy pairwise repair leaves hub violations unresolved and degrades $F_1$",
-        "line": 412
+        "line": 501
       },
       {
         "level": "subsection",
         "title": "Five-action lattice CEGAR eliminates $62\\%\\text{--",
-        "line": 455
+        "line": 542
       },
       {
         "level": "subsection",
         "title": "Biological case studies and upstream KGCL patch bundles",
-        "line": 482
+        "line": 569
       },
       {
         "level": "subsection",
         "title": "Laptop-scale CPU convergence and memory scaling",
-        "line": 514
+        "line": 599
       },
       {
         "level": "section",
         "title": "Discussion",
-        "line": 525
+        "line": 610
       },
       {
         "level": "subsection",
         "title": "Why hub-level certification matters for biological discovery and clinical systems",
-        "line": 527
+        "line": 612
       },
       {
         "level": "subsection",
         "title": "Scope boundaries and future extensions",
-        "line": 559
+        "line": 645
       },
       {
         "level": "section",
         "title": "Methods",
-        "line": 563
+        "line": 649
       },
       {
         "level": "subsection",
         "title": "Formal problem specification and certification invariants",
-        "line": 565
+        "line": 651
       },
       {
         "level": "subsection",
         "title": "The five-element subsumption refinement poset $\\mathcal{L",
-        "line": 578
+        "line": 664
       },
       {
         "level": "subsection",
         "title": "Stage 1: Streaming \\texttt{ELK",
-        "line": 623
+        "line": 709
       },
       {
         "level": "subsection",
         "title": "Stage 2: Two-tier conjunctive Horn $0\\text{--",
-        "line": 627
+        "line": 713
       },
       {
         "level": "subsection",
         "title": "Stage 3 and Stage 4: Semantic priors, sandboxed oracle protocol, and CEGAR certification",
-        "line": 657
+        "line": 743
       },
       {
         "level": "subsection",
         "title": "Evaluation datasets, baselines, and statistical analysis",
-        "line": 663
+        "line": 749
       },
       {
         "level": "section",
         "title": "Declarations",
-        "line": 674
+        "line": 760
       },
       {
         "level": "subsection",
         "title": "Ethics approval and consent to participate",
-        "line": 676
+        "line": 762
       },
       {
         "level": "subsection",
         "title": "Consent for publication",
-        "line": 679
+        "line": 765
       },
       {
         "level": "subsection",
         "title": "Availability of data and materials",
-        "line": 682
+        "line": 768
       },
       {
         "level": "subsection",
         "title": "Competing interests",
-        "line": 685
+        "line": 771
       },
       {
         "level": "subsection",
         "title": "Funding",
-        "line": 688
+        "line": 774
       },
       {
         "level": "subsection",
         "title": "Author Contributions",
-        "line": 691
+        "line": 777
       },
       {
         "level": "subsection",
         "title": "Acknowledgments",
-        "line": 694
+        "line": 780
       },
       {
         "level": "section",
         "title": "S1. Theoretical Soundness Proofs for Two-Tier Core Extraction",
-        "line": 992
+        "line": 1143
       },
       {
         "level": "section",
         "title": "S2. Dataset Provenance, Tool Versions, and Baseline Parity",
-        "line": 1010
+        "line": 1160
       },
       {
         "level": "section",
         "title": "S3. Multi-Agent Oracle Agreement Scaffold and Full Top-15 KGCL Patch Bundle",
-        "line": 1039
+        "line": 1187
       }
     ]
   },

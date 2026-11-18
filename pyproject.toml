@@ -5,6 +5,10 @@ description = "Certified Lattice ASP Solver and Patching for Multi-Ontology Biol
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = { text = "Apache-2.0" }
+authors = [
+    { name = "Ehsan Estaji", email = "ehsan.estaji@umu.se" },
+    { name = "Jian-Feng Mao", email = "jianfeng.mao@umu.se" },
+]
 dependencies = [
     "oaklib>=0.7.4",
     "sssom>=0.4.22",
