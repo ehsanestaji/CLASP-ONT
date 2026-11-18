@@ -1,0 +1,279 @@
+{
+  "status": "PASS",
+  "total_manifest_anchors": 38,
+  "matched": [
+    {
+      "anchor": "total_classes_all",
+      "value": 188030,
+      "matched_as": [
+        "188030"
+      ]
+    },
+    {
+      "anchor": "total_mappings_all",
+      "value": 41735,
+      "matched_as": [
+        "41735"
+      ]
+    },
+    {
+      "anchor": "bioml_classes",
+      "value": 43150,
+      "matched_as": [
+        "43150"
+      ]
+    },
+    {
+      "anchor": "bioml_mappings",
+      "value": 16694,
+      "matched_as": [
+        "16694"
+      ]
+    },
+    {
+      "anchor": "bioml_pairwise_unsat",
+      "value": 12223,
+      "matched_as": [
+        "12223"
+      ]
+    },
+    {
+      "anchor": "bioml_raw_unsat",
+      "value": 23619,
+      "matched_as": [
+        "23619"
+      ]
+    },
+    {
+      "anchor": "bioml_raw_consviol",
+      "value": 33192,
+      "matched_as": [
+        "33192"
+      ]
+    },
+    {
+      "anchor": "bioml_b2_consviol",
+      "value": 5126,
+      "matched_as": [
+        "5126"
+      ]
+    },
+    {
+      "anchor": "bioml_b2_equiv_f1",
+      "value": 0.008608,
+      "matched_as": [
+        "0.009"
+      ]
+    },
+    {
+      "anchor": "bioml_b3_equiv_f1",
+      "value": 0.606405,
+      "matched_as": [
+        "0.606"
+      ]
+    },
+    {
+      "anchor": "bioml_b4_equiv_f1",
+      "value": 0.662614,
+      "matched_as": [
+        "0.663"
+      ]
+    },
+    {
+      "anchor": "bioml_b3_dropped",
+      "value": 2732,
+      "matched_as": [
+        "2732"
+      ]
+    },
+    {
+      "anchor": "bioml_b4_dropped",
+      "value": 479,
+      "matched_as": [
+        "479"
+      ]
+    },
+    {
+      "anchor": "bioml_b4_retention",
+      "value": 0.873339,
+      "matched_as": [
+        "0.873"
+      ]
+    },
+    {
+      "anchor": "plant_classes",
+      "value": 48407,
+      "matched_as": [
+        "48407"
+      ]
+    },
+    {
+      "anchor": "plant_mappings",
+      "value": 943,
+      "matched_as": [
+        "943"
+      ]
+    },
+    {
+      "anchor": "plant_pairwise_unsat",
+      "value": 18057,
+      "matched_as": [
+        "18057"
+      ]
+    },
+    {
+      "anchor": "plant_raw_unsat",
+      "value": 40698,
+      "matched_as": [
+        "40698"
+      ]
+    },
+    {
+      "anchor": "plant_raw_consviol",
+      "value": 805,
+      "matched_as": [
+        "805"
+      ]
+    },
+    {
+      "anchor": "plant_b2_unsat",
+      "value": 17518,
+      "matched_as": [
+        "17518"
+      ]
+    },
+    {
+      "anchor": "plant_b3_dropped",
+      "value": 724,
+      "matched_as": [
+        "724"
+      ]
+    },
+    {
+      "anchor": "plant_b4_dropped",
+      "value": 277,
+      "matched_as": [
+        "277"
+      ]
+    },
+    {
+      "anchor": "plant_b3_retention",
+      "value": 0.243063,
+      "matched_as": [
+        "0.243"
+      ]
+    },
+    {
+      "anchor": "plant_b4_retention",
+      "value": 0.532441,
+      "matched_as": [
+        "0.532"
+      ]
+    },
+    {
+      "anchor": "disease_classes",
+      "value": 96273,
+      "matched_as": [
+        "96273"
+      ]
+    },
+    {
+      "anchor": "disease_mappings",
+      "value": 24038,
+      "matched_as": [
+        "24038"
+      ]
+    },
+    {
+      "anchor": "disease_pairwise_unsat",
+      "value": 6499,
+      "matched_as": [
+        "6499"
+      ]
+    },
+    {
+      "anchor": "disease_raw_unsat",
+      "value": 10644,
+      "matched_as": [
+        "10644"
+      ]
+    },
+    {
+      "anchor": "disease_raw_consviol",
+      "value": 234152,
+      "matched_as": [
+        "234152"
+      ]
+    },
+    {
+      "anchor": "disease_b2_unsat",
+      "value": 1607,
+      "matched_as": [
+        "1607"
+      ]
+    },
+    {
+      "anchor": "disease_b2_consviol",
+      "value": 20045,
+      "matched_as": [
+        "20045"
+      ]
+    },
+    {
+      "anchor": "disease_b3_dropped",
+      "value": 10379,
+      "matched_as": [
+        "10379"
+      ]
+    },
+    {
+      "anchor": "disease_b4_dropped",
+      "value": 2352,
+      "matched_as": [
+        "2352"
+      ]
+    },
+    {
+      "anchor": "disease_b3_retention",
+      "value": 0.568178,
+      "matched_as": [
+        "0.568"
+      ]
+    },
+    {
+      "anchor": "disease_b4_retention",
+      "value": 0.73501,
+      "matched_as": [
+        "0.735"
+      ]
+    },
+    {
+      "anchor": "disease_peak_rss_mb",
+      "value": 4289.14,
+      "matched_as": [
+        "4289.1"
+      ]
+    },
+    {
+      "anchor": "toy_b4_equiv_f1",
+      "value": 0.945455,
+      "matched_as": [
+        "0.945"
+      ]
+    },
+    {
+      "anchor": "toy_b4_retention",
+      "value": 0.912043,
+      "matched_as": [
+        "0.912"
+      ]
+    }
+  ],
+  "missing": [],
+  "ambiguous": [],
+  "skipped": [],
+  "limitations": [
+    "Exact token match only: a number present elsewhere in the text with the same digits counts as found.",
+    "Small integers are reported as ambiguous; render them through generated claim macros instead."
+  ]
+}

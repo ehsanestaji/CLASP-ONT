@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "reason": null,
+  "summary": {
+    "pdf_figures_checked": 5,
+    "unembedded_font_instances": 0,
+    "type3_bitmap_font_instances": 0,
+    "unsafe_colormap_hits": 0
+  },
+  "figures": [
+    {
+      "pdf": "results/figures/fig1_compositional_breakdown.pdf",
+      "font_count": 1,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "GECTRQ+DejaVuSans",
+          "type": "CID",
+          "raw": "GECTRQ+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
+        }
+      ]
+    },
+    {
+      "pdf": "results/figures/fig2_accuracy_subsumption.pdf",
+      "font_count": 1,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "HHCZHC+DejaVuSans",
+          "type": "CID",
+          "raw": "HHCZHC+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
+        }
+      ]
+    },
+    {
+      "pdf": "results/figures/fig3_lattice_fate_breakdown.pdf",
+      "font_count": 2,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "JOWBJA+DejaVuSans",
+          "type": "CID",
+          "raw": "JOWBJA+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
+        },
+        {
+          "name": "CPUQYB+DejaVuSans",
+          "type": "CID",
+          "raw": "CPUQYB+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     22  0"
+        }
+      ]
+    },
+    {
+      "pdf": "results/figures/fig4_oracle_agreement.pdf",
+      "font_count": 1,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "CUJWUH+DejaVuSans",
+          "type": "CID",
+          "raw": "CUJWUH+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     15  0"
+        }
+      ]
+    },
+    {
+      "pdf": "results/figures/fig5_cegar_telemetry.pdf",
+      "font_count": 1,
+      "has_unembedded_fonts": false,
+      "has_type3_bitmap_fonts": false,
+      "fonts": [
+        {
+          "name": "VVXOUI+DejaVuSans",
+          "type": "CID",
+          "raw": "VVXOUI+DejaVuSans                    CID TrueType      Identity-H       yes yes yes     21  0"
+        }
+      ]
+    }
+  ],
+  "unsafe_colormaps": []
+}

@@ -28,3 +28,10 @@ data/toy/
 *.duckdb
 *.duckdb.wal
 logmap-log.out
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out

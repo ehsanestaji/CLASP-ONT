@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "texcount": {
+    "total_sum": "3708",
+    "breakdown": [
+      "Encoding: ascii",
+      "Words in text: 3001",
+      "Words in headers: 127",
+      "Words outside text (captions, etc.): 328",
+      "Number of headers: 25",
+      "Number of floats/tables/figures: 8",
+      "Number of math inlines: 250",
+      "Number of math displayed: 2",
+      "Subcounts:",
+      "text+headers+captions (#headers/#floats/#inlines/#displayed)",
+      "266+15+0 (2/0/13/0) _top_",
+      "503+1+0 (1/0/19/0) Section: Background",
+      "0+1+0 (1/0/0/0) Section: Results",
+      "240+6+71 (1/2/22/0) Subsection: Pairwise-valid crosswalks fracture in multi-ontology hubs",
+      "94+9+75 (1/1/11/0) Subsection: Greedy pairwise repair leaves hub violations unresolved and degrades $F_1$",
+      "300+9+77 (1/2/46/0) Subsection: Five-action lattice CEGAR eliminates $62\\%\\text{--}83\\%$ of deletions at zero violations",
+      "170+8+27 (1/1/4/0) Subsection: Biological case studies and upstream KGCL patch bundles",
+      "122+6+44 (1/1/6/0) Subsection: Laptop-scale CPU convergence and memory scaling",
+      "313+1+0 (1/0/8/0) Section: Discussion",
+      "0+1+0 (1/0/0/0) Section: Methods",
+      "79+6+0 (1/0/18/1) Subsection: Formal problem specification and certification invariants",
+      "121+5+25 (1/1/28/1) Subsection: The five-element subsumption refinement poset $\\mathcal{L}(m_i)$",
+      "89+9+0 (1/0/7/0) Subsection: Stage 1: Streaming \\texttt{ELK} closure and $O(|T_{\\mathcal{H}}|)$ \\texttt{DuckDB} conservativity diffing",
+      "268+10+9 (1/0/50/0) Subsection: Stage 2: Two-tier conjunctive Horn $0\\text{--}1$ BFS and monotonic $\\bot$-locality \\textsc{QuickXplain}",
+      "153+13+0 (1/0/9/0) Subsection: Stage 3 and Stage 4: Semantic priors, sandboxed oracle protocol, and CEGAR certification",
+      "187+6+0 (1/0/9/0) Subsection: Evaluation datasets, baselines, and statistical analysis",
+      "0+1+0 (1/0/0/0) Section: Declarations",
+      "23+6+0 (1/0/0/0) Subsection: Ethics approval and consent to participate",
+      "2+3+0 (1/0/0/0) Subsection: Consent for publication",
+      "71+5+0 (1/0/0/0) Subsection: Availability of data and materials",
+      "0+2+0 (1/0/0/0) Subsection: Competing interests",
+      "0+1+0 (1/0/0/0) Subsection: Funding",
+      "0+2+0 (1/0/0/0) Subsection: Author Contributions",
+      "0+1+0 (1/0/0/0) Subsection: Acknowledgments",
+      "Included file: ./results_macros.tex"
+    ]
+  },
+  "typography": {
+    "missing_tilde_before_ref_count": 0,
+    "missing_tilde_samples": [],
+    "hyphen_number_range_count": 0,
+    "hyphen_number_range_samples": []
+  }
+}

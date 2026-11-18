@@ -1,0 +1,143 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=1.0in,right=1.0in,top=1.0in,bottom=1.05in]{geometry}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[scaled=0.89]{zi4}
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[font=small,labelfont=bf,skip=6pt]{caption}
+\usepackage[group-separator={,},group-minimum-digits=4]{siunitx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+
+\definecolor{oiBlue}{HTML}{0072B2}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=oiBlue,
+  citecolor=oiBlue,
+  urlcolor=oiBlue,
+  pdftitle={Supplementary Information: Pairwise Valid, Globally Broken (CLASP-ONT)}
+}
+
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\newtheorem{proposition}{Proposition}
+\renewcommand{\theproposition}{S\arabic{proposition}}
+
+\clubpenalty=10000
+\widowpenalty=10000
+\setlength{\parskip}{3pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{1.5em}
+
+\input{results_macros.tex}
+
+\title{\vspace{-1.0em}\textbf{Supplementary Information}\\[0.3em]
+\large Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs}
+\author{[AUTHOR NAMES PLACEHOLDER]}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{S1. Theoretical Soundness Proofs for Two-Tier Core Extraction}
+
+\begin{proposition}[Conservative One-Way Witness Extension]
+\label{prop:witness}
+Let $\mathcal{H}(\emptyset) = O_1 \cup \dots \cup O_k$ be an OWL~2~EL ontology union over signature $\Sigma_0$. Suppose for each anonymous class expression $E_\ell$ appearing as an operand of $\mathtt{ObjectIntersectionOf}(G_1,\dots,G_m)$ on the left-hand side of a class inclusion or equivalence axiom, we introduce a fresh atomic class $P_\ell = \textup{\texttt{urn:clasp:anon:}}\ell \notin \Sigma_0$ together with the single inclusion axiom $E_\ell \sqsubseteq P_\ell$, yielding $\mathcal{H}^+(\emptyset)$. Then for every pair of class expressions $C, D$ over $\Sigma_0$ (including $D = \bot$):
+\[
+  \mathcal{H}^+(\emptyset) \models C \sqsubseteq D \quad \Longleftrightarrow \quad \mathcal{H}(\emptyset) \models C \sqsubseteq D.
+\]
+\end{proposition}
+\noindent\textit{Proof.} $(\Leftarrow)$ Immediate by monotonicity of description logic entailment since $\mathcal{H}(\emptyset) \subseteq \mathcal{H}^+(\emptyset)$. $(\Rightarrow)$ Suppose $\mathcal{H}(\emptyset) \not\models C \sqsubseteq D$. Then there exists an interpretation $\mathcal{I}$ over domain $\Delta$ with extension map $\mathrm{ext}_{\mathcal{I}}(\cdot)$ such that $\mathcal{I} \models \mathcal{H}(\emptyset)$ and $\mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D)$. Define an extended interpretation $\mathcal{J}$ over $\Sigma_0 \cup \{P_\ell\}$ with the same domain $\Delta$ by setting $\mathrm{ext}_{\mathcal{J}}(X) = \mathrm{ext}_{\mathcal{I}}(X)$ for all $X \in \Sigma_0$ and $\mathrm{ext}_{\mathcal{J}}(P_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell)$ for every fresh witness $P_\ell$. Because no $P_\ell$ occurs inside $E_\ell$ or inside $\mathcal{H}(\emptyset)$, structural induction gives $\mathrm{ext}_{\mathcal{J}}(E_\ell) = \mathrm{ext}_{\mathcal{I}}(E_\ell) = \mathrm{ext}_{\mathcal{J}}(P_\ell)$, so $\mathcal{J} \models E_\ell \sqsubseteq P_\ell$ for all $\ell$ and $\mathcal{J} \models \mathcal{H}(\emptyset)$. Hence $\mathcal{J} \models \mathcal{H}^+(\emptyset)$ while $\mathrm{ext}_{\mathcal{J}}(C) = \mathrm{ext}_{\mathcal{I}}(C) \not\subseteq \mathrm{ext}_{\mathcal{I}}(D) = \mathrm{ext}_{\mathcal{J}}(D)$, proving $\mathcal{H}^+(\emptyset) \not\models C \sqsubseteq D$. \hfill $\square$
+
+\medskip
+\begin{proposition}[Property-Filtered $\bot$-Locality Trigger Soundness]
+\label{prop:locality}
+Let $\mathrm{isLocal}_{\bot}(\alpha, \Sigma)$ denote the OWL~2 syntactic $\bot$-locality evaluator~\cite{cuencagrau2008modular}, and let $\mathcal{P}$ be the set of all object and data properties in $\mathcal{H}$. If $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, then for any signature $\Sigma$ containing zero classes and zero individuals from $\mathrm{Sig}(\alpha)$ ($\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$), $\mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$.
+\end{proposition}
+\noindent\textit{Proof.} In syntactic $\bot$-locality, the grammar sets of $\bot$-equivalent expressions $\mathcal{C}^{\bot}(\Sigma)$ and $\top$-equivalent expressions $\mathcal{C}^{\top}(\Sigma)$ shrink monotonically with respect to signature inclusion: $\Sigma_1 \subseteq \Sigma_2 \implies \mathcal{C}^{\bot}(\Sigma_2) \subseteq \mathcal{C}^{\bot}(\Sigma_1)$ and $\mathcal{C}^{\top}(\Sigma_2) \subseteq \mathcal{C}^{\top}(\Sigma_1)$, whence $\neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_1) \implies \neg \mathrm{isLocal}_{\bot}(\alpha, \Sigma_2)$. Moreover, locality depends only on $\Sigma \cap \mathrm{Sig}(\alpha)$. If $\Sigma \cap (\mathrm{Sig}(\alpha) \setminus \mathcal{P}) = \emptyset$, then $\Sigma \cap \mathrm{Sig}(\alpha) \subseteq \mathcal{P}$. Since $\mathrm{isLocal}_{\bot}(\alpha, \mathcal{P}) = \mathrm{true}$, monotonicity yields $\mathrm{isLocal}_{\bot}(\alpha, \Sigma \cap \mathrm{Sig}(\alpha)) = \mathrm{isLocal}_{\bot}(\alpha, \Sigma) = \mathrm{true}$. Consequently, $\alpha$ need only be indexed under trigger entities in $\mathrm{Sig}(\alpha) \setminus \mathcal{P}$. \hfill $\square$
+
+\section*{S2. Dataset Provenance, Tool Versions, and Baseline Parity}
+
+Table~S1 summarizes the archive URLs, SHA-256 provenance records, and command-line flags used across all four suites and baseline tools.
+
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Public hub dataset provenance, tool versions, and command-line execution parity.} All JVM processes enforce a strict \texttt{-Xmx4G} heap ceiling under OpenJDK~21.}
+\label{tab:s1_provenance}
+\footnotesize
+\setlength{\tabcolsep}{4.0pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Component / Suite} & \textbf{Ontologies / Version} & \textbf{Source / Archive} & \textbf{Execution / Parity Configuration} \\
+\midrule
+\texttt{Phase0\_Toy\_Hub} & 4 synthetic (\num{\ClaspPhaseToyHubClasses} cls) & Deterministic generator (\texttt{seed=20261116}) & 60 mappings, 15 planted diamond/disjoint traps \\
+\texttt{OAEI\_BioML\_2026} & \texttt{NCIT, DOID, ORDO, OMIM} & HF \texttt{OAEI-ML/bio-ml@2026}; Zenodo \texttt{13119437} & \num{\ClaspOAEIBioMLClasses} cls; 8,551 gold $\equiv$, 3,441 gold $\sqsubseteq$ \\
+\texttt{Plant\_Biodiv\_Hub} & \texttt{PO, TO, FLOPO, GO, CHEBI, ENVO} & OBO Foundry PURLs (SHA-256 pinned) & \num{\ClaspPlantBiodivHubClasses} cls; \num{\ClaspPlantBiodivHubMappings} crosswalks \\
+\texttt{Disease\_Phenotype\_Hub} & \texttt{MONDO, DOID, ORDO, HP, MP} & OBO PURLs + \texttt{Biomappings} CC0~1.0 & \num{\ClaspDiseasePhenotypeHubClasses} cls; \num{\ClaspDiseasePhenotypeHubMappings} crosswalks \\
+\addlinespace[3pt]
+\texttt{ROBOT / ELK} & \texttt{ROBOT v1.9.11} (\texttt{ELK 0.5}) & \texttt{vendor/robot.jar} (SHA-256 verified) & \texttt{java -Xmx4G ElkClosureRunner} \\
+\texttt{B2\_LogMap\_Repair} & \texttt{LogMap 4.0} standalone & \texttt{logmap-matcher-4.0.jar} & \texttt{java -Xmx4G -jar ... DEBUGGER ... false} \\
+\texttt{B3\_ASP\_Binary\_Delete} & \texttt{Clingo v5.8.3} & Potassco (\texttt{clingo}) & \texttt{-t4 -{}-opt-strategy=usc,k,0,4} (binary) \\
+\texttt{B4\_Lexical\_Lattice} & \texttt{CLASP-ONT v0.1.0} & This work (\texttt{Python 3.12}, \texttt{DuckDB}) & 5-action poset ($\rho \in \{1, 0.75, 0.45, 0\}$) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\section*{S3. Multi-Agent Oracle Agreement Scaffold and Full Top-15 KGCL Patch Bundle}
+
+Figure~S1 illustrates the multi-agent Jensen--Shannon divergence diagnostic panel, and Table~S2 lists the complete stratified top-15 upstream KGCL pull-request patches across all three public hubs.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.72\textwidth]{../results/figures/fig4_oracle_agreement.pdf}
+\caption{\textbf{Multi-agent oracle Jensen--Shannon divergence diagnostic plot.} When cached external CLI sweeps (\texttt{C1\_Claude}, \texttt{C2\_Codex}, \texttt{C3\_Antigravity}) are populated via \texttt{make run-frontier-oracles}, \texttt{build\_figures.py} renders pairwise Jensen--Shannon divergence across all three model families; under deterministic offline execution (\texttt{B4\_Lexical\_Lattice}), the panel explicitly records that no external LLM calls were invoked.}
+\label{fig:s1_oracle}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{\textbf{Complete top-15 stratified upstream KGCL pull-request patches across \texttt{Disease\_Phenotype\_Hub}, \texttt{OAEI\_BioML\_2026}, and \texttt{Plant\_Biodiv\_Hub}.}}
+\label{tab:s2_top15}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}rllll@{}}
+\toprule
+\textbf{\#} & \textbf{Suite} & \textbf{Subject $\leftrightarrow$ Object (Labels)} & \textbf{Action} & \textbf{KGCL Patch Command} \\
+\midrule
+1 & \texttt{Disease} & \texttt{HP:0000035} (Abnormal testis) $\leftrightarrow$ \texttt{MP:0001146} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+2 & \texttt{BioML26} & \texttt{NCIT:C2949} (Choroid Neoplasm) $\leftrightarrow$ \texttt{DOID:12759} (choroid cancer) & \texttt{downgrade\_sup} & \texttt{create edge DOID:12759 rdfs:subClassOf NCIT:C2949} \\
+3 & \texttt{Plant} & \texttt{PO:0025132} (canal) $\leftrightarrow$ \texttt{ENVO:00000014} (canal) & \texttt{downgrade\_sup} & \texttt{create edge ENVO:00000014 rdfs:subClassOf PO:0025132} \\
+4 & \texttt{Disease} & \texttt{HP:0000159} (Abnormal lip) $\leftrightarrow$ \texttt{MP:0003769} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+5 & \texttt{BioML26} & \texttt{NCIT:C3727} (Adenosquamous Ca.) $\leftrightarrow$ \texttt{DOID:4830} & \texttt{downgrade\_sup} & \texttt{create edge DOID:4830 rdfs:subClassOf NCIT:C3727} \\
+6 & \texttt{Plant} & \texttt{PO:0009008} (plant organ) $\leftrightarrow$ \texttt{ENVO:01000162} (organ) & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+7 & \texttt{Disease} & \texttt{HP:0000174} (Abnormal palate) $\leftrightarrow$ \texttt{MP:0003755} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+8 & \texttt{BioML26} & \texttt{NCIT:C3780} (Large Cell Ca.) $\leftrightarrow$ \texttt{DOID:4552} & \texttt{downgrade\_sup} & \texttt{create edge DOID:4552 rdfs:subClassOf NCIT:C3780} \\
+9 & \texttt{Plant} & \texttt{TO:0000893} (stem shape) $\leftrightarrow$ \texttt{FLOPO:0000093} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+10 & \texttt{Disease} & \texttt{HP:0000290} (Abnormal forehead) $\leftrightarrow$ \texttt{MP:0030031} & \texttt{downgrade\_sup} & \texttt{create edge MP:0030031 rdfs:subClassOf HP:0000290} \\
+11 & \texttt{BioML26} & \texttt{OMIM:PS115200} (Dilated cardiomyop.) $\leftrightarrow$ \texttt{ORDO:217604} & \texttt{downgrade\_sup} & \texttt{create edge ORDO:217604 rdfs:subClassOf OMIM:PS115200} \\
+12 & \texttt{Plant} & \texttt{TO:1000008} (branch position) $\leftrightarrow$ \texttt{FLOPO:0000121} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+13 & \texttt{Disease} & \texttt{HP:0000377} (Abnormal pinna) $\leftrightarrow$ \texttt{MP:0002177} (outer ear) & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+14 & \texttt{BioML26} & \texttt{OMIM:PS253600} (LGMD recessive) $\leftrightarrow$ \texttt{ORDO:102015} & \texttt{downgrade\_sup} & \texttt{create edge ORDO:102015 rdfs:subClassOf OMIM:PS253600} \\
+15 & \texttt{Plant} & \texttt{TO:0000951} (corolla color) $\leftrightarrow$ \texttt{FLOPO:0000219} & \texttt{downgrade\_sub} & \texttt{change relationship ... to rdfs:subClassOf} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

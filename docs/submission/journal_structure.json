@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "journal_id": "genome-biology",
+  "declaration_checks": {
+    "Ethics approval": true,
+    "Consent for publication": true,
+    "Availability of data and materials": true,
+    "Competing interests": true,
+    "Funding": true,
+    "Authors contributions": true,
+    "Acknowledgements": true
+  },
+  "missing_declarations": []
+}

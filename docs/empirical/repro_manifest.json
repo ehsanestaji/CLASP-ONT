@@ -1,0 +1,85 @@
+{
+  "project": "CLASP-ONT",
+  "seed": 20261116,
+  "source_summary_json": "results/summary_metrics.json",
+  "source_summary_sha256": "32dde78a3986ebe46214e6207e27a492313d03110d9e0b065a3cb553510dcc8c",
+  "certified_artifacts_sha256": {
+    "Disease_Phenotype_Hub.B4_Lexical_Lattice.sssom.tsv": "c02a773206581bd56d8afc577e14fbe4d2dd2017aa860a2d4be2d52cea0547e5",
+    "OAEI_BioML_2026.B4_Lexical_Lattice.sssom.tsv": "f6e8ff5376c75a7c04856fc706a1887ea0227e94bba2928bc95a22be1e8aa419",
+    "Phase0_Toy_Hub.B4_Lexical_Lattice.sssom.tsv": "a96b290c71325298383e2dad3d396e253985f374164b0507d25832f60011ebaa",
+    "Plant_Biodiv_Hub.B4_Lexical_Lattice.sssom.tsv": "969545feda1844e67eafcce3d93ae9574041ffda89cb681da81d33a8ab7e184e"
+  },
+  "headline_anchors": {
+    "total_classes_all": 188030,
+    "total_mappings_all": 41735,
+    "bioml_classes": 43150,
+    "bioml_mappings": 16694,
+    "bioml_pairwise_unsat": 12223,
+    "bioml_raw_unsat": 23619,
+    "bioml_raw_consviol": 33192,
+    "bioml_b2_consviol": 5126,
+    "bioml_b2_equiv_f1": {
+      "value": 0.008608,
+      "format": ".3f"
+    },
+    "bioml_b3_equiv_f1": {
+      "value": 0.606405,
+      "format": ".3f"
+    },
+    "bioml_b4_equiv_f1": {
+      "value": 0.662614,
+      "format": ".3f"
+    },
+    "bioml_b3_dropped": 2732,
+    "bioml_b4_dropped": 479,
+    "bioml_b4_retention": {
+      "value": 0.873339,
+      "format": ".3f"
+    },
+    "plant_classes": 48407,
+    "plant_mappings": 943,
+    "plant_pairwise_unsat": 18057,
+    "plant_raw_unsat": 40698,
+    "plant_raw_consviol": 805,
+    "plant_b2_unsat": 17518,
+    "plant_b3_dropped": 724,
+    "plant_b4_dropped": 277,
+    "plant_b3_retention": {
+      "value": 0.243063,
+      "format": ".3f"
+    },
+    "plant_b4_retention": {
+      "value": 0.532441,
+      "format": ".3f"
+    },
+    "disease_classes": 96273,
+    "disease_mappings": 24038,
+    "disease_pairwise_unsat": 6499,
+    "disease_raw_unsat": 10644,
+    "disease_raw_consviol": 234152,
+    "disease_b2_unsat": 1607,
+    "disease_b2_consviol": 20045,
+    "disease_b3_dropped": 10379,
+    "disease_b4_dropped": 2352,
+    "disease_b3_retention": {
+      "value": 0.568178,
+      "format": ".3f"
+    },
+    "disease_b4_retention": {
+      "value": 0.73501,
+      "format": ".3f"
+    },
+    "disease_peak_rss_mb": {
+      "value": 4289.14,
+      "format": ".1f"
+    },
+    "toy_b4_equiv_f1": {
+      "value": 0.945455,
+      "format": ".3f"
+    },
+    "toy_b4_retention": {
+      "value": 0.912043,
+      "format": ".3f"
+    }
+  }
+}

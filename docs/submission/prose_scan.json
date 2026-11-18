@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "summary": {
+    "files_scanned": 3,
+    "total_lexical_hits": 0,
+    "total_rhetorical_openers": 0,
+    "total_scaffolding_hits": 0,
+    "files_exceeding_emdash_threshold": 0,
+    "max_emdash_per_1k_threshold": 3.0
+  },
+  "files": [
+    {
+      "file": "paper/main.tex",
+      "word_count": 5484,
+      "emdash_count": 0,
+      "emdash_per_1k_words": 0.0,
+      "emdash_exceeds_threshold": false,
+      "lexical_tells": [],
+      "rhetorical_openers": [],
+      "negative_parallelisms": [],
+      "scaffolding_leaks": []
+    },
+    {
+      "file": "paper/results_macros.tex",
+      "word_count": 478,
+      "emdash_count": 0,
+      "emdash_per_1k_words": 0.0,
+      "emdash_exceeds_threshold": false,
+      "lexical_tells": [],
+      "rhetorical_openers": [],
+      "negative_parallelisms": [],
+      "scaffolding_leaks": []
+    },
+    {
+      "file": "paper/supplementary.tex",
+      "word_count": 1251,
+      "emdash_count": 0,
+      "emdash_per_1k_words": 0.0,
+      "emdash_exceeds_threshold": false,
+      "lexical_tells": [],
+      "rhetorical_openers": [],
+      "negative_parallelisms": [],
+      "scaffolding_leaks": []
+    }
+  ]
+}
