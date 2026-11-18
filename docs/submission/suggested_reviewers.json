@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "excluded_names": [],
+  "excluded_institution_tokens": [],
+  "limitations": [
+    "Screens only the works returned for these topics; it does not check full co-authorship history.",
+    "Set authors / excluded_institutions (or author_profile) in .academic-suite.json for conflict screening."
+  ],
+  "topics_queried": [
+    "SSSOM Ontology Development Kit",
+    "LogMap ontology matching Bio-ML",
+    "Biomappings biomedical identifier mappings",
+    "Planteome plant ontology"
+  ],
+  "candidates_found": 6,
+  "vetted_reviewers": [
+    {
+      "name": "Charles Tapley Hoyt",
+      "orcid": "https://orcid.org/0000-0003-4423-4370",
+      "institution": "Harvard University",
+      "topic_matched": "SSSOM Ontology Development Kit",
+      "matching_papers_count": 4,
+      "representative_work": {
+        "title": "Prediction and curation of missing biomedical identifier mappings with Biomappings",
+        "year": 2023,
+        "doi": "https://doi.org/10.1093/bioinformatics/btad130"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    },
+    {
+      "name": "David Osumi-Sutherland",
+      "orcid": "https://orcid.org/0000-0002-7073-9172",
+      "institution": "European Bioinformatics Institute",
+      "topic_matched": "SSSOM Ontology Development Kit",
+      "matching_papers_count": 3,
+      "representative_work": {
+        "title": "Ontology Development Kit: a toolkit for building, maintaining and standardizing biomedical ontologies",
+        "year": 2022,
+        "doi": "https://doi.org/10.1093/database/baac087"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    },
+    {
+      "name": "Jiaoyan Chen",
+      "orcid": "https://orcid.org/0000-0003-4643-6750",
+      "institution": "University of Manchester",
+      "topic_matched": "SSSOM Ontology Development Kit",
+      "matching_papers_count": 3,
+      "representative_work": {
+        "title": "Knowledge Graphs for the Life Sciences: Recent Developments, Challenges and Opportunities",
+        "year": 2023,
+        "doi": "https://doi.org/10.4230/tgdk.1.1.5"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    },
+    {
+      "name": "Benjamin M. Gyori",
+      "orcid": "https://orcid.org/0000-0001-9439-5346",
+      "institution": "Harvard University",
+      "topic_matched": "SSSOM Ontology Development Kit",
+      "matching_papers_count": 3,
+      "representative_work": {
+        "title": "Prediction and curation of missing biomedical identifier mappings with Biomappings",
+        "year": 2023,
+        "doi": "https://doi.org/10.1093/bioinformatics/btad130"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    },
+    {
+      "name": "He, Yuan",
+      "orcid": null,
+      "institution": "University of Oxford",
+      "topic_matched": "LogMap ontology matching Bio-ML",
+      "matching_papers_count": 3,
+      "representative_work": {
+        "title": "BERTMap: A BERT-Based Ontology Alignment System",
+        "year": 2022,
+        "doi": "https://doi.org/10.1609/aaai.v36i5.20510"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    },
+    {
+      "name": "Michael A. Gargano",
+      "orcid": "https://orcid.org/0000-0002-2157-3591",
+      "institution": "The Jackson Laboratory for Genomic Medicine",
+      "topic_matched": "SSSOM Ontology Development Kit",
+      "matching_papers_count": 2,
+      "representative_work": {
+        "title": "The Human Phenotype Ontology in 2024: phenotypes around the world",
+        "year": 2023,
+        "doi": "https://doi.org/10.1093/nar/gkad1005"
+      },
+      "coi_screen": "not a co-author on the matched works; institution not in the exclusion list"
+    }
+  ]
+}

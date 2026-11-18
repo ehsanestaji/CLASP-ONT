@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "summary": {
-    "files_scanned": 3,
+    "files_scanned": 4,
     "total_lexical_hits": 0,
     "total_rhetorical_openers": 0,
     "total_scaffolding_hits": 0,
@@ -10,8 +10,19 @@
   },
   "files": [
     {
+      "file": "paper/cover_letter.tex",
+      "word_count": 528,
+      "emdash_count": 0,
+      "emdash_per_1k_words": 0.0,
+      "emdash_exceeds_threshold": false,
+      "lexical_tells": [],
+      "rhetorical_openers": [],
+      "negative_parallelisms": [],
+      "scaffolding_leaks": []
+    },
+    {
       "file": "paper/main.tex",
-      "word_count": 5484,
+      "word_count": 5441,
       "emdash_count": 0,
       "emdash_per_1k_words": 0.0,
       "emdash_exceeds_threshold": false,

@@ -1,0 +1,52 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[left=0.95in,right=0.95in,top=0.82in,bottom=0.82in]{geometry}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage[scaled=0.89]{zi4}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[group-separator={,},group-minimum-digits=4]{siunitx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\definecolor{oiBlue}{HTML}{0072B2}
+\hypersetup{colorlinks=true, linkcolor=oiBlue, urlcolor=oiBlue}
+
+\pagestyle{empty}
+\setlength{\parskip}{4.5pt}
+\setlength{\parindent}{0pt}
+
+\input{results_macros.tex}
+
+\begin{document}
+
+[DATE PLACEHOLDER]\\[0.8em]
+\textbf{To the Editors, \textit{Genome Biology}}\\[0.4em]
+\textbf{Re: Method Manuscript Submission: ``Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs''}
+
+Dear Editors,
+
+Please consider our Method manuscript, \textit{``Pairwise Valid, Globally Broken: Non-Destructive Lattice Repair and Certification of Multi-Ontology Biological Crosswalk Hubs,''} for publication in \textit{Genome Biology}.
+
+Functional genomics, rare-disease diagnostics, cross-species mammalian phenomics, and plant trait integration depend on merging multiple reference ontologies (\texttt{MONDO}, \texttt{DOID}, \texttt{ORDO}, \texttt{HPO}, \texttt{MP}, \texttt{GO}, \texttt{PO}, \texttt{TO}, \texttt{ENVO}) via public Simple Standard for Sharing Ontological Mappings (SSSOM) crosswalks. Community quality control evaluates these mappings almost exclusively one ontology pair at a time. Auditing \num{\ClaspTotalClassesAll} classes and \num{\ClaspTotalMappingsAll} crosswalks across clinical, oncology, and plant hubs, we show that pairwise validation misses roughly half of all hub-emergent unsatisfiable classes ($+63.8\%$ to $+125.4\%$ increase upon multi-ontology composition) and overlooks up to \num{\ClaspDiseasePhenotypeHubRawConsViol} silent intra-ontology conservativity violations caused by cross-ontology OWL~2~EL defined-class intersections. Moreover, standalone \texttt{LogMap~4.0} repair fails to certify any multi-ontology hub, leaving up to \num{\ClaspDiseasePhenotypeHubBLogMapRepairConsViol} conservativity violations and \num{\ClaspPlantBiodivHubBLogMapRepairUnsat} unsatisfiable classes unresolved.
+
+To solve this problem without discarding valid cross-species and cross-domain bridges, we developed \textsc{CLASP-ONT}, a CPU-only symbolic verification and repair engine. Instead of deleting contested equivalences, \textsc{CLASP-ONT} optimizes over a five-element subsumption refinement poset ($\equiv$, $\sqsubseteq$, $\sqsupseteq$, ancestor weakening, and negative curation) by coupling a two-tier conjunctive Horn $0\text{--}1$ breadth-first search and monotonic $\bot$-locality \textsc{QuickXplain} core extractor with exact Answer Set Programming (\texttt{Clingo}) Counterexample-Guided Abstraction Refinement (CEGAR). Across all four evaluation suites, \textsc{CLASP-ONT}:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+  \item Mathematically certifies exact zero post-repair unsatisfiable classes ($|\mathrm{Unsat}_{\Delta}| = 0$) and zero conservativity violations ($|\mathrm{ConsViol}| = 0$) across \num{\ClaspTotalClassesAll} classes within \ClaspMaxPeakRssMBAll{}~MB peak RAM on a standard laptop CPU (zero GPU or local language-model weights required);
+  \item Eliminates $61.7\%$ to $82.5\%$ of the destructive mapping deletions required by optimal binary hitting-set deletion ($q_{\mathrm{BH}} < 10^{-16}$) and improves held-out \texttt{OAEI\_BioML\_2026} equivalence $F_1$ from \ClaspOAEIBioMLBASPBinaryDeleteEquivFone{} to \ClaspOAEIBioMLBLexicalLatticeEquivFone{};
+  \item Exports directly actionable SSSOM tables and Knowledge Graph Change Language (KGCL) pull-request patches ready for upstream OBO Foundry and \texttt{Biomappings} curation.
+\end{enumerate}
+
+This manuscript is original, has not been published previously, and is not under consideration elsewhere. All evaluated ontologies and crosswalks are publicly available under open licenses, and the complete \textsc{CLASP-ONT} software, Snakemake workflow, and SHA-256 reproducibility manifests are openly available at \url{https://github.com/[ORG_PLACEHOLDER]/CLASP-ONT}. [OPTIONAL AI DISCLOSURE PLACEHOLDER IF APPLICABLE PER SPRINGER NATURE POLICY.] All authors have approved the manuscript and declare [COMPETING INTERESTS PLACEHOLDER].
+
+Sincerely,
+
+\vspace{0.7em}
+[CORRESPONDING AUTHOR NAME PLACEHOLDER]\\
+{[INSTITUTIONAL AFFILIATION PLACEHOLDER]}\\
+Email: \texttt{[CORRESPONDING AUTHOR EMAIL PLACEHOLDER]}
+
+\end{document}
